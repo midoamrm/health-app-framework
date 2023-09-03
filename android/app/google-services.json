@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "845463856292",
+    "project_id": "manara-el-seha",
+    "storage_bucket": "manara-el-seha.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845463856292:android:39fac91c76ccfd86f1b231",
+        "android_client_info": {
+          "package_name": "com.mnara_el_seha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845463856292-echtg8j3qm8cvoj0t01sri21p9q1miu3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mnara_el_seha",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "845463856292-6unubf17ll60norjthv7q1at2e78egjg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBi_CzRCcJEfZl3V7NX30bjdkXtGEvmmm0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "845463856292-6unubf17ll60norjthv7q1at2e78egjg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
