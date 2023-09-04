@@ -18,7 +18,6 @@ import Cache from '../screens/cacheing';
 import Cruddb from '../screens/Cruddb';
 import LabResultsScreen from '../screens/LabResults';
 import Language from '../screens/Language';
-import Otp from '../screens/Otp2';
 import SignupScreen from '../screens/Signup';
 import user from '../utils/User';
 import LabResultsStack from './LabResultsStack';
@@ -195,13 +194,7 @@ export default function SideMenu(): JSX.Element {
             drawerItemStyle: { display: 'none' },
           }}
         />
-        <Drawer.Screen
-          name={'otp'}
-          component={Otp}
-          options={{
-            drawerItemStyle: { display: 'ok' },
-          }}
-        />
+
         <Drawer.Screen
           name={'LabResultsScreen'}
           component={LabResultsScreen}

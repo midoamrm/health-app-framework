@@ -4,13 +4,14 @@
  * <p>This source code is licensed under the MIT license found in the LICENSE file in the root
  * directory of this source tree.
  */
-package com.mnara_el_seha;
+package com.health_apppp;
 
 import android.content.Context;
 import com.facebook.react.ReactInstanceManager;
 
 /**
- * Class responsible of loading Flipper inside your React Native application. This is the release
+ * Class responsible of loading Flipper inside your React Native application.
+ * This is the release
  * flavor of it so it's empty as we don't want to load Flipper.
  */
 public class ReactNativeFlipper {

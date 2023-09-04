@@ -1,4 +1,4 @@
-package com.mnara_el_seha;
+package com.health_apppp;
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;

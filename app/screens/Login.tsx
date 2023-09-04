@@ -115,6 +115,7 @@ export default function LoginScreen({ navigation }: any) {
   const signInWithGoogle = async () => {
     setLoading(true);
     try {
+      console.log('google b: ');
       const res = await handleGoogleSingIn();
       console.log('google res: ', res);
 
@@ -128,7 +129,7 @@ export default function LoginScreen({ navigation }: any) {
       user.type = 'google';
       toggleModalSucess();
     } catch (error: any) {
-      console.log(error.message);
+      console.log('googel error', error.message);
       setModalFailureVisible(true);
     }
     setLoading(false);

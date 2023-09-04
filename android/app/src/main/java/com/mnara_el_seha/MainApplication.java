@@ -1,4 +1,4 @@
-package com.mnara_el_seha;
+package com.health_apppp;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
