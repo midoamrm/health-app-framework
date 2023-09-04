@@ -18,15 +18,16 @@ export default function LabResultsScreen({ navigation, route }: any) {
   const [dateTo, setDateTo]: [Date | null, any] = useState(null);
   const [filteredData, setFilteredData]: [any, any] = useState([]);
   const [pressed, setPressed] = useState(false);
+
   const postData = () => {
     axios.post('https://64ec81d3f9b2b70f2bfa7413.mockapi.io/fakedata', {
-      data,
+      datagen,
     });
     console.log('fggg');
   };
   // search bar need to done
   const genData = () => {
-    for (let i = 0; i <= 100; i++) {
+    for (let i = 0; i < 400; i++) {
       var obj = {
         id: i,
         date: '2021-05-01',
@@ -38,24 +39,41 @@ export default function LabResultsScreen({ navigation, route }: any) {
       };
       datagen.push(obj);
     }
+    return datagen;
+    //   console.log('datagen', datagen);
+  };
+  const genData2 = () => {
+    for (let i = 1000; i < 2000; i++) {
+      var obj = {
+        id: i,
+        date: '2021-05-01',
+        text: 'result' + i,
+        description: i + 'th result',
+        official: false,
+        field1: 'data field' + i + 'for element  1 ',
+        field2: 'data field' + i + 'for element  1 ',
+      };
+      datagen.push(obj);
+    }
+
     //   console.log('datagen', datagen);
   };
   const getData = () => {
     axios
       .get('https://64ec81d3f9b2b70f2bfa7413.mockapi.io/fakedata')
       .then((response) => {
-        setAPIData(response.data[0].data);
+        setAPIData(response.data[0].datagen);
       });
-    // console.log(APIData);
+    console.log(APIData);
   };
   const filterData = () => {
     getData();
-    data = datagen;
+    data = APIData;
     //console.log(data);
     if (dateFrom && dateTo) {
       const prevDay = new Date(dateFrom);
       prevDay.setDate(prevDay.getDate() - 1);
-      //   console.log(prevDay);
+      console.log(prevDay);
 
       const filteredData = data.filter((item: any) => {
         // console.log('datee', new Date(item.date) >= prevDay);
@@ -72,8 +90,11 @@ export default function LabResultsScreen({ navigation, route }: any) {
   };
   useEffect(() => {
     filterData();
+    // genData();
+    // postData();
   }, [pressed]);
-  genData();
+
+  //genData2();
   const CustomListCardItem = ({ item }: any) => {
     const date = new Date(item.date);
     const text = item.text;
