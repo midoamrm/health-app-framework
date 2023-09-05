@@ -18,6 +18,8 @@ import Cache from '../screens/cacheing';
 import Cruddb from '../screens/Cruddb';
 import LabResultsScreen from '../screens/LabResults';
 import Language from '../screens/Language';
+import Update from '../screens/update';
+
 import SignupScreen from '../screens/Signup';
 import user from '../utils/User';
 import LabResultsStack from './LabResultsStack';
@@ -133,7 +135,15 @@ export default function SideMenu(): JSX.Element {
           name={'Otp'}
           component={OtpScreen}
           options={{
-            drawerItemStyle: { display: 'none' },
+            drawerItemStyle: { display: 'ok' },
+            drawerIcon: () => (
+              <FontAwesome5
+                name="home"
+                size={22}
+                color={Colors.primary1}
+                style={{ paddingRight: 5 }}
+              />
+            ),
           }}
         />
         <Drawer.Screen
@@ -162,7 +172,7 @@ export default function SideMenu(): JSX.Element {
           name={'Cache'}
           component={Cache}
           options={{
-            drawerItemStyle: { display: 'ok' },
+            drawerItemStyle: { display: 'none' },
             drawerIcon: () => (
               <FontAwesome5
                 name="home"
@@ -184,7 +194,7 @@ export default function SideMenu(): JSX.Element {
           name={'Cruddb'}
           component={Cruddb}
           options={{
-            drawerItemStyle: { display: 'ok' },
+            drawerItemStyle: { display: 'none' },
           }}
         />
         <Drawer.Screen
@@ -200,6 +210,21 @@ export default function SideMenu(): JSX.Element {
           component={LabResultsScreen}
           options={{
             drawerItemStyle: { display: 'ok' },
+            drawerIcon: () => (
+              <FontAwesome5
+                name="home"
+                size={22}
+                color={Colors.primary1}
+                style={{ paddingRight: 5 }}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'Update'}
+          component={Update}
+          options={{
+            drawerItemStyle: { display: 'none' },
           }}
         />
       </Drawer.Navigator>

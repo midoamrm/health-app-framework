@@ -18,7 +18,16 @@ export default function LabResultsScreen({ navigation, route }: any) {
   const [dateTo, setDateTo]: [Date | null, any] = useState(null);
   const [filteredData, setFilteredData]: [any, any] = useState([]);
   const [pressed, setPressed] = useState(false);
-
+  const updateAPIData = () => {
+    axios.put(`https://64ec81d3f9b2b70f2bfa7413.mockapi.io/fakedata/${1}`, {
+      date: '2021-05-01',
+      text: 'result' + 3,
+      description: 3 + 'th result',
+      official: true,
+      field1: 'data field' + 3 + 'for element  1 ',
+      field2: 'data field' + 3 + 'for element  1 ',
+    });
+  };
   const postData = () => {
     axios.post('https://64ec81d3f9b2b70f2bfa7413.mockapi.io/fakedata', {
       datagen,
@@ -27,9 +36,8 @@ export default function LabResultsScreen({ navigation, route }: any) {
   };
   // search bar need to done
   const genData = () => {
-    for (let i = 0; i < 400; i++) {
+    for (let i = 0; i < 3; i++) {
       var obj = {
-        id: i,
         date: '2021-05-01',
         text: 'result' + i,
         description: i + 'th result',
@@ -37,34 +45,27 @@ export default function LabResultsScreen({ navigation, route }: any) {
         field1: 'data field' + i + 'for element  1 ',
         field2: 'data field' + i + 'for element  1 ',
       };
-      datagen.push(obj);
+      axios.post('https://64ec81d3f9b2b70f2bfa7413.mockapi.io/fakedata', {
+        date: '2021-05-01',
+        text: 'result' + i,
+        description: i + 'th result',
+        official: true,
+        field1: 'data field' + i + 'for element  1 ',
+        field2: 'data field' + i + 'for element  1 ',
+      });
+      // datagen.push(obj);
     }
     return datagen;
     //   console.log('datagen', datagen);
   };
-  const genData2 = () => {
-    for (let i = 1000; i < 2000; i++) {
-      var obj = {
-        id: i,
-        date: '2021-05-01',
-        text: 'result' + i,
-        description: i + 'th result',
-        official: false,
-        field1: 'data field' + i + 'for element  1 ',
-        field2: 'data field' + i + 'for element  1 ',
-      };
-      datagen.push(obj);
-    }
 
-    //   console.log('datagen', datagen);
-  };
   const getData = () => {
     axios
       .get('https://64ec81d3f9b2b70f2bfa7413.mockapi.io/fakedata')
       .then((response) => {
-        setAPIData(response.data[0].datagen);
+        setAPIData(response.data);
       });
-    console.log(APIData);
+    // console.log(APIData);
   };
   const filterData = () => {
     getData();
@@ -76,7 +77,7 @@ export default function LabResultsScreen({ navigation, route }: any) {
       console.log(prevDay);
 
       const filteredData = data.filter((item: any) => {
-        // console.log('datee', new Date(item.date) >= prevDay);
+        console.log('datee', new Date(item.date) >= prevDay);
 
         return (
           new Date(item.date) >= prevDay &&
@@ -93,9 +94,11 @@ export default function LabResultsScreen({ navigation, route }: any) {
     // genData();
     // postData();
   }, [pressed]);
-
+  // getData();
+  //  updateAPIData();
   //genData2();
   const CustomListCardItem = ({ item }: any) => {
+    const id = item.id;
     const date = new Date(item.date);
     const text = item.text;
     const formattedDate = date
@@ -177,9 +180,23 @@ export default function LabResultsScreen({ navigation, route }: any) {
               {text}
             </Text>
             <FontAwesome5
-              name={'arrow-down'}
+              name={'arrow-left'}
               size={20}
               color={Colors.primary1}
+              onPress={() => {
+                axios.delete(
+                  `https://64ec81d3f9b2b70f2bfa7413.mockapi.io/fakedata/${id}`,
+                );
+                filterData();
+              }}
+            />
+            <FontAwesome5
+              name={'edit'}
+              size={20}
+              color={Colors.primary1}
+              onPress={() => {
+                navigation.navigate('Update', { idd: id });
+              }}
             />
           </View>
         </View>
