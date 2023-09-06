@@ -20,6 +20,7 @@ import LabResultsScreen from '../screens/LabResults';
 import Language from '../screens/Language';
 import Update from '../screens/update';
 
+import Labresultsol1 from '../screens/labresultssol1';
 import SignupScreen from '../screens/Signup';
 import user from '../utils/User';
 import LabResultsStack from './LabResultsStack';
@@ -225,6 +226,21 @@ export default function SideMenu(): JSX.Element {
           component={Update}
           options={{
             drawerItemStyle: { display: 'none' },
+          }}
+        />
+        <Drawer.Screen
+          name={'labresultOneMillionRecordSolution'}
+          component={Labresultsol1}
+          options={{
+            drawerItemStyle: { display: 'ok' },
+            drawerIcon: () => (
+              <FontAwesome5
+                name="home"
+                size={22}
+                color={Colors.primary1}
+                style={{ paddingRight: 5 }}
+              />
+            ),
           }}
         />
       </Drawer.Navigator>
