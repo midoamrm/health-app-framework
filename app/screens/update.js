@@ -22,7 +22,7 @@ const Update = ({ navigation, route }) => {
         maxLength={30}
       />
       <TextInput
-        placeholder={'description'}
+        placeholder={'result'}
         placeholderTextColor="black"
         onChangeText={(text) => Description(text)}
         value={description}
@@ -36,7 +36,7 @@ const Update = ({ navigation, route }) => {
             `https://64ec81d3f9b2b70f2bfa7413.mockapi.io/fakedata/${id}`,
             {
               date: date,
-              text: 'result' + 3,
+              text: description,
               description: description,
               official: true,
               field1: 'data field' + 3 + 'for element  1 ',

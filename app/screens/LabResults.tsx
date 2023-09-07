@@ -13,6 +13,7 @@ export default function LabResultsScreen({ navigation, route }: any) {
   });*/
   var data: any[] = [];
   var datagen: any[] = [];
+  var tempdata: any[] = [];
   const [APIData, setAPIData] = useState([]);
   const [dateFrom, setDateFrom]: [Date | null, any] = useState(null);
   const [dateTo, setDateTo]: [Date | null, any] = useState(null);
@@ -91,7 +92,7 @@ export default function LabResultsScreen({ navigation, route }: any) {
   };
   useEffect(() => {
     filterData();
-    // genData();
+    //genData();
     // postData();
   }, [pressed]);
   // getData();
@@ -181,13 +182,34 @@ export default function LabResultsScreen({ navigation, route }: any) {
             </Text>
             <FontAwesome5
               name={'arrow-left'}
-              size={20}
+              size={30}
               color={Colors.primary1}
               onPress={() => {
                 axios.delete(
                   `https://64ec81d3f9b2b70f2bfa7413.mockapi.io/fakedata/${id}`,
                 );
-                filterData();
+
+                //////
+                getData();
+                data = APIData;
+                //console.log(data);
+                if (dateFrom && dateTo) {
+                  const prevDay = new Date(dateFrom);
+                  prevDay.setDate(prevDay.getDate() - 1);
+                  console.log(prevDay);
+
+                  const filteredData = data.filter((item: any) => {
+                    console.log('datee', new Date(item.date) >= prevDay);
+
+                    return (
+                      new Date(item.date) >= prevDay &&
+                      new Date(item.date) <= dateTo &&
+                      item.official === !pressed
+                    );
+                  });
+                  setFilteredData(filteredData);
+                }
+                ///////////
               }}
             />
             <FontAwesome5
