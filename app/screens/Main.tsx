@@ -53,6 +53,76 @@ export default function MainScreen({ navigation }: any) {
             }
             onPress={() => navigation.navigate('Referral')}
           />
+          <CustomCard
+            title={list[3]}
+            icons={
+              <Image
+                source={require('../assets/images/menu_icon_large4.png')}
+                style={styles.image}
+              />
+            }
+            onPress={() => navigation.navigate('EarlyDetection')}
+          />
+          <CustomCard
+            title={list[4]}
+            icons={
+              <Image
+                source={require('../assets/images/menu_icon_large5.png')}
+                style={styles.image}
+              />
+            }
+            onPress={() => navigation.navigate('Experience')}
+          />
+          <CustomCard
+            title={list[5]}
+            icons={
+              <Image
+                source={require('../assets/images/menu_icon_large6.png')}
+                style={styles.image}
+              />
+            }
+            onPress={() => navigation.navigate('Instructions')}
+          />
+          <CustomCard
+            title={list[6]}
+            icons={
+              <Image
+                source={require('../assets/images/menu_icon_large7.png')}
+                style={styles.image}
+              />
+            }
+            onPress={() => navigation.navigate('MedicalEducation')}
+          />
+          <CustomCard
+            title={list[7]}
+            icons={
+              <Image
+                source={require('../assets/images/menu_icon_large8.png')}
+                style={styles.image}
+              />
+            }
+            onPress={() => navigation.navigate('VisitorRequests')}
+          />
+          <CustomCard
+            title={list[8]}
+            icons={
+              <Image
+                source={require('../assets/images/menu_icon_large9.png')}
+                style={styles.image}
+              />
+            }
+            onPress={() => navigation.navigate('Complaints')}
+          />
+          <CustomCard
+            title={list[9]}
+            icons={
+              <Image
+                source={require('../assets/images/menu_icon_large10.png')}
+                style={styles.image}
+              />
+            }
+            onPress={() => navigation.navigate('ContactUs')}
+          />
         </View>
         {!user.loggedIn && (
           <>

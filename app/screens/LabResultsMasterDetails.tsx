@@ -8,13 +8,13 @@ import {
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Colors from '../assets/values/Colors';
-export default function LabResultsMasterDetailsScreen({ route }: any) {
+export default function LabResultsMasterDetails({ navigation, route }: any) {
   const item = route.params.item;
-  route.params.nav.setOptions({
+  /* route.params.nav.setOptions({
     headerShown: true,
     headerLeft: () => appBar(route.params.nav),
     swipeEnabled: false,
-  });
+  });*/
   return (
     <>
       <ScrollView>
@@ -22,7 +22,7 @@ export default function LabResultsMasterDetailsScreen({ route }: any) {
           <Text style={styles.text}>رقم الطلب: {item.id}</Text>
           <Text style={styles.text}>
             تاريخ الطلب:{' '}
-            {item.date.toLocaleDateString('ar-EG-u-nu-latn', {
+            {new Date(item.date).toLocaleDateString('ar-EG-u-nu-latn', {
               weekday: 'long',
               year: 'numeric',
               month: 'short',

@@ -10,7 +10,7 @@ import Colors from '../assets/values/Colors';
 import { CustomCard } from '../components';
 const Tab = createBottomTabNavigator();
 
-export default function MedicalServicesScreen({ navigation }: any) {
+export default function MedicalSessionScreen({ navigation }: any) {
   const { t, i18n } = useTranslation();
   return (
     <Tab.Navigator
@@ -41,7 +41,7 @@ export default function MedicalServicesScreen({ navigation }: any) {
       />
       <Tab.Screen
         name="Home"
-        component={MedicalServicesContent}
+        component={MedicalSession}
         options={{
           title: t('Home'),
           tabBarIcon: ({ color, size }: any) => (
@@ -63,28 +63,27 @@ export default function MedicalServicesScreen({ navigation }: any) {
   );
 }
 
-function MedicalServicesContent({ navigation }: any) {
+function MedicalSession({ navigation }: any) {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <Text style={styles.text}>{t('services')}</Text>
+        <Text style={styles.text}>الاقسام الطبيه</Text>
         <View style={styles.cardContainer}>
           <CustomCard
-            title={t('reports')}
+            title={list[0]}
             icons={
               <Image
-                source={require('../assets/images/medical_icon1.png')}
+                source={require('../assets/images/hoss.png')}
                 style={styles.image}
               />
             }
             onPress={() => navigation.navigate('MedicalServices')}
           />
-
           <CustomCard
             title={list[1]}
             icons={
               <Image
-                source={require('../assets/images/medical_icon2.png')}
+                source={require('../assets/images/hoss.png')}
                 style={styles.image}
               />
             }
@@ -94,7 +93,7 @@ function MedicalServicesContent({ navigation }: any) {
             title={list[2]}
             icons={
               <Image
-                source={require('../assets/images/medical_icon3.png')}
+                source={require('../assets/images/hoss.png')}
                 style={styles.image}
               />
             }
@@ -104,7 +103,7 @@ function MedicalServicesContent({ navigation }: any) {
             title={list[3]}
             icons={
               <Image
-                source={require('../assets/images/medical_icon4.png')}
+                source={require('../assets/images/hoss.png')}
                 style={styles.image}
               />
             }
@@ -114,51 +113,11 @@ function MedicalServicesContent({ navigation }: any) {
             title={list[4]}
             icons={
               <Image
-                source={require('../assets/images/medical_icon5.png')}
+                source={require('../assets/images/hoss.png')}
                 style={styles.image}
               />
             }
             onPress={() => navigation.navigate('LabResultsStack')}
-          />
-          <CustomCard
-            title={list[5]}
-            icons={
-              <Image
-                source={require('../assets/images/medical_icon6.png')}
-                style={styles.image}
-              />
-            }
-            onPress={() => navigation.navigate('MedicalServices')}
-          />
-          <CustomCard
-            title={list[6]}
-            icons={
-              <Image
-                source={require('../assets/images/medical_icon7.png')}
-                style={styles.image}
-              />
-            }
-            onPress={() => navigation.navigate('MedicalServices')}
-          />
-          <CustomCard
-            title={list[7]}
-            icons={
-              <Image
-                source={require('../assets/images/medical_icon8.png')}
-                style={styles.image}
-              />
-            }
-            onPress={() => navigation.navigate('MedicalServices')}
-          />
-          <CustomCard
-            title={list[8]}
-            icons={
-              <Image
-                source={require('../assets/images/medical_icon9.png')}
-                style={styles.image}
-              />
-            }
-            onPress={() => navigation.navigate('MedicalServices')}
           />
         </View>
       </ScrollView>
@@ -233,13 +192,9 @@ const styles = StyleSheet.create({
   },
 });
 const list = [
-  'التقارير',
-  'الصيدلية',
-  'المواعيد',
-  'ذكرني',
-  'النتائج المخبرية',
-  'طلباتي',
-  'حل مشكلة اجتماعية',
-  'سكن داخلي',
-  'طلب مواصلات',
+  'مركز الاورام',
+  'مركز الاشعه',
+  'مركز العيون',
+  'مركزالفلب',
+  ' صحه الراس و العنق وقاع الجمجمه',
 ];

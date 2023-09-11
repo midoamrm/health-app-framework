@@ -15,13 +15,18 @@ import {
   OtpScreen,
 } from '../screens';
 import Cache from '../screens/cacheing';
+import Callus from '../screens/Callus';
 import Cruddb from '../screens/Cruddb';
+import Daterecord from '../screens/Datercord';
 import LabResultsScreen from '../screens/LabResults';
-import Language from '../screens/Language';
-import Update from '../screens/update';
-
+import LabResultsMasterDetails from '../screens/LabResultsMasterDetails';
 import Labresultsol1 from '../screens/labresultssol1';
+import Language from '../screens/Language';
+import Llist from '../screens/List';
+import MedicalSessionScreen from '../screens/Medicalsession';
+import Myorder from '../screens/Myorder';
 import SignupScreen from '../screens/Signup';
+import Update from '../screens/update';
 import user from '../utils/User';
 import LabResultsStack from './LabResultsStack';
 const Drawer = createDrawerNavigator();
@@ -124,7 +129,21 @@ export default function SideMenu(): JSX.Element {
             ),
           }}
         />
-
+        <Drawer.Screen
+          name={'LabResultsMasterDetails'}
+          component={LabResultsMasterDetails}
+          options={{
+            title: 'LabResultsMasterDetails',
+            drawerIcon: () => (
+              <FontAwesome5
+                name="home"
+                size={22}
+                color={Colors.primary1}
+                style={{ paddingRight: 5 }}
+              />
+            ),
+          }}
+        />
         <Drawer.Screen
           name={'Login'}
           component={LoginScreen}
@@ -133,10 +152,17 @@ export default function SideMenu(): JSX.Element {
           }}
         />
         <Drawer.Screen
+          name={'MedicalSessionScreen'}
+          component={MedicalSessionScreen}
+          options={{
+            drawerItemStyle: { display: 'ok' },
+          }}
+        />
+        <Drawer.Screen
           name={'Otp'}
           component={OtpScreen}
           options={{
-            drawerItemStyle: { display: 'ok' },
+            drawerItemStyle: { display: 'none' },
             drawerIcon: () => (
               <FontAwesome5
                 name="home"
@@ -205,7 +231,6 @@ export default function SideMenu(): JSX.Element {
             drawerItemStyle: { display: 'none' },
           }}
         />
-
         <Drawer.Screen
           name={'LabResultsScreen'}
           component={LabResultsScreen}
@@ -222,15 +247,77 @@ export default function SideMenu(): JSX.Element {
           }}
         />
         <Drawer.Screen
+          name={'Myorder'}
+          component={Myorder}
+          options={{
+            drawerItemStyle: { display: 'ok' },
+            drawerIcon: () => (
+              <FontAwesome5
+                name="home"
+                size={22}
+                color={Colors.primary1}
+                style={{ paddingRight: 5 }}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'Daterecord'}
+          component={Daterecord}
+          options={{
+            drawerItemStyle: { display: 'ok' },
+            drawerIcon: () => (
+              <FontAwesome5
+                name="home"
+                size={22}
+                color={Colors.primary1}
+                style={{ paddingRight: 5 }}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'Llist'}
+          component={Llist}
+          options={{
+            drawerItemStyle: { display: 'ok' },
+            drawerIcon: () => (
+              <FontAwesome5
+                name="home"
+                size={22}
+                color={Colors.primary1}
+                style={{ paddingRight: 5 }}
+              />
+            ),
+          }}
+        />
+
+        <Drawer.Screen
           name={'Update'}
           component={Update}
           options={{
             drawerItemStyle: { display: 'none' },
           }}
         />
+
         <Drawer.Screen
           name={'labresultOneMillionRecordSolution'}
           component={Labresultsol1}
+          options={{
+            drawerItemStyle: { display: 'ok' },
+            drawerIcon: () => (
+              <FontAwesome5
+                name="home"
+                size={22}
+                color={Colors.primary1}
+                style={{ paddingRight: 5 }}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'Callus'}
+          component={Callus}
           options={{
             drawerItemStyle: { display: 'ok' },
             drawerIcon: () => (
