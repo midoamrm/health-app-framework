@@ -14,10 +14,12 @@ import {
   MedicalServicesScreen,
   OtpScreen,
 } from '../screens';
+import Blooddonation from '../screens/BloodDonation';
 import Cache from '../screens/cacheing';
 import Callus from '../screens/Callus';
 import Cruddb from '../screens/Cruddb';
 import Daterecord from '../screens/Datercord';
+import Doc from '../screens/Doc';
 import LabResultsScreen from '../screens/LabResults';
 import LabResultsMasterDetails from '../screens/LabResultsMasterDetails';
 import Labresultsol1 from '../screens/labresultssol1';
@@ -26,7 +28,9 @@ import Llist from '../screens/List';
 import MedicalSessionScreen from '../screens/Medicalsession';
 import Myorder from '../screens/Myorder';
 import SignupScreen from '../screens/Signup';
+import Tabs from '../screens/Tabspages';
 import Update from '../screens/update';
+import Vsion from '../screens/Vsion';
 import user from '../utils/User';
 import LabResultsStack from './LabResultsStack';
 const Drawer = createDrawerNavigator();
@@ -315,11 +319,72 @@ export default function SideMenu(): JSX.Element {
             ),
           }}
         />
+
         <Drawer.Screen
           name={'Callus'}
           component={Callus}
           options={{
             drawerItemStyle: { display: 'ok' },
+            drawerIcon: () => (
+              <FontAwesome5
+                name="home"
+                size={22}
+                color={Colors.primary1}
+                style={{ paddingRight: 5 }}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'Blooddonation'}
+          component={Blooddonation}
+          options={{
+            drawerItemStyle: { display: 'ok' },
+            drawerIcon: () => (
+              <FontAwesome5
+                name="home"
+                size={22}
+                color={Colors.primary1}
+                style={{ paddingRight: 5 }}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'Tabs'}
+          component={Tabs}
+          options={{
+            drawerItemStyle: { display: 'ok' },
+            drawerIcon: () => (
+              <FontAwesome5
+                name="home"
+                size={22}
+                color={Colors.primary1}
+                style={{ paddingRight: 5 }}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'Vsion'}
+          component={Vsion}
+          options={{
+            drawerItemStyle: { display: 'none' },
+            drawerIcon: () => (
+              <FontAwesome5
+                name="home"
+                size={22}
+                color={Colors.primary1}
+                style={{ paddingRight: 5 }}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'Doc'}
+          component={Doc}
+          options={{
+            drawerItemStyle: { display: 'none' },
             drawerIcon: () => (
               <FontAwesome5
                 name="home"
