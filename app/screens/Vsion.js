@@ -20,7 +20,7 @@ const Vsion = ({ navigation, route }) => {
           style={[
             {
               borderRadius: 7,
-              width: '33.3%',
+              width: '36%',
             },
             true
               ? { backgroundColor: Colors.primary2 }
@@ -36,7 +36,7 @@ const Vsion = ({ navigation, route }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[
-            { width: '33.3%', borderRadius: 7 },
+            { width: '32%', borderRadius: 7 },
             false
               ? { backgroundColor: Colors.primary2 }
               : { backgroundColor: Colors.primary1 },
@@ -50,7 +50,7 @@ const Vsion = ({ navigation, route }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[
-            { width: '33.3%', borderRadius: 7 },
+            { width: '32%', borderRadius: 7 },
             true
               ? { backgroundColor: Colors.primary2 }
               : { backgroundColor: Colors.primary1 },
@@ -68,10 +68,11 @@ const Vsion = ({ navigation, route }) => {
       <View style={{ borderRadius: 7, borderColor: 'black' }}>
         <Text style={styles.text2}>
           {' '}
-          -مقال في الجامعة أو المدرسة، يعبّر عن نوع من أنواع الكتابة الرسمية
-          التي تتناول موضوعًا واحدًا محدّدًا. وغالبًا ما يكون الهدف منه إقناع
-          القارئ بأمر معيّن من خلال عدد من البراهين الحقيقية المبنية على أساس
-          علمي صحيح.
+          توفير منظومة صحية متطورة و متكاملة تعزز صحة الفرد و المجتمع و تقدم
+          الخدمات الصحية الوقائية و العلاجية و التأهيلية و التلطيفية الآمنة و
+          الشاملة بعدالة و جودة و كفاءة ،و القيام بالدور التنظيمي و الرقابي على
+          الخدمات المرتبطة بصحة و سلامة السكان و بشراكة فاعلة مع الجهات ذات
+          العلاقة وصولاً الى التغطية الصحية الشاملة
         </Text>
       </View>
     </View>
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
   },
   text2: {
     color: Colors.primary1,
-    fontSize: 10,
+    fontSize: 15,
     fontWeight: 'bold',
     padding: 20,
   },
@@ -127,7 +128,7 @@ const styles = StyleSheet.create({
   },
   tabText: {
     color: Colors.primary1,
-    fontSize: 12,
+    fontSize: 13,
     fontWeight: 'bold',
     textAlign: 'center',
     paddingVertical: 10,

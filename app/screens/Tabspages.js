@@ -20,7 +20,8 @@ const Tabs = ({ navigation, route }) => {
           style={[
             {
               borderRadius: 7,
-              width: '33.3%',
+              width: '36%',
+              height: '100%',
             },
             false
               ? { backgroundColor: Colors.primary2 }
@@ -35,7 +36,7 @@ const Tabs = ({ navigation, route }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[
-            { width: '33.3%', borderRadius: 7 },
+            { width: '32%', borderRadius: 7, height: '100%' },
             true
               ? { backgroundColor: Colors.primary2 }
               : { backgroundColor: Colors.primary1 },
@@ -50,7 +51,7 @@ const Tabs = ({ navigation, route }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[
-            { width: '33.3%', borderRadius: 7 },
+            { width: '32%', borderRadius: 7, height: '100%' },
             true
               ? { backgroundColor: Colors.primary2 }
               : { backgroundColor: Colors.primary1 },
@@ -117,9 +118,9 @@ const styles = StyleSheet.create({
   },
   text2: {
     color: Colors.primary1,
-    fontSize: 10,
+    fontSize: 14,
     fontWeight: 'bold',
-    padding: 20,
+    padding: 10,
   },
   user: {
     flexDirection: 'column',
@@ -152,11 +153,11 @@ const styles = StyleSheet.create({
   },
   tabText: {
     color: Colors.primary1,
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: 'bold',
     textAlign: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: 40,
+    paddingVertical: 20,
+    paddingHorizontal: 20,
   },
   image: {
     resizeMode: 'contain',

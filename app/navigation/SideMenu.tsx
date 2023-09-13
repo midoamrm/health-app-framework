@@ -138,6 +138,7 @@ export default function SideMenu(): JSX.Element {
           component={LabResultsMasterDetails}
           options={{
             title: 'LabResultsMasterDetails',
+            drawerItemStyle: { display: 'none' },
             drawerIcon: () => (
               <FontAwesome5
                 name="home"
@@ -156,9 +157,12 @@ export default function SideMenu(): JSX.Element {
           }}
         />
         <Drawer.Screen
-          name={'MedicalSessionScreen'}
+          name="الاقسام الطبيهٍ"
           component={MedicalSessionScreen}
           options={{
+            drawerIcon: () => (
+              <Image source={require('../assets/images/menu_icon1.png')} />
+            ),
             drawerItemStyle: { display: 'ok' },
           }}
         />
@@ -185,17 +189,12 @@ export default function SideMenu(): JSX.Element {
           }}
         />
         <Drawer.Screen
-          name={'MedicalServices'}
+          name="الخدمات الطبيه"
           component={MedicalServicesScreen}
           options={{
             drawerItemStyle: { display: 'ok' },
             drawerIcon: () => (
-              <FontAwesome5
-                name="home"
-                size={22}
-                color={Colors.primary1}
-                style={{ paddingRight: 5 }}
-              />
+              <Image source={require('../assets/images/menu_icon1.png')} />
             ),
           }}
         />
@@ -236,66 +235,45 @@ export default function SideMenu(): JSX.Element {
           }}
         />
         <Drawer.Screen
-          name={'LabResultsScreen'}
+          name="النايج المخبريه"
           component={LabResultsScreen}
           options={{
             drawerItemStyle: { display: 'ok' },
             drawerIcon: () => (
-              <FontAwesome5
-                name="home"
-                size={22}
-                color={Colors.primary1}
-                style={{ paddingRight: 5 }}
-              />
+              <Image source={require('../assets/images/menu_icon1.png')} />
             ),
           }}
         />
         <Drawer.Screen
-          name={'Myorder'}
+          name="طلباتي"
           component={Myorder}
           options={{
-            drawerItemStyle: { display: 'ok' },
+            drawerItemStyle: { display: 'none' },
             drawerIcon: () => (
-              <FontAwesome5
-                name="home"
-                size={22}
-                color={Colors.primary1}
-                style={{ paddingRight: 5 }}
-              />
+              <Image source={require('../assets/images/menu_icon1.png')} />
             ),
           }}
         />
         <Drawer.Screen
-          name={'Daterecord'}
+          name={'سجل المواعيد'}
           component={Daterecord}
           options={{
             drawerItemStyle: { display: 'ok' },
             drawerIcon: () => (
-              <FontAwesome5
-                name="home"
-                size={22}
-                color={Colors.primary1}
-                style={{ paddingRight: 5 }}
-              />
+              <Image source={require('../assets/images/menu_icon1.png')} />
             ),
           }}
         />
         <Drawer.Screen
-          name={'Llist'}
+          name="القايمه"
           component={Llist}
           options={{
             drawerItemStyle: { display: 'ok' },
             drawerIcon: () => (
-              <FontAwesome5
-                name="home"
-                size={22}
-                color={Colors.primary1}
-                style={{ paddingRight: 5 }}
-              />
+              <Image source={require('../assets/images/menu_icon1.png')} />
             ),
           }}
         />
-
         <Drawer.Screen
           name={'Update'}
           component={Update}
@@ -303,9 +281,8 @@ export default function SideMenu(): JSX.Element {
             drawerItemStyle: { display: 'none' },
           }}
         />
-
         <Drawer.Screen
-          name={'labresultOneMillionRecordSolution'}
+          name="حل ملبون ريكرود"
           component={Labresultsol1}
           options={{
             drawerItemStyle: { display: 'ok' },
@@ -319,15 +296,14 @@ export default function SideMenu(): JSX.Element {
             ),
           }}
         />
-
         <Drawer.Screen
-          name={'Callus'}
+          name="Callus"
           component={Callus}
           options={{
-            drawerItemStyle: { display: 'ok' },
+            drawerItemStyle: { display: 'none' },
             drawerIcon: () => (
               <FontAwesome5
-                name="home"
+                name="phone"
                 size={22}
                 color={Colors.primary1}
                 style={{ paddingRight: 5 }}
@@ -335,33 +311,15 @@ export default function SideMenu(): JSX.Element {
             ),
           }}
         />
-        <Drawer.Screen
-          name={'Blooddonation'}
-          component={Blooddonation}
-          options={{
-            drawerItemStyle: { display: 'ok' },
-            drawerIcon: () => (
-              <FontAwesome5
-                name="home"
-                size={22}
-                color={Colors.primary1}
-                style={{ paddingRight: 5 }}
-              />
-            ),
-          }}
-        />
+
         <Drawer.Screen
           name={'Tabs'}
           component={Tabs}
           options={{
+            title: 'عن التطبيق',
             drawerItemStyle: { display: 'ok' },
             drawerIcon: () => (
-              <FontAwesome5
-                name="home"
-                size={22}
-                color={Colors.primary1}
-                style={{ paddingRight: 5 }}
-              />
+              <Image source={require('../assets/images/menu_icon9.png')} />
             ),
           }}
         />
@@ -392,6 +350,76 @@ export default function SideMenu(): JSX.Element {
                 color={Colors.primary1}
                 style={{ paddingRight: 5 }}
               />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'temp1'}
+          component={Blooddonation}
+          options={{
+            title: list[1],
+            drawerIcon: () => (
+              <Image source={require('../assets/images/menu_icon2.png')} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'temp3'}
+          component={Home}
+          options={{
+            title: list[2],
+            drawerIcon: () => (
+              <Image source={require('../assets/images/menu_icon3.png')} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'temp4'}
+          component={Home}
+          options={{
+            title: list[3],
+            drawerIcon: () => (
+              <Image source={require('../assets/images/menu_icon4.png')} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'temp5'}
+          component={Home}
+          options={{
+            title: list[4],
+            drawerIcon: () => (
+              <Image source={require('../assets/images/menu_icon5.png')} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'temp6'}
+          component={Home}
+          options={{
+            title: list[5],
+            drawerIcon: () => (
+              <Image source={require('../assets/images/menu_icon6.png')} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'temp7'}
+          component={Home}
+          options={{
+            title: list[6],
+            drawerIcon: () => (
+              <Image source={require('../assets/images/menu_icon7.png')} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'temp8'}
+          component={Myorder}
+          options={{
+            title: list[7],
+            drawerIcon: () => (
+              <Image source={require('../assets/images/menu_icon8.png')} />
             ),
           }}
         />

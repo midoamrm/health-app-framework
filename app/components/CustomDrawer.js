@@ -5,17 +5,14 @@ import {
 } from '@react-navigation/drawer';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-
-import { useTranslation } from 'react-i18next';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Badge } from 'react-native-elements';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Colors from '../assets/values/Colors';
 import user from '../utils/User';
 const CustomDrawer = (props) => {
   const navigation = useNavigation();
-  const { t } = useTranslation();
-  console.log(user.loggedIn);
   return (
     <View style={{ flex: 1, backgroundColor: Colors.primary2 }}>
       <View
@@ -34,7 +31,7 @@ const CustomDrawer = (props) => {
           <View style={{ flexDirection: 'row' }}>
             <Ionicons name="globe" size={22} color={Colors.white} />
             <Text style={{ color: Colors.white, paddingHorizontal: 20 }}>
-              AR/EN
+              English
             </Text>
           </View>
         </TouchableOpacity>
@@ -64,8 +61,42 @@ const CustomDrawer = (props) => {
           style={{
             paddingVertical: 10,
             paddingHorizontal: 20,
-          }}
-        />
+          }}>
+          <TouchableOpacity onPress={() => {}} style={{ paddingVertical: 15 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Image source={require('../assets/images/menu_icon9.png')} />
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontFamily: 'Roboto-Medium',
+                  marginLeft: 5,
+                  fontWeight: 'bold',
+                  color: Colors.primary1,
+                }}>
+                الشكاوى والاقتراحات
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Callus');
+            }}
+            style={{ paddingVertical: 15 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Image source={require('../assets/images/menu_icon10.png')} />
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontFamily: 'Roboto-Medium',
+                  marginLeft: 5,
+                  fontWeight: 'bold',
+                  color: Colors.primary1,
+                }}>
+                اتصل بنا
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
         <View style={{ paddingHorizontal: 20 }}>
           <View
             style={{
@@ -73,6 +104,64 @@ const CustomDrawer = (props) => {
               borderTopColor: Colors.secondary1,
             }}
           />
+        </View>
+        <View
+          style={{
+            padding: 20,
+          }}>
+          <TouchableOpacity onPress={() => {}} style={{ paddingVertical: 15 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Image source={require('../assets/images/menu_icon11.png')} />
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontFamily: 'Roboto-Medium',
+                  marginLeft: 5,
+                  fontWeight: 'bold',
+                  color: Colors.primary1,
+                }}>
+                تبديل الوان الوجهة
+              </Text>
+            </View>
+          </TouchableOpacity>
+
+          <View
+            style={{
+              flexDirection: 'row',
+              alignContent: 'center',
+              paddingTop: 30,
+              paddingHorizontal: 40,
+              justifyContent: 'space-between',
+            }}>
+            <TouchableOpacity>
+              <View>
+                <Image
+                  source={require('../assets/images/menu_style_icon1.png')}
+                />
+                {/* <Badge
+                  status="success"
+                  containerStyle={{position: 'absolute', top: -4, right: -4}}
+                /> */}
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <View>
+                <Image
+                  source={require('../assets/images/menu_style_icon2.png')}
+                />
+                <Badge
+                  value="✔"
+                  badgeStyle={{
+                    width: 30,
+                    height: 30,
+                    borderRadius: 20,
+                  }}
+                  status="success"
+                  containerStyle={{ position: 'absolute', top: -4, right: -4 }}
+                />
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
       </DrawerContentScrollView>
       <View
@@ -95,7 +184,7 @@ const CustomDrawer = (props) => {
               fontSize: 18,
               fontWeight: 'bold',
             }}>
-            {t('signin')}
+            تسجيل دخول
           </Text>
         </TouchableOpacity>
 
@@ -119,7 +208,7 @@ const CustomDrawer = (props) => {
               fontSize: 18,
               fontWeight: 'bold',
             }}>
-            {t('signout')}
+            تسجيل خروج
           </Text>
         </TouchableOpacity>
       </View>

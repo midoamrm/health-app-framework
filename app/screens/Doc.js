@@ -20,7 +20,8 @@ const Doc = ({ navigation, route }) => {
           style={[
             {
               borderRadius: 7,
-              width: '33.3%',
+              width: '36%',
+              height: '100%',
             },
             true
               ? { backgroundColor: Colors.primary2 }
@@ -36,7 +37,7 @@ const Doc = ({ navigation, route }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[
-            { width: '33.3%', borderRadius: 7 },
+            { width: '32%', borderRadius: 7, height: '100%' },
             true
               ? { backgroundColor: Colors.primary2 }
               : { backgroundColor: Colors.primary1 },
@@ -51,7 +52,7 @@ const Doc = ({ navigation, route }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[
-            { width: '33.3%', borderRadius: 7 },
+            { width: '32%', borderRadius: 7, height: '100%' },
             false
               ? { backgroundColor: Colors.primary2 }
               : { backgroundColor: Colors.primary1 },
@@ -64,7 +65,7 @@ const Doc = ({ navigation, route }) => {
           </Text>
         </TouchableOpacity>
       </View>
-      <Text style={styles.text}> الرويه</Text>
+
       <View style={{ borderRadius: 7, borderColor: 'black' }}>
         <View
           style={{
@@ -77,11 +78,11 @@ const Doc = ({ navigation, route }) => {
           }}>
           <Image
             style={{ width: 100, height: 100 }}
-            source={require('../assets/images/menu_icon8.png')}
+            source={require('../assets/images/ff.png')}
           />
           <View>
-            <Text style={styles.textr}> Test</Text>
-            <Text style={styles.textr}> Test</Text>
+            <Text style={styles.textr1}> Test</Text>
+            <Text style={styles.textr2}> Test</Text>
           </View>
         </View>
       </View>
@@ -101,7 +102,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     padding: 20,
   },
-  textr: {
+  textr1: {
+    color: '#3bc07a',
+    fontSize: 15,
+    fontWeight: 'bold',
+    padding: 10,
+  },
+  textr2: {
     color: Colors.primary1,
     fontSize: 15,
     fontWeight: 'bold',
@@ -144,11 +151,11 @@ const styles = StyleSheet.create({
   },
   tabText: {
     color: Colors.primary1,
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: 'bold',
     textAlign: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: 40,
+    paddingVertical: 20,
+    paddingHorizontal: 20,
   },
   image: {
     resizeMode: 'contain',
