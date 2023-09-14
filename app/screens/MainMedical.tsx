@@ -81,7 +81,7 @@ function MedicalServicesContent({ navigation }: any) {
           />
 
           <CustomCard
-            title={list[1]}
+            title={t('Reports2')}
             icons={
               <Image
                 source={require('../assets/images/medical_icon2.png')}
@@ -91,7 +91,7 @@ function MedicalServicesContent({ navigation }: any) {
             onPress={() => navigation.navigate('MedicalServices')}
           />
           <CustomCard
-            title={list[2]}
+            title={t('Pharmacy')}
             icons={
               <Image
                 source={require('../assets/images/medical_icon3.png')}
@@ -101,7 +101,7 @@ function MedicalServicesContent({ navigation }: any) {
             onPress={() => navigation.navigate('MedicalServices')}
           />
           <CustomCard
-            title={list[3]}
+            title={t('Appointments')}
             icons={
               <Image
                 source={require('../assets/images/medical_icon4.png')}
@@ -111,7 +111,7 @@ function MedicalServicesContent({ navigation }: any) {
             onPress={() => navigation.navigate('MedicalServices')}
           />
           <CustomCard
-            title={list[4]}
+            title={t('Laboratoryresults')}
             icons={
               <Image
                 source={require('../assets/images/medical_icon5.png')}
@@ -121,7 +121,7 @@ function MedicalServicesContent({ navigation }: any) {
             onPress={() => navigation.navigate('LabResultsStack')}
           />
           <CustomCard
-            title={list[5]}
+            title={t('myorder')}
             icons={
               <Image
                 source={require('../assets/images/medical_icon6.png')}
@@ -131,7 +131,7 @@ function MedicalServicesContent({ navigation }: any) {
             onPress={() => navigation.navigate('MedicalServices')}
           />
           <CustomCard
-            title={list[6]}
+            title={t('Socialproblemsolving')}
             icons={
               <Image
                 source={require('../assets/images/medical_icon7.png')}
@@ -141,7 +141,7 @@ function MedicalServicesContent({ navigation }: any) {
             onPress={() => navigation.navigate('MedicalServices')}
           />
           <CustomCard
-            title={list[7]}
+            title={t('Boardingaccommodation')}
             icons={
               <Image
                 source={require('../assets/images/medical_icon8.png')}
@@ -151,7 +151,7 @@ function MedicalServicesContent({ navigation }: any) {
             onPress={() => navigation.navigate('MedicalServices')}
           />
           <CustomCard
-            title={list[8]}
+            title={t('Transportationrequest')}
             icons={
               <Image
                 source={require('../assets/images/medical_icon9.png')}

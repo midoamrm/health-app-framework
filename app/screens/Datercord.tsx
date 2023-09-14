@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -11,7 +12,7 @@ export default function Daterecord({ navigation, route }: any) {
     headerLeft: () => <CustomHeaderIcon onPress={navigation.openDrawer} />,
     swipeEnabled: true,
   });*/
-
+  const { t, i18n } = useTranslation();
   const [dateFrom, setDateFrom]: [Date | null, any] = useState(null);
   const [dateTo, setDateTo]: [Date | null, any] = useState(null);
   const [filteredData, setFilteredData]: [any, any] = useState([]);
@@ -126,23 +127,23 @@ export default function Daterecord({ navigation, route }: any) {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Text style={styles.text}>سجل المواعيد</Text>
+        <Text style={styles.text}>{t('Recordappointments')}</Text>
         <DateInput
           dateFrom={dateFrom}
           dateTo={dateTo}
           setDateTo={setDateTo}
           setDateFrom={setDateFrom}
         />
-        <Accordian title={'اسم العياده'} data={[]} />
+        <Accordian title={t('Clinicname')} data={[]} />
 
         <View style={styles.innerContainer}>
           <TouchableOpacity style={styles.searchBtn} onPress={filterData}>
-            <Text style={styles.searchText}>بحث</Text>
+            <Text style={styles.searchText}>{t('search')}</Text>
           </TouchableOpacity>
           <View style={styles.border} />
           <View style={styles.listItem2}>
             <Text style={{ color: Colors.primary1, fontWeight: 'bold' }}>
-              تحميل جميع السجلات
+              {t('Downloadallrecords')}
             </Text>
             <Text style={{ color: 'white' }}>
               fffffffffffffffffffffffffffffffffffffffffffffffff

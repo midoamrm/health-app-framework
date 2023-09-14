@@ -297,11 +297,13 @@ export default function Blooddonation({ navigation }: any) {
             width: '100%',
           }}>
           <View style={styles.container}>
-            <Text style={{ fontSize: 20 }}>التبرع بالدم والصفايح الدمويه</Text>
+            <Text style={{ fontSize: 20 }}>{t('namedonation')}</Text>
             <View style={styles.logoImgView}>
               <Image source={require('../assets/images/brr.png')} />
             </View>
-            <Text style={{ fontSize: 20, paddingBottom: 10 }}>اسم المتبرع</Text>
+            <Text style={{ fontSize: 20, paddingBottom: 10 }}>
+              {t('donation')}
+            </Text>
             <View style={{ flexDirection: 'row' }}>
               <View style={styles.allInputs}>
                 <View style={styles.inputView}>
@@ -361,7 +363,7 @@ export default function Blooddonation({ navigation }: any) {
                   <Text style={styles.errorText}>{nameError}</Text>
                 ) : null}
 
-                <Accordian title={'فصيله الدم (الزامي)'} data={[]} />
+                <Accordian title={t('blood')} data={[]} />
               </View>
               <View style={styles.allInputs2}>
                 <View style={styles.inputView}>
@@ -422,7 +424,7 @@ export default function Blooddonation({ navigation }: any) {
                 {passwordError2 !== '' ? (
                   <Text style={styles.errorText}>{passwordError2}</Text>
                 ) : null}
-                <Accordian title={' الجنس (الزامي)'} data={[]} />
+                <Accordian title={t('gender2')} data={[]} />
               </View>
             </View>
             <View style={styles.allInputs3}>
@@ -432,7 +434,7 @@ export default function Blooddonation({ navigation }: any) {
                 setDateTo={setDateTo}
                 setDateFrom={setDateFrom}
               />
-              <Accordian title={' الجنسيه (الزامي)'} data={[]} />
+              <Accordian title={t('Nationality')} data={[]} />
             </View>
             <View style={styles.inputView22}>
               {i18n.language === 'ar' && (
@@ -527,7 +529,7 @@ export default function Blooddonation({ navigation }: any) {
               <Text style={styles.errorText}>{phoneNumberError}</Text>
             ) : null}
             <TouchableOpacity style={styles.loginBtn} onPress={handleSingup}>
-              <Text style={styles.loginText}>التالي</Text>
+              <Text style={styles.loginText}>{t('next')}</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.loginBtn} onPress={handleSingup}>
               <Text style={styles.loginText}>{t('cerateaccount')}</Text>

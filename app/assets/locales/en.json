@@ -28,6 +28,34 @@
 "male":"male",
 "female":"female",
 "gender":"gender",
-"cerateaccount":"cerate account"
+"cerateaccount":"cerate account",
+"gender2":"gender *",
+"blood":"blood type *",
+"Nationality":"Nationality *",
+"namedonation":"Donating blood and platelets",
+"donation":"donation name",
+"Medicaldepartments":"Medical departments",
+"Oncologycenter":"Oncology center",
+"Radiologycenter":"Radiology center",
+"Heartcenter":"Heart center",
+"Eyecenter":"Eye center",
+"skull":"Health of the head, neck and base of the skull",
+"Reports2":"Reports",
+"Pharmacy":"Pharmacy",
+"Appointments":"Appointments",
+"Laboratoryresults":"Laboratory results",
+"myorder":"myorder",
+"Socialproblemsolving":"Social problem solving",
+"Boardingaccommodation":"Boarding accommodation",
+"Transportationrequest":"Transportation request",
+"search":"search",
+"M":"Approved",
+"NM":"Under approval",
+"Recordappointments":"Record appointments",
+"Clinicname":"Clinic name",
+"Downloadallrecords":"Download all records",
+"Next":"Next"
+
+
 
 }

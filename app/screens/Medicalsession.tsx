@@ -67,10 +67,10 @@ function MedicalSession({ navigation }: any) {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <Text style={styles.text}>الاقسام الطبيه</Text>
+        <Text style={styles.text}>{t('Medicaldepartments')}</Text>
         <View style={styles.cardContainer}>
           <CustomCard
-            title={list[0]}
+            title={t('Oncologycenter')}
             icons={
               <Image
                 source={require('../assets/images/hoss.png')}
@@ -80,7 +80,7 @@ function MedicalSession({ navigation }: any) {
             onPress={() => navigation.navigate('MedicalServices')}
           />
           <CustomCard
-            title={list[1]}
+            title={t('Radiologycenter')}
             icons={
               <Image
                 source={require('../assets/images/hoss.png')}
@@ -90,7 +90,7 @@ function MedicalSession({ navigation }: any) {
             onPress={() => navigation.navigate('MedicalServices')}
           />
           <CustomCard
-            title={list[2]}
+            title={t('Eyecenter')}
             icons={
               <Image
                 source={require('../assets/images/hoss.png')}
@@ -100,7 +100,7 @@ function MedicalSession({ navigation }: any) {
             onPress={() => navigation.navigate('MedicalServices')}
           />
           <CustomCard
-            title={list[3]}
+            title={t('Heartcenter')}
             icons={
               <Image
                 source={require('../assets/images/hoss.png')}
@@ -110,7 +110,7 @@ function MedicalSession({ navigation }: any) {
             onPress={() => navigation.navigate('MedicalServices')}
           />
           <CustomCard
-            title={list[4]}
+            title={t('skull')}
             icons={
               <Image
                 source={require('../assets/images/hoss.png')}

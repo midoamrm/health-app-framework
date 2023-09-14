@@ -28,6 +28,34 @@
 "male":"ذكر",
 "female":"انثي",
 "gender":"الجنس",
-"cerateaccount":"انشاء حساب"
+"cerateaccount":"انشاء حساب",
+"gender2":"(الزامي)الجنس",
+"blood":"(الزامي)فصيله الدم",
+"Nationality":"الجنسيه(الزامي)",
+"namedonation":"التبرع بالدم والصفايح الد مويه",
+"donation":"اسم المتبرع ",
+"Medicaldepartments":"الاقسام الطبيه",
+"Eyecenter":"مركز العيون",
+"Oncologycenter":"مركز الاورام",
+"Radiologycenter":"مركز الاشعه",
+"Heartcenter":"مركزالقلب",
+"skull":"صحه الراس و العنق وقاع الجمجمه",
+"Reports2":"التقارير",
+"Pharmacy":"الصيدلية",
+"Appointments":"المواعيد",
+"Laboratoryresults":"النتائج المخبريه",
+"myorder":"طلباتي",
+"Socialproblemsolving":"حل مشكلة اجتماعيه",
+"Boardingaccommodation":"سكن داخلي",
+"Transportationrequest":"طلب مواصلات",
+"search":"بحث",
+"M":"المعتمدة",
+"NM":" قيد الاعتماد",
+"Recordappointments":"سجل المواعيد",
+"Clinicname":"اسم العياده",
+"Downloadallrecords":"تحميل جميع السجلات",
+"Next":"التالي"
+
+
 
 }

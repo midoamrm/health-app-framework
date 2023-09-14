@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -11,6 +12,7 @@ export default function LabResultsScreen({ navigation, route }: any) {
     headerLeft: () => <CustomHeaderIcon onPress={navigation.openDrawer} />,
     swipeEnabled: true,
   });*/
+  const { t, i18n } = useTranslation();
   var data: any[] = [];
   var datagen: any[] = [];
   var tempdata: any[] = [];
@@ -229,7 +231,7 @@ export default function LabResultsScreen({ navigation, route }: any) {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Text style={styles.text}>النتائج المخبرية</Text>
+        <Text style={styles.text}>{t('Laboratoryresults')}</Text>
         <DateInput
           dateFrom={dateFrom}
           dateTo={dateTo}
@@ -238,7 +240,7 @@ export default function LabResultsScreen({ navigation, route }: any) {
         />
         <View style={styles.innerContainer}>
           <TouchableOpacity style={styles.searchBtn} onPress={filterData}>
-            <Text style={styles.searchText}>بحث</Text>
+            <Text style={styles.searchText}>{t('search')}</Text>
           </TouchableOpacity>
           <View style={styles.border} />
           <View
@@ -270,7 +272,7 @@ export default function LabResultsScreen({ navigation, route }: any) {
                   styles.tabText,
                   !pressed ? {} : { color: Colors.white },
                 ]}>
-                المعتمدة
+                {t('M')}
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -288,7 +290,7 @@ export default function LabResultsScreen({ navigation, route }: any) {
                   styles.tabText,
                   pressed ? {} : { color: Colors.white },
                 ]}>
-                قيد الاعتماد
+                {t('NM')}
               </Text>
             </TouchableOpacity>
           </View>
