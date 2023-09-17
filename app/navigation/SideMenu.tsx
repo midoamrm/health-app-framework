@@ -33,6 +33,7 @@ import Update from '../screens/update';
 import Vsion from '../screens/Vsion';
 import user from '../utils/User';
 import LabResultsStack from './LabResultsStack';
+
 const Drawer = createDrawerNavigator();
 
 function Home() {
@@ -85,7 +86,7 @@ const ProfileInfo = () => {
 };
 
 export default function SideMenu(): JSX.Element {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   return (
     <NavigationContainer>
       <Drawer.Navigator
@@ -157,7 +158,7 @@ export default function SideMenu(): JSX.Element {
           }}
         />
         <Drawer.Screen
-          name="الاقسام الطبيهٍ"
+          name={t('Medicaldepartments')}
           component={MedicalSessionScreen}
           options={{
             drawerIcon: () => (
@@ -189,7 +190,7 @@ export default function SideMenu(): JSX.Element {
           }}
         />
         <Drawer.Screen
-          name="الخدمات الطبيه"
+          name={t('medicalservices')}
           component={MedicalServicesScreen}
           options={{
             drawerItemStyle: { display: 'ok' },
@@ -235,7 +236,7 @@ export default function SideMenu(): JSX.Element {
           }}
         />
         <Drawer.Screen
-          name="النايج المخبريه"
+          name={t('Laboratoryresults')}
           component={LabResultsScreen}
           options={{
             drawerItemStyle: { display: 'ok' },
@@ -245,7 +246,7 @@ export default function SideMenu(): JSX.Element {
           }}
         />
         <Drawer.Screen
-          name="طلباتي"
+          name={t('myorder')}
           component={Myorder}
           options={{
             drawerItemStyle: { display: 'none' },
@@ -255,7 +256,7 @@ export default function SideMenu(): JSX.Element {
           }}
         />
         <Drawer.Screen
-          name={'سجل المواعيد'}
+          name={t('Recordappointments')}
           component={Daterecord}
           options={{
             drawerItemStyle: { display: 'ok' },
@@ -265,7 +266,7 @@ export default function SideMenu(): JSX.Element {
           }}
         />
         <Drawer.Screen
-          name="القايمه"
+          name={t('list')}
           component={Llist}
           options={{
             drawerItemStyle: { display: 'ok' },
@@ -282,7 +283,7 @@ export default function SideMenu(): JSX.Element {
           }}
         />
         <Drawer.Screen
-          name="حل ملبون ريكرود"
+          name={t('onemilonsol')}
           component={Labresultsol1}
           options={{
             drawerItemStyle: { display: 'ok' },
@@ -316,7 +317,7 @@ export default function SideMenu(): JSX.Element {
           name={'Tabs'}
           component={Tabs}
           options={{
-            title: 'عن التطبيق',
+            title: t('oboutapp'),
             drawerItemStyle: { display: 'ok' },
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon9.png')} />
@@ -357,7 +358,7 @@ export default function SideMenu(): JSX.Element {
           name={'temp1'}
           component={Blooddonation}
           options={{
-            title: list[1],
+            title: t('namedonation'),
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon2.png')} />
             ),
@@ -367,7 +368,7 @@ export default function SideMenu(): JSX.Element {
           name={'temp3'}
           component={Home}
           options={{
-            title: list[2],
+            title: t('Myreferral'),
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon3.png')} />
             ),
@@ -377,7 +378,7 @@ export default function SideMenu(): JSX.Element {
           name={'temp4'}
           component={Home}
           options={{
-            title: list[3],
+            title: t('Earlydetectionofbreasttumors'),
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon4.png')} />
             ),
@@ -387,7 +388,7 @@ export default function SideMenu(): JSX.Element {
           name={'temp5'}
           component={Home}
           options={{
-            title: list[4],
+            title: t('Myexperience'),
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon5.png')} />
             ),
@@ -397,7 +398,7 @@ export default function SideMenu(): JSX.Element {
           name={'temp6'}
           component={Home}
           options={{
-            title: list[5],
+            title: t('Instructions'),
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon6.png')} />
             ),
@@ -407,7 +408,7 @@ export default function SideMenu(): JSX.Element {
           name={'temp7'}
           component={Home}
           options={{
-            title: list[6],
+            title: t('Formedicaleducation'),
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon7.png')} />
             ),
@@ -417,7 +418,7 @@ export default function SideMenu(): JSX.Element {
           name={'temp8'}
           component={Myorder}
           options={{
-            title: list[7],
+            title: t('Formedicaleducation'),
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon8.png')} />
             ),

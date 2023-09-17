@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Colors from '../assets/values/Colors';
 const Tabs = ({ navigation, route }) => {
   const [pressed, setPressed] = useState(false);
+  const { t, i18n } = useTranslation();
   return (
     <View style={styles.container}>
       <View
@@ -31,7 +33,7 @@ const Tabs = ({ navigation, route }) => {
             setPressed(true);
           }}>
           <Text style={[styles.tabText, false ? {} : { color: Colors.white }]}>
-            الخدمات
+            {t('servies')}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -46,7 +48,7 @@ const Tabs = ({ navigation, route }) => {
             navigation.navigate('Vsion');
           }}>
           <Text style={[styles.tabText, true ? {} : { color: Colors.white }]}>
-            عن المركز
+            {t('aboutcenter')}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -61,11 +63,11 @@ const Tabs = ({ navigation, route }) => {
             navigation.navigate('Doc');
           }}>
           <Text style={[styles.tabText, true ? {} : { color: Colors.white }]}>
-            الاطباء
+            {t('Doctors')}
           </Text>
         </TouchableOpacity>
       </View>
-      <Text style={styles.text}> الخدمات</Text>
+      <Text style={styles.text}>{t('servies')}</Text>
       <View style={{ borderRadius: 7, borderColor: 'black' }}>
         <Text style={styles.text2}>
           {' '}
@@ -84,13 +86,13 @@ const Tabs = ({ navigation, route }) => {
           العلاج الإشعاعي والعلاج التلطيفي، ولقد ساهم مركز الأورام الشامل في
           تطوير الاستراتيجية الوطنية للسرطان بالتعاون مع وزارة الصحه
         </Text>
-        <Text style={styles.text2}> -تم اضافه خدمات الجينات الوراثيه</Text>
-        <Text style={styles.text2}> يضم مركز الأورام عدد من الاقسام</Text>
-        <Text style={styles.text3}>قسم الطب التلطيفي.</Text>
-        <Text style={styles.text3}>قسم العلاج بالأشعة.</Text>
-        <Text style={styles.text3}>شعبة الفيزياء الطبية.</Text>
-        <Text style={styles.text3}>وحدة العلاج بالأشعة.</Text>
-        <Text style={styles.text3}>قسم أورام الدم وأورام الأطفال.</Text>
+        <Text style={styles.text2}> {t('p1')}</Text>
+        <Text style={styles.text2}> {t('p2')}</Text>
+        <Text style={styles.text3}> {t('p3')}</Text>
+        <Text style={styles.text3}> {t('p4')}</Text>
+        <Text style={styles.text3}> {t('p5')}</Text>
+        <Text style={styles.text3}> {t('p6')}</Text>
+        <Text style={styles.text3}> {t('p7')}</Text>
       </View>
     </View>
   );

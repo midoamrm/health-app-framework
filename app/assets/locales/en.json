@@ -54,7 +54,50 @@
 "Recordappointments":"Record appointments",
 "Clinicname":"Clinic name",
 "Downloadallrecords":"Download all records",
-"Next":"Next"
+"Next":"Next",
+"medicalservices":"medicalservices",
+"list":"list",
+"oboutapp":"obout app",
+"Myreferral":"My referral",
+"Earlydetectionofbreasttumors":"Early detection of breast tumors",
+"Myexperience":"My experience",
+"Instructions":"Instructions",
+"Medicineeducation":"Medicine education",
+"Visitorrequests":"Visitor requests",
+"Formedicaleducation":"Formedical education",
+"callus":"call us",
+"Complaintsandsuggestions":"Complaints and suggestions",
+"Changedestinationcolors":"Change destination colors",
+"onemilonsol":"one milon sol",
+"servies":"servies",
+"aboutcenter":"about center",
+"Doctors":"Doctors",
+"p1":"Genetic services have been added",
+"p2":"The Oncology Center includes a number of departments",
+"p3":"Department of Palliative Medicine.",
+"p4":"Department of Radiotherapy.",
+"p5":"Division of Medical Physics.",
+"p6":"Radiotherapy unit.",
+"p7":"Department of Hematology and Pediatric Oncology.",
+"vison":"vison",
+"l1":"kingdom of Saudi Arabia",
+"l2":"For the Gharbia region - the Mecca region - the Holy Sites 23455",
+"l3":"Postal code 8885",
+"l4":"Medical City phone: 0125542525",
+"orderkind":"order kind",
+"statuskind":"statuskind",
+"Datefrom":"Date from",
+"Dateto":"Date to",
+"chooseDatefrom":"choose Date from",
+"chooseDateto":"choose Date to",
+"date":"brithday date *",
+"date2":"brithday date"
+
+
+
+
+
+
 
 
 

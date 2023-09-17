@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Colors from '../assets/values/Colors';
 const Vsion = ({ navigation, route }) => {
   const [pressed, setPressed] = useState(false);
+  const { t, i18n } = useTranslation();
   return (
     <View style={styles.container}>
       <View
@@ -31,7 +33,7 @@ const Vsion = ({ navigation, route }) => {
             navigation.navigate('Tabs');
           }}>
           <Text style={[styles.tabText, true ? {} : { color: Colors.white }]}>
-            الخدمات
+            {t('servies')}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -45,7 +47,7 @@ const Vsion = ({ navigation, route }) => {
             setPressed(false);
           }}>
           <Text style={[styles.tabText, false ? {} : { color: Colors.white }]}>
-            عن المركز
+            {t('aboutcenter')}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -60,11 +62,11 @@ const Vsion = ({ navigation, route }) => {
             navigation.navigate('Doc');
           }}>
           <Text style={[styles.tabText, true ? {} : { color: Colors.white }]}>
-            الاطباء
+            {t('Doctors')}
           </Text>
         </TouchableOpacity>
       </View>
-      <Text style={styles.text}> الرويه</Text>
+      <Text style={styles.text}> {t('vison')}</Text>
       <View style={{ borderRadius: 7, borderColor: 'black' }}>
         <Text style={styles.text2}>
           {' '}
@@ -128,11 +130,11 @@ const styles = StyleSheet.create({
   },
   tabText: {
     color: Colors.primary1,
-    fontSize: 13,
+    fontSize: 14,
     fontWeight: 'bold',
     textAlign: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: 40,
+    paddingVertical: 20,
+    paddingHorizontal: 20,
   },
   image: {
     resizeMode: 'contain',

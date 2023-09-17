@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
 export default function Callus({ navigation }: any) {
   //to avoid using the side menu inside the login screen
   const { t, i18n } = useTranslation();
@@ -54,7 +55,7 @@ export default function Callus({ navigation }: any) {
                 style={{ width: 120, height: 120, borderRadius: 20 }}
                 source={require('../assets/images/ii.png')}
               />
-              <Text style={{ fontSize: 30 }}>اتصل بنا</Text>
+              <Text style={{ fontSize: 30 }}>{t('callus')}</Text>
               <Image
                 style={{ width: 440, height: 220, borderRadius: 20 }}
                 source={require('../assets/images/macc.png')}
@@ -67,13 +68,13 @@ export default function Callus({ navigation }: any) {
                 />
                 <View style={{ flexDirection: 'column', paddingLeft: 80 }}>
                   <Text style={{ fontSize: 25, paddingBottom: 15 }}>
-                    المملكه العربيه السعوديه
+                    {t('l1')}{' '}
                   </Text>
                   <Text style={{ fontSize: 25, paddingBottom: 15 }}>
-                    المنطقة الغربيه-منطقه مكه المكرمه-المشاعر المقدسة 23455
+                    {t('l2')}
                   </Text>
                   <Text style={{ fontSize: 25, paddingBottom: 10 }}>
-                    الرمز البريدي 8885
+                    {t('l3')}
                   </Text>
                 </View>
               </View>
@@ -99,7 +100,7 @@ export default function Callus({ navigation }: any) {
                 <FontAwesome5 name={'phone'} size={20} />
                 <View style={{ flexDirection: 'column', paddingLeft: 80 }}>
                   <Text style={{ fontSize: 25, paddingBottom: 15 }}>
-                    هاتف المدينه الطبيه:0125542525
+                    {t('l4')}
                   </Text>
                 </View>
               </View>

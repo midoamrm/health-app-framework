@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import Colors from '../assets/values/Colors';
@@ -10,7 +11,7 @@ export default function Myorder({ navigation, route }: any) {
     headerLeft: () => <CustomHeaderIcon onPress={navigation.openDrawer} />,
     swipeEnabled: true,
   });*/
-
+  const { t, i18n } = useTranslation();
   const [dateFrom, setDateFrom]: [Date | null, any] = useState(null);
   const [dateTo, setDateTo]: [Date | null, any] = useState(null);
   const [filteredData, setFilteredData]: [any, any] = useState([]);
@@ -128,18 +129,18 @@ export default function Myorder({ navigation, route }: any) {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Text style={styles.text}>طلباتي</Text>
+        <Text style={styles.text}>{t('myorder')}</Text>
         <DateInput
           dateFrom={dateFrom}
           dateTo={dateTo}
           setDateTo={setDateTo}
           setDateFrom={setDateFrom}
         />
-        <Accordian title={'نوع الطلب'} data={[]} />
-        <Accordian title={'حاله الطلب'} data={[]} />
+        <Accordian title={t('orderkind')} data={[]} />
+        <Accordian title={t('statuskind')} data={[]} />
         <View style={styles.innerContainer}>
           <TouchableOpacity style={styles.searchBtn} onPress={filterData}>
-            <Text style={styles.searchText}>بحث</Text>
+            <Text style={styles.searchText}>{t('search')}</Text>
           </TouchableOpacity>
           <View style={styles.border} />
 

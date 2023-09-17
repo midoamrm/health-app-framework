@@ -1,3 +1,4 @@
+import { t } from 'i18next';
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 import DatePicker from 'react-native-date-picker';
@@ -23,7 +24,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
                     day: 'numeric',
                   })
             }
-            placeholder="تاريخ الميلاد (الزامي)"
+            placeholder={t('date')}
             onTouchStart={() => setOpenFrom(true)}
           />
           <FontAwesome5
@@ -50,7 +51,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
         }}
         locale="ar"
         style={styles.datePicker}
-        title={'اختر التاريخ '}
+        title={t('date2')}
       />
     </>
   );

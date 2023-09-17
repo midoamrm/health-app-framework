@@ -5,6 +5,7 @@ import {
 } from '@react-navigation/drawer';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Badge } from 'react-native-elements';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -13,6 +14,7 @@ import Colors from '../assets/values/Colors';
 import user from '../utils/User';
 const CustomDrawer = (props) => {
   const navigation = useNavigation();
+  const { t, i18n } = useTranslation();
   return (
     <View style={{ flex: 1, backgroundColor: Colors.primary2 }}>
       <View
@@ -73,7 +75,7 @@ const CustomDrawer = (props) => {
                   fontWeight: 'bold',
                   color: Colors.primary1,
                 }}>
-                الشكاوى والاقتراحات
+                {t('Complaintsandsuggestions')}
               </Text>
             </View>
           </TouchableOpacity>
@@ -92,7 +94,7 @@ const CustomDrawer = (props) => {
                   fontWeight: 'bold',
                   color: Colors.primary1,
                 }}>
-                اتصل بنا
+                {t('callus')}
               </Text>
             </View>
           </TouchableOpacity>
@@ -120,7 +122,7 @@ const CustomDrawer = (props) => {
                   fontWeight: 'bold',
                   color: Colors.primary1,
                 }}>
-                تبديل الوان الوجهة
+                {t('Changedestinationcolors')}
               </Text>
             </View>
           </TouchableOpacity>
@@ -184,7 +186,7 @@ const CustomDrawer = (props) => {
               fontSize: 18,
               fontWeight: 'bold',
             }}>
-            تسجيل دخول
+            {t('signin')}
           </Text>
         </TouchableOpacity>
 
@@ -208,7 +210,7 @@ const CustomDrawer = (props) => {
               fontSize: 18,
               fontWeight: 'bold',
             }}>
-            تسجيل خروج
+            {t('signout')}
           </Text>
         </TouchableOpacity>
       </View>

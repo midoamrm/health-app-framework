@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, TextInput, View } from 'react-native';
 import DatePicker from 'react-native-date-picker';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Colors from '../assets/values/Colors';
-
 export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
   const [openFrom, setOpenFrom] = useState(false);
+  const { t, i18n } = useTranslation();
   const [openTo, setOpenTo] = useState(false);
   return (
     <>
@@ -23,7 +24,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
                     day: 'numeric',
                   })
             }
-            placeholder="التاريخ من"
+            placeholder={t('Datefrom')}
             onTouchStart={() => setOpenFrom(true)}
           />
           <FontAwesome5
@@ -46,7 +47,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
                     day: 'numeric',
                   })
             }
-            placeholder="التاريخ الي"
+            placeholder={t('Dateto')}
             onTouchStart={() => setOpenTo(true)}
           />
           <FontAwesome5
@@ -73,7 +74,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
         }}
         locale="ar"
         style={styles.datePicker}
-        title={'اختر التاريخ من'}
+        title={t('chooseDatefrom')}
       />
       <DatePicker
         modal
@@ -90,7 +91,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
         }}
         locale="ar"
         style={styles.datePicker}
-        title={'اختر التاريخ الي'}
+        title={t('chooseDateto')}
       />
     </>
   );
