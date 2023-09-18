@@ -53,7 +53,7 @@ export default function Callus({ navigation }: any) {
             <View style={styles.logoImgView}>
               <Image
                 style={{ width: 120, height: 120, borderRadius: 20 }}
-                source={require('../assets/images/ii.png')}
+                source={require('../assets/images/ik.png')}
               />
               <Text style={{ fontSize: 30 }}>{t('callus')}</Text>
               <Image

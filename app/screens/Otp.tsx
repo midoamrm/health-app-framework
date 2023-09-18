@@ -167,7 +167,7 @@ export default function OtpScreen({ navigation }: any) {
             <View style={styles.logoImgView}>
               <Image
                 style={{ width: 120, height: 120, borderRadius: 20 }}
-                source={require('../assets/images/ii.png')}
+                source={require('../assets/images/ik.png')}
               />
             </View>
             <Text style={styles.subText}>تم إرسال رمز التحقق علي رقمك</Text>

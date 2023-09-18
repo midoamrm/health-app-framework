@@ -258,7 +258,7 @@ export default function LoginScreen({ navigation }: any) {
             <View style={styles.logoImgView}>
               <Image
                 style={{ width: 120, height: 120, borderRadius: 20 }}
-                source={require('../assets/images/ii.png')}
+                source={require('../assets/images/ik.png')}
               />
             </View>
             <View style={styles.socialView}>
