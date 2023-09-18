@@ -24,7 +24,7 @@ export default function MainScreen({ navigation }: any) {
         <Text style={styles.text}>{t('main')}</Text>
         <View style={styles.cardContainer}>
           <CustomCard
-            title={list[0]}
+            title={t('Medicaldepartments')}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large1.png')}
@@ -34,7 +34,7 @@ export default function MainScreen({ navigation }: any) {
             onPress={() => navigation.navigate('Hospitals')}
           />
           <CustomCard
-            title={list[1]}
+            title={t('namedonation')}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large2.png')}
@@ -44,7 +44,7 @@ export default function MainScreen({ navigation }: any) {
             onPress={() => navigation.navigate('Donation')}
           />
           <CustomCard
-            title={list[2]}
+            title={t('Myreferral')}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large3.png')}
@@ -54,7 +54,7 @@ export default function MainScreen({ navigation }: any) {
             onPress={() => navigation.navigate('Referral')}
           />
           <CustomCard
-            title={list[3]}
+            title={t('Earlydetectionofbreasttumors')}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large4.png')}
@@ -64,7 +64,7 @@ export default function MainScreen({ navigation }: any) {
             onPress={() => navigation.navigate('EarlyDetection')}
           />
           <CustomCard
-            title={list[4]}
+            title={t('Myexperience')}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large5.png')}
@@ -74,7 +74,7 @@ export default function MainScreen({ navigation }: any) {
             onPress={() => navigation.navigate('Experience')}
           />
           <CustomCard
-            title={list[5]}
+            title={t('Instructions')}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large6.png')}
@@ -84,7 +84,7 @@ export default function MainScreen({ navigation }: any) {
             onPress={() => navigation.navigate('Instructions')}
           />
           <CustomCard
-            title={list[6]}
+            title={t('Formedicaleducation')}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large7.png')}
@@ -94,7 +94,7 @@ export default function MainScreen({ navigation }: any) {
             onPress={() => navigation.navigate('MedicalEducation')}
           />
           <CustomCard
-            title={list[7]}
+            title={t('Visitor requests')}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large8.png')}
@@ -104,7 +104,7 @@ export default function MainScreen({ navigation }: any) {
             onPress={() => navigation.navigate('VisitorRequests')}
           />
           <CustomCard
-            title={list[8]}
+            title={t('Complaintsandsuggestions')}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large9.png')}
@@ -114,7 +114,7 @@ export default function MainScreen({ navigation }: any) {
             onPress={() => navigation.navigate('Complaints')}
           />
           <CustomCard
-            title={list[9]}
+            title={t('callus')}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large10.png')}

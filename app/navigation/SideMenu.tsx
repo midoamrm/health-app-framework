@@ -418,7 +418,7 @@ export default function SideMenu(): JSX.Element {
           name={'temp8'}
           component={Myorder}
           options={{
-            title: t('Formedicaleducation'),
+            title: t('myorder'),
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon8.png')} />
             ),

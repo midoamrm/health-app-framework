@@ -71,20 +71,20 @@ const Tabs = ({ navigation, route }) => {
       <View style={{ borderRadius: 7, borderColor: 'black' }}>
         <Text style={styles.text2}>
           {' '}
-          مركز الأورام بمدينة الملك فهد الطبية هو أحد المراجع الرئيسية لمرضى
-          الدم والأورام بوزارة الصحة، حيث يستقبل هذا المركز جميع المرضى من جميع
-          أنحاء المملكة العربية السعودية لتلقي العلاج والمتابعة الدورية.
+          <Text style={{ fontSize: 14 }}> {t('F1')}</Text>
+          <Text style={{ fontSize: 14 }}> {t('F2')}</Text>
+          <Text style={{ fontSize: 14 }}> {t('F3')} </Text>.
         </Text>
         <Text style={styles.text2}>
           {' '}
-          وبدأ المركز في شهر جمادى الآخرة 1425 هـ الموافق شهر يونيو 2004، ومنُح
-          أول علاج كيميائي عن طريق الوريد في شهر رمضان من نفس العام.
+          <Text style={{ fontSize: 14 }}> {t('F4')} </Text>
+          <Text style={{ fontSize: 14 }}> {t('F5')} </Text>
         </Text>
         <Text style={styles.text2}>
           {' '}
-          وكان قادراً على تغطية جزء كبير من أمراض الدم والأورام بالإضافة إلى
-          العلاج الإشعاعي والعلاج التلطيفي، ولقد ساهم مركز الأورام الشامل في
-          تطوير الاستراتيجية الوطنية للسرطان بالتعاون مع وزارة الصحه
+          <Text style={{ fontSize: 14 }}> {t('F6')}</Text>
+          <Text style={{ fontSize: 14 }}> {t('F7')}</Text>
+          <Text style={{ fontSize: 14 }}> {t('F8')} </Text>
         </Text>
         <Text style={styles.text2}> {t('p1')}</Text>
         <Text style={styles.text2}> {t('p2')}</Text>

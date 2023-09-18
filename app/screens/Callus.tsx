@@ -87,11 +87,11 @@ export default function Callus({ navigation }: any) {
                 />
                 <View style={{ flexDirection: 'column', paddingLeft: 80 }}>
                   <Text style={{ fontSize: 25, paddingBottom: 15 }}>
-                    القلب ينشر عبير الشكر والوفاء والعرفان لك على كل ما بذلته في
-                    سبيل أن نصل إلى ما طمحنا إليه جميعًا، فقد كان نجاحنا اليوم
-                    ثمرة العمل المشترك الذي لم يكن ليتحقق لولا عملنا جميعاً في
-                    مركب واحد، وهنا نحن نجونا جميعاً، فكل الشكر والعرفان لكم
-                    أيها الأحبة.
+                    <Text> {t('h1')}</Text>
+                    <Text> {t('h2')}</Text>
+                    <Text> {t('h3')}</Text>
+                    <Text> {t('h4')}</Text>
+                    <Text> {t('h5')}</Text>
                   </Text>
                 </View>
               </View>

@@ -70,11 +70,11 @@ const Vsion = ({ navigation, route }) => {
       <View style={{ borderRadius: 7, borderColor: 'black' }}>
         <Text style={styles.text2}>
           {' '}
-          توفير منظومة صحية متطورة و متكاملة تعزز صحة الفرد و المجتمع و تقدم
-          الخدمات الصحية الوقائية و العلاجية و التأهيلية و التلطيفية الآمنة و
-          الشاملة بعدالة و جودة و كفاءة ،و القيام بالدور التنظيمي و الرقابي على
-          الخدمات المرتبطة بصحة و سلامة السكان و بشراكة فاعلة مع الجهات ذات
-          العلاقة وصولاً الى التغطية الصحية الشاملة
+          <Text style={{ fontSize: 15 }}> {t('v1')}</Text>
+          <Text style={{ fontSize: 15 }}> {t('v2')}</Text>
+          <Text style={{ fontSize: 15 }}> {t('v3')}</Text>
+          <Text style={{ fontSize: 15 }}> {t('v4')}</Text>
+          <Text style={{ fontSize: 15 }}> {t('v5')}</Text>
         </Text>
       </View>
     </View>
