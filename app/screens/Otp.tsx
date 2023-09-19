@@ -1,6 +1,7 @@
 import Clipboard from '@react-native-community/clipboard';
 import auth from '@react-native-firebase/auth';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   ActivityIndicator,
   Image,
@@ -22,7 +23,7 @@ export default function OtpScreen({ navigation }: any) {
   //to avoid using the side menu inside the login screen
   navigation.setOptions({ headerShown: false, swipeEnabled: false });
   const [counter, setCounter] = useState(60);
-
+  const { t, i18n } = useTranslation();
   // If null, no SMS has been sent
   // const [confirm, setConfirm] = useState(null);
   const [confirm, setConfirm]: [any, any] = useState();
@@ -145,7 +146,7 @@ export default function OtpScreen({ navigation }: any) {
             color="white"
             style={styles.backArrow}
           />
-          <Text style={styles.header}>الرئيسية</Text>
+          <Text style={styles.header}>{t('maiin')}</Text>
         </TouchableOpacity>
       </View>
     );
@@ -170,9 +171,9 @@ export default function OtpScreen({ navigation }: any) {
                 source={require('../assets/images/ik.png')}
               />
             </View>
-            <Text style={styles.subText}>تم إرسال رمز التحقق علي رقمك</Text>
+            <Text style={styles.subText}>{t('x1')}</Text>
             <TouchableOpacity onPress={() => confirmCode(code)}>
-              <Text style={styles.subText2}>ادخل رمز التحقق</Text>
+              <Text style={styles.subText2}>{t('x2')}</Text>
             </TouchableOpacity>
             <OtpInputs
               key={changed}
@@ -193,25 +194,23 @@ export default function OtpScreen({ navigation }: any) {
                 ...(wrongCode && { borderColor: 'red' }),
               }}
               style={{
-                flexDirection: 'row-reverse',
+                flexDirection: 'row',
                 justifyContent: 'center',
               }}
             />
             {isLoading && (
               <ActivityIndicator size="small" color={Colors.secondary1} />
             )}
-            {wrongCode && (
-              <Text style={styles.errorText}>رمز التحقق غير صحيح</Text>
-            )}
+            {wrongCode && <Text style={styles.errorText}>{t('x3')}</Text>}
             <Text style={styles.subText}>{formatTime(counter)}</Text>
             {counter === 0 && (
               <>
-                <Text style={styles.subText}>لم يتم استلام الرمز؟</Text>
+                <Text style={styles.subText}>{t('x4')}</Text>
                 <TouchableOpacity
                   onPress={() => {
                     signInWithPhoneNumber(user.phoneNum ?? '+201023815549');
                   }}>
-                  <Text style={styles.subText2}>إعادة إرسال الرمز؟</Text>
+                  <Text style={styles.subText2}>{t('x5')}</Text>
                 </TouchableOpacity>
               </>
             )}

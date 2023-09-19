@@ -1,5 +1,5 @@
-import { t } from 'i18next';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, TextInput, View } from 'react-native';
 import DatePicker from 'react-native-date-picker';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -8,6 +8,7 @@ import Colors from '../assets/values/Colors';
 export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
   const [openFrom, setOpenFrom] = useState(false);
   const [openTo, setOpenTo] = useState(false);
+  const { t, i18n } = useTranslation();
   return (
     <>
       <View style={{ flexDirection: 'row' }}>
@@ -36,23 +37,44 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
         </View>
       </View>
 
-      <DatePicker
-        modal
-        open={openFrom}
-        date={dateFrom ?? new Date()}
-        mode="date"
-        onConfirm={(date) => {
-          setOpenFrom(false);
-          setDateFrom(date);
-          console.log(dateFrom);
-        }}
-        onCancel={() => {
-          setOpenFrom(false);
-        }}
-        locale="ar"
-        style={styles.datePicker}
-        title={t('date2')}
-      />
+      {i18n.language === 'ar' && (
+        <DatePicker
+          modal
+          open={openFrom}
+          date={dateFrom ?? new Date()}
+          mode="date"
+          onConfirm={(date) => {
+            setOpenFrom(false);
+            setDateFrom(date);
+            console.log(dateFrom);
+          }}
+          onCancel={() => {
+            setOpenFrom(false);
+          }}
+          locale="ar"
+          style={styles.datePicker}
+          title={t('date2')}
+        />
+      )}
+      {i18n.language === 'en' && (
+        <DatePicker
+          modal
+          open={openFrom}
+          date={dateFrom ?? new Date()}
+          mode="date"
+          onConfirm={(date) => {
+            setOpenFrom(false);
+            setDateFrom(date);
+            console.log(dateFrom);
+          }}
+          onCancel={() => {
+            setOpenFrom(false);
+          }}
+          locale="en"
+          style={styles.datePicker}
+          title={t('date2')}
+        />
+      )}
     </>
   );
 };

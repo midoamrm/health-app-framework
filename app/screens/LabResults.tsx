@@ -183,8 +183,8 @@ export default function LabResultsScreen({ navigation, route }: any) {
               {text}
             </Text>
             <FontAwesome5
-              name={'arrow-left'}
-              size={30}
+              name={'trash'}
+              size={27}
               color={Colors.primary1}
               onPress={() => {
                 axios.delete(

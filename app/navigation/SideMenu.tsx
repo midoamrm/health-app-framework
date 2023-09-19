@@ -59,11 +59,11 @@ const ProfileInfo = () => {
         alignItems: 'center',
         padding: 10,
       }}>
-      <View style={{ width: 200 }}>
+      <View style={{ width: 200, flexDirection: 'column' }}>
         <Text style={{ color: Colors.white, textAlign: 'right' }}>
           {user_?.displayName ?? user.name}
         </Text>
-        <Text style={{ color: Colors.white }}>
+        <Text style={{ color: Colors.white, textAlign: 'right' }}>
           {user_?.phoneNumber ?? user.phoneNum}
         </Text>
       </View>
@@ -190,9 +190,10 @@ export default function SideMenu(): JSX.Element {
           }}
         />
         <Drawer.Screen
-          name={t('medicalservices')}
+          name={'MedicalServices'}
           component={MedicalServicesScreen}
           options={{
+            title: t('medicalservices'),
             drawerItemStyle: { display: 'ok' },
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon1.png')} />

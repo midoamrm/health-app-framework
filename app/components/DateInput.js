@@ -58,41 +58,82 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
           />
         </View>
       </View>
-
-      <DatePicker
-        modal
-        open={openFrom}
-        date={dateFrom ?? new Date()}
-        mode="date"
-        onConfirm={(date) => {
-          setOpenFrom(false);
-          setDateFrom(date);
-          console.log(dateFrom);
-        }}
-        onCancel={() => {
-          setOpenFrom(false);
-        }}
-        locale="ar"
-        style={styles.datePicker}
-        title={t('chooseDatefrom')}
-      />
-      <DatePicker
-        modal
-        open={openTo}
-        date={dateTo ?? new Date()}
-        mode="date"
-        onConfirm={(date) => {
-          setOpenTo(false);
-          setDateTo(date);
-          console.log(dateTo);
-        }}
-        onCancel={() => {
-          setOpenTo(false);
-        }}
-        locale="ar"
-        style={styles.datePicker}
-        title={t('chooseDateto')}
-      />
+      {i18n.language === 'ar' && (
+        <DatePicker
+          modal
+          open={openFrom}
+          date={dateFrom ?? new Date()}
+          mode="date"
+          onConfirm={(date) => {
+            setOpenFrom(false);
+            setDateFrom(date);
+            console.log(dateFrom);
+          }}
+          onCancel={() => {
+            setOpenFrom(false);
+          }}
+          locale="ar"
+          style={styles.datePicker}
+          title={t('chooseDatefrom')}
+        />
+      )}
+      {i18n.language === 'ar' && (
+        <DatePicker
+          modal
+          open={openTo}
+          date={dateTo ?? new Date()}
+          mode="date"
+          onConfirm={(date) => {
+            setOpenTo(false);
+            setDateTo(date);
+            console.log(dateTo);
+          }}
+          onCancel={() => {
+            setOpenTo(false);
+          }}
+          locale="ar"
+          style={styles.datePicker}
+          title={t('chooseDateto')}
+        />
+      )}
+      {i18n.language === 'en' && (
+        <DatePicker
+          modal
+          open={openFrom}
+          date={dateFrom ?? new Date()}
+          mode="date"
+          onConfirm={(date) => {
+            setOpenFrom(false);
+            setDateFrom(date);
+            console.log(dateFrom);
+          }}
+          onCancel={() => {
+            setOpenFrom(false);
+          }}
+          locale="en"
+          style={styles.datePicker}
+          title={t('chooseDatefrom')}
+        />
+      )}
+      {i18n.language === 'en' && (
+        <DatePicker
+          modal
+          open={openTo}
+          date={dateTo ?? new Date()}
+          mode="date"
+          onConfirm={(date) => {
+            setOpenTo(false);
+            setDateTo(date);
+            console.log(dateTo);
+          }}
+          onCancel={() => {
+            setOpenTo(false);
+          }}
+          locale="en"
+          style={styles.datePicker}
+          title={t('chooseDateto')}
+        />
+      )}
     </>
   );
 };
