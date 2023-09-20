@@ -97,7 +97,6 @@ export default Doc;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.primary2,
   },
   text: {
     color: Colors.primary1,

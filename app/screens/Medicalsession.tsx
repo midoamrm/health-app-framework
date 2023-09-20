@@ -143,7 +143,6 @@ function ProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.primary2,
   },
   cardContainer: {
     flex: 1,

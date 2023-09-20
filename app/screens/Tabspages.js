@@ -102,28 +102,27 @@ export default Tabs;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.primary2,
   },
   text: {
-    color: Colors.primary1,
+    color: 'black',
     fontSize: 20,
     fontWeight: 'bold',
     padding: 20,
   },
   text2: {
-    color: Colors.primary1,
+    color: 'black',
     fontSize: 14,
     fontWeight: 'bold',
     padding: 10,
   },
   text4: {
-    color: Colors.primary1,
+    color: 'black',
     fontSize: 16,
     fontWeight: 'bold',
     padding: 10,
   },
   text3: {
-    color: Colors.primary1,
+    color: 'black',
     fontSize: 12,
     fontWeight: 'bold',
     padding: 5,

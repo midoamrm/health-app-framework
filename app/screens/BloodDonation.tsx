@@ -292,7 +292,6 @@ export default function Blooddonation({ navigation }: any) {
         style={styles.scroll}>
         <View
           style={{
-            backgroundColor: '#1D5B8C',
             height: '100%',
             width: '100%',
           }}>
@@ -543,7 +542,6 @@ export default function Blooddonation({ navigation }: any) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#D7EFEE',
     width: '100%',
     height: '100%',
     borderTopRightRadius: 50,
@@ -611,7 +609,6 @@ const styles = StyleSheet.create({
     transform: [{ scale: 0.8 }],
   },
   scroll: {
-    backgroundColor: '#D7EFEE',
     width: '100%',
     height: '100%',
   },

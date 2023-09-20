@@ -1,7 +1,8 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import auth from '@react-native-firebase/auth';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -84,9 +85,28 @@ const ProfileInfo = () => {
     </View>
   );
 };
+var isDarkTheme = '';
+const cl = async () => {
+  try {
+    const value = await AsyncStorage.getItem('d');
+    console.log(value);
+    if (value === 'd') {
+      isDarkTheme = Colors.primary1;
+      console.log('gf', isDarkTheme);
+    }
+    if (value === 'l') {
+      isDarkTheme = Colors.primary2;
+      console.log('gf', isDarkTheme);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export default function SideMenu(): JSX.Element {
   const { t, i18n } = useTranslation();
+  cl();
+  useEffect(() => {}, []);
   return (
     <NavigationContainer>
       <Drawer.Navigator
@@ -109,14 +129,14 @@ export default function SideMenu(): JSX.Element {
             fontWeight: 'bold',
           },
           headerTitleStyle: {
-            color: Colors.primary1,
+            color: Colors.primary2,
           },
           headerLeft: () => (
             <CustomHeaderIcon onPress={navigation.openDrawer} />
           ),
           headerRight: () => <ProfileInfo />,
           sceneContainerStyle: {
-            backgroundColor: Colors.primary2,
+            backgroundColor: isDarkTheme,
           },
         })}>
         <Drawer.Screen

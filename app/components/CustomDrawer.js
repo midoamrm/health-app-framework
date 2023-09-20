@@ -1,10 +1,11 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import auth from '@react-native-firebase/auth';
 import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Badge } from 'react-native-elements';
@@ -15,6 +16,9 @@ import user from '../utils/User';
 const CustomDrawer = (props) => {
   const navigation = useNavigation();
   const { t, i18n } = useTranslation();
+  const [key, setKey] = useState('');
+  const [value, setValue] = useState('');
+
   return (
     <View style={{ flex: 1, backgroundColor: Colors.primary2 }}>
       <View
@@ -135,7 +139,17 @@ const CustomDrawer = (props) => {
               paddingHorizontal: 40,
               justifyContent: 'space-between',
             }}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={async () => {
+                try {
+                  setKey('d');
+                  setValue('d');
+                  await AsyncStorage.removeItem('d');
+                  await AsyncStorage.setItem(key, value);
+                } catch (error) {
+                  console.log(error);
+                }
+              }}>
               <View>
                 <Image
                   source={require('../assets/images/menu_style_icon1.png')}
@@ -146,7 +160,17 @@ const CustomDrawer = (props) => {
                 /> */}
               </View>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={async () => {
+                try {
+                  setKey('d');
+                  setValue('l');
+                  await AsyncStorage.removeItem('d');
+                  await AsyncStorage.setItem(key, value);
+                } catch (error) {
+                  console.log(error);
+                }
+              }}>
               <View>
                 <Image
                   source={require('../assets/images/menu_style_icon2.png')}
