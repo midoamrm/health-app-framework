@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import auth from '@react-native-firebase/auth';
 import React, { useEffect, useState } from 'react';
 import {
@@ -14,12 +15,30 @@ import {
 } from 'react-native';
 import Modal from 'react-native-modal';
 import Entypo from 'react-native-vector-icons/Entypo';
+import Colors from '../assets/values/Colors';
 // import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { useTranslation } from 'react-i18next';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { handleFacebookSingIn } from '../services/Facebook';
 import { handleGoogleSingIn } from '../services/Google';
 import user, { admin } from '../utils/User';
+var isDarkTheme = '';
+const cl = async () => {
+  try {
+    const value = await AsyncStorage.getItem('d');
+    console.log(value);
+    if (value === 'd') {
+      isDarkTheme = Colors.primary1;
+      console.log('gf', isDarkTheme);
+    }
+    if (value === 'l') {
+      isDarkTheme = Colors.primary2;
+      console.log('gf', isDarkTheme);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 export default function LoginScreen({ navigation }: any) {
   const { t, i18n } = useTranslation();
   //to avoid using the side menu inside the login screen
@@ -36,7 +55,7 @@ export default function LoginScreen({ navigation }: any) {
   const [securePassword, setSecurePassword] = useState(true);
 
   const [loading, setLoading] = useState(false);
-
+  cl();
   function onAuthStateChanged(user_: any) {
     console.log('Auth State Changed', user_);
     if (user_) {
@@ -450,7 +469,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    backgroundColor: '#D7EFEE',
+
     width: '100%',
     height: '100%',
     borderTopRightRadius: 50,

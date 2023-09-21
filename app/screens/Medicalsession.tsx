@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { t } from 'i18next';
 import React from 'react';
@@ -9,14 +10,34 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Colors from '../assets/values/Colors';
 import { CustomCard } from '../components';
 const Tab = createBottomTabNavigator();
-
+var isDarkTheme = '';
+const cl = async () => {
+  try {
+    const value = await AsyncStorage.getItem('d');
+    console.log(value);
+    if (value === 'd') {
+      isDarkTheme = Colors.primary1;
+      console.log('gf', isDarkTheme);
+    }
+    if (value === 'l') {
+      isDarkTheme = Colors.primary2;
+      console.log('gf', isDarkTheme);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+cl();
 export default function MedicalSessionScreen({ navigation }: any) {
   const { t, i18n } = useTranslation();
+
+  console.log('exp4', isDarkTheme);
   return (
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
         headerShown: false,
+
         tabBarStyle: {
           backgroundColor: Colors.white,
           borderTopWidth: 0,
@@ -143,6 +164,7 @@ function ProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: isDarkTheme,
   },
   cardContainer: {
     flex: 1,

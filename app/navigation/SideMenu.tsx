@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import auth from '@react-native-firebase/auth';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
@@ -120,6 +121,7 @@ export default function SideMenu(): JSX.Element {
             borderBottomRightRadius: 20,
           },
           headerShown: true,
+
           drawerActiveBackgroundColor: Colors.primary2,
           drawerActiveTintColor: Colors.primary1,
           drawerInactiveTintColor: Colors.primary1,
@@ -181,10 +183,10 @@ export default function SideMenu(): JSX.Element {
           name={t('Medicaldepartments')}
           component={MedicalSessionScreen}
           options={{
+            drawerItemStyle: { display: 'none' },
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon1.png')} />
             ),
-            drawerItemStyle: { display: 'ok' },
           }}
         />
         <Drawer.Screen
@@ -214,7 +216,7 @@ export default function SideMenu(): JSX.Element {
           component={MedicalServicesScreen}
           options={{
             title: t('medicalservices'),
-            drawerItemStyle: { display: 'ok' },
+            drawerItemStyle: { display: 'none' },
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon1.png')} />
             ),

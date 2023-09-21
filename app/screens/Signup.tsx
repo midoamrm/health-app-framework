@@ -631,7 +631,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    backgroundColor: '#D7EFEE',
+
     width: '100%',
     height: '100%',
     borderTopRightRadius: 50,

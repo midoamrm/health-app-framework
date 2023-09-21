@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -12,12 +13,30 @@ import {
 } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import Colors from '../assets/values/Colors';
+var isDarkTheme = '';
+const cl = async () => {
+  try {
+    const value = await AsyncStorage.getItem('d');
+    console.log(value);
+    if (value === 'd') {
+      isDarkTheme = Colors.primary1;
+      console.log('gf', isDarkTheme);
+    }
+    if (value === 'l') {
+      isDarkTheme = Colors.primary2;
+      console.log('gf', isDarkTheme);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 export default function Callus({ navigation }: any) {
   //to avoid using the side menu inside the login screen
   const { t, i18n } = useTranslation();
   navigation.setOptions({ headerShown: false, swipeEnabled: false });
 
+  cl();
   function appBar() {
     return (
       <View style={styles.appBarView}>
@@ -123,7 +142,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    backgroundColor: '#D7EFEE',
+    backgroundColor: isDarkTheme,
     width: '100%',
     height: '100%',
     borderTopRightRadius: 50,
