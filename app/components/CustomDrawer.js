@@ -9,16 +9,39 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Badge } from 'react-native-elements';
+import RNRestart from 'react-native-restart';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Colors from '../assets/values/Colors';
 import user from '../utils/User';
+
 const CustomDrawer = (props) => {
   const navigation = useNavigation();
   const { t, i18n } = useTranslation();
   const [key, setKey] = useState('');
   const [value, setValue] = useState('');
-
+  const dark = async () => {
+    try {
+      setKey('d');
+      setValue('d');
+      //  await AsyncStorage.removeItem('d');
+      await AsyncStorage.setItem(key, value);
+    } catch (error) {
+      console.log(error);
+    }
+    RNRestart.Restart();
+  };
+  const ligth = async () => {
+    try {
+      setKey('d');
+      setValue('l');
+      //   await AsyncStorage.removeItem('d');
+      await AsyncStorage.setItem(key, value);
+    } catch (error) {
+      console.log(error);
+    }
+    RNRestart.Restart();
+  };
   return (
     <View style={{ flex: 1, backgroundColor: Colors.primary2 }}>
       <View
@@ -139,17 +162,7 @@ const CustomDrawer = (props) => {
               paddingHorizontal: 40,
               justifyContent: 'space-between',
             }}>
-            <TouchableOpacity
-              onPress={async () => {
-                try {
-                  setKey('d');
-                  setValue('d');
-                  await AsyncStorage.removeItem('d');
-                  await AsyncStorage.setItem(key, value);
-                } catch (error) {
-                  console.log(error);
-                }
-              }}>
+            <TouchableOpacity onPress={() => dark()}>
               <View>
                 <Image
                   source={require('../assets/images/menu_style_icon1.png')}
@@ -160,17 +173,7 @@ const CustomDrawer = (props) => {
                 /> */}
               </View>
             </TouchableOpacity>
-            <TouchableOpacity
-              onPress={async () => {
-                try {
-                  setKey('d');
-                  setValue('l');
-                  await AsyncStorage.removeItem('d');
-                  await AsyncStorage.setItem(key, value);
-                } catch (error) {
-                  console.log(error);
-                }
-              }}>
+            <TouchableOpacity onPress={() => ligth()}>
               <View>
                 <Image
                   source={require('../assets/images/menu_style_icon2.png')}
