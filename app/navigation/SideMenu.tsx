@@ -31,6 +31,7 @@ import MedicalSessionScreen from '../screens/Medicalsession';
 import Myorder from '../screens/Myorder';
 import SignupScreen from '../screens/Signup';
 import Tabs from '../screens/Tabspages';
+import Todolist from '../screens/Todolist';
 import Update from '../screens/update';
 import Vsion from '../screens/Vsion';
 import user from '../utils/User';
@@ -442,6 +443,16 @@ export default function SideMenu(): JSX.Element {
           component={Myorder}
           options={{
             title: t('myorder'),
+            drawerIcon: () => (
+              <Image source={require('../assets/images/menu_icon8.png')} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'Todolist'}
+          component={Todolist}
+          options={{
+            title: t('Todolist'),
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon8.png')} />
             ),
