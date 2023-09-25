@@ -1,18 +1,15 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, useColorScheme, View } from 'react-native';
 const Todolist = ({ navigation, route }) => {
   //var id = route.params.idd;
-
+  const theme = useColorScheme();
   return (
     <View
-      style={{
-        marginTop: 100,
-        marginLeft: 40,
-        marginRight: 40,
-        padding: 20,
-        borderTopRightRadius: 40,
-        borderTopLeftRadius: 10,
-      }}>
+      style={
+        theme === 'light'
+          ? { backgroundColor: 'red' }
+          : { backgroundColor: 'black' }
+      }>
       <Text style={{ fontSize: 30 }}>To Do List content </Text>
     </View>
   );

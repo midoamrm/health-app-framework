@@ -1,11 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 import auth from '@react-native-firebase/auth';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Colors from '../assets/values/Colors';
@@ -107,7 +106,16 @@ const cl = async () => {
 
 export default function SideMenu(): JSX.Element {
   const { t, i18n } = useTranslation();
-  cl();
+  const theme = useColorScheme();
+  //cl();
+  if (theme === 'light') {
+    isDarkTheme = Colors.primary1;
+    console.log('gf', isDarkTheme);
+  }
+  if (theme !== 'light') {
+    isDarkTheme = Colors.primary2;
+    console.log('gf', isDarkTheme);
+  }
   useEffect(() => {}, []);
   return (
     <NavigationContainer>

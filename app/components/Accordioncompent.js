@@ -10,6 +10,7 @@ import {
   View,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+var isDarkTheme = '';
 
 export default class Accordian extends Component {
   constructor(props) {
@@ -125,6 +126,7 @@ const styles = StyleSheet.create({
     paddingLeft: 25,
     paddingRight: 18,
     alignItems: 'center',
+
     backgroundColor: '#FFFFFF',
   },
   childRow: {
