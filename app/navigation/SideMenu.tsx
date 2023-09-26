@@ -1,4 +1,3 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import auth from '@react-native-firebase/auth';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
@@ -87,32 +86,16 @@ const ProfileInfo = () => {
   );
 };
 var isDarkTheme = '';
-const cl = async () => {
-  try {
-    const value = await AsyncStorage.getItem('d');
-    console.log(value);
-    if (value === 'd') {
-      isDarkTheme = Colors.primary1;
-      console.log('gf', isDarkTheme);
-    }
-    if (value === 'l') {
-      isDarkTheme = Colors.primary2;
-      console.log('gf', isDarkTheme);
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
 
 export default function SideMenu(): JSX.Element {
   const { t, i18n } = useTranslation();
   const theme = useColorScheme();
-  //cl();
-  if (theme === 'light') {
+
+  if (theme !== 'light') {
     isDarkTheme = Colors.primary1;
     console.log('gf', isDarkTheme);
   }
-  if (theme !== 'light') {
+  if (theme === 'light') {
     isDarkTheme = Colors.primary2;
     console.log('gf', isDarkTheme);
   }
