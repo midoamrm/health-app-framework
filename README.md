@@ -51,7 +51,7 @@ This is one way to run your app — you can also run it directly from within And
 
 
 
-https://github.com/midoamrm/health-app/assets/36801941/0819da13-430a-40f9-b8fe-cfd8e8208718
+
 
 
 
