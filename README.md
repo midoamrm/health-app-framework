@@ -58,7 +58,7 @@ https://github.com/midoamrm/health-app/assets/36801941/1ac315e4-89a8-4cab-aba0-e
 # sign up with frirbase 
 
 https://github.com/midoamrm/health-app/assets/36801941/02475b15-a1f5-42df-95e2-6848f820a4db
-#2 sign up with frirbase 
+# sign up with frirbase 2
 https://github.com/midoamrm/health-app/assets/36801941/7fd583d7-7fb2-47e5-8eea-caf05f670cbd
 # All app:
 https://github.com/midoamrm/health-app/assets/36801941/36352de5-13e5-4f72-85ed-57973eb24379
