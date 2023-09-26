@@ -1,12 +1,29 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useColorScheme,
+  View,
+} from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Colors from '../assets/values/Colors';
 import { DateInput } from '../components';
+var isDarkTheme = '';
 export default function LabResultsScreen({ navigation, route }: any) {
+  const theme = useColorScheme();
+
+  if (theme !== 'light') {
+    isDarkTheme = 'white';
+    console.log('gf', isDarkTheme);
+  }
+  if (theme === 'light') {
+    isDarkTheme = 'black';
+    console.log('gf', isDarkTheme);
+  }
   /*  route.params.nav.setOptions({
     headerShown: true,
     headerLeft: () => <CustomHeaderIcon onPress={navigation.openDrawer} />,
@@ -231,7 +248,15 @@ export default function LabResultsScreen({ navigation, route }: any) {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Text style={styles.text}>{t('Laboratoryresults')}</Text>
+        <Text
+          style={{
+            color: isDarkTheme,
+            fontSize: 20,
+            fontWeight: 'bold',
+            padding: 20,
+          }}>
+          {t('Laboratoryresults')}
+        </Text>
         <DateInput
           dateFrom={dateFrom}
           dateTo={dateTo}

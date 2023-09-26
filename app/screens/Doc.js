@@ -1,11 +1,28 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useColorScheme,
+  View,
+} from 'react-native';
 import Colors from '../assets/values/Colors';
 
 const Doc = ({ navigation, route }) => {
   const [pressed, setPressed] = useState(false);
   const { t, i18n } = useTranslation();
+  const theme = useColorScheme();
+
+  if (theme !== 'light') {
+    isDarkTheme = 'black';
+    console.log('gf', isDarkTheme);
+  }
+  if (theme === 'light') {
+    isDarkTheme = '#FFFFFF';
+    console.log('gf', isDarkTheme);
+  }
   return (
     <View style={styles.container}>
       <View
@@ -72,7 +89,7 @@ const Doc = ({ navigation, route }) => {
       <View style={{ borderRadius: 7, borderColor: 'black' }}>
         <View
           style={{
-            backgroundColor: 'white',
+            backgroundColor: isDarkTheme,
             width: 350,
             height: 100,
             margin: 20,

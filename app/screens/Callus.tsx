@@ -9,6 +9,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  useColorScheme,
   View,
 } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -21,22 +22,31 @@ const cl = async () => {
     console.log(value);
     if (value === 'd') {
       isDarkTheme = Colors.primary1;
-      console.log('gf', isDarkTheme);
+      console.log('gk', isDarkTheme);
     }
     if (value === 'l') {
       isDarkTheme = Colors.primary2;
-      console.log('gf', isDarkTheme);
+      console.log('gk', isDarkTheme);
     }
   } catch (error) {
     console.log(error);
   }
 };
 export default function Callus({ navigation }: any) {
+  const theme = useColorScheme();
+
+  if (theme !== 'light') {
+    isDarkTheme = Colors.primary1;
+    console.log('gf', isDarkTheme);
+  }
+  if (theme === 'light') {
+    isDarkTheme = Colors.primary2;
+    console.log('gf', isDarkTheme);
+  }
   //to avoid using the side menu inside the login screen
   const { t, i18n } = useTranslation();
   navigation.setOptions({ headerShown: false, swipeEnabled: false });
 
-  cl();
   function appBar() {
     return (
       <View style={styles.appBarView}>
@@ -68,7 +78,16 @@ export default function Callus({ navigation }: any) {
             height: '100%',
             width: '100%',
           }}>
-          <View style={styles.container}>
+          <View
+            style={{
+              flex: 1,
+              alignItems: 'center',
+              justifyContent: 'space-evenly',
+              backgroundColor: isDarkTheme,
+              width: '100%',
+              height: '100%',
+              borderTopRightRadius: 50,
+            }}>
             <View style={styles.logoImgView}>
               <Image
                 style={{ width: 120, height: 120, borderRadius: 20 }}

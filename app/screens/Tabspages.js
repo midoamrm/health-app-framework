@@ -1,8 +1,25 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useColorScheme,
+  View,
+} from 'react-native';
 import Colors from '../assets/values/Colors';
+var isDarkTheme = '';
 const Tabs = ({ navigation, route }) => {
+  const theme = useColorScheme();
+
+  if (theme !== 'light') {
+    isDarkTheme = '#FFFFFF';
+    console.log('gf', isDarkTheme);
+  }
+  if (theme === 'light') {
+    isDarkTheme = Colors.primary1;
+    console.log('gf', isDarkTheme);
+  }
   const [pressed, setPressed] = useState(false);
   const { t, i18n } = useTranslation();
   return (
@@ -67,32 +84,121 @@ const Tabs = ({ navigation, route }) => {
           </Text>
         </TouchableOpacity>
       </View>
-      <Text style={styles.text}>{t('servies')}</Text>
+      <Text
+        style={{
+          color: isDarkTheme,
+          fontSize: 20,
+          fontWeight: 'bold',
+          padding: 20,
+        }}>
+        {t('servies')}
+      </Text>
       <View style={{ borderRadius: 7, borderColor: 'black' }}>
-        <Text style={styles.text2}>
+        <Text
+          style={{
+            color: isDarkTheme,
+            fontSize: 14,
+            fontWeight: 'bold',
+            padding: 10,
+          }}>
           {' '}
           <Text style={{ fontSize: 14 }}> {t('F1')}</Text>
           <Text style={{ fontSize: 14 }}> {t('F2')}</Text>
           <Text style={{ fontSize: 14 }}> {t('F3')} </Text>.
         </Text>
-        <Text style={styles.text2}>
+        <Text
+          style={{
+            color: isDarkTheme,
+            fontSize: 14,
+            fontWeight: 'bold',
+            padding: 10,
+          }}>
           {' '}
           <Text style={{ fontSize: 14 }}> {t('F4')} </Text>
           <Text style={{ fontSize: 14 }}> {t('F5')} </Text>
         </Text>
-        <Text style={styles.text2}>
+        <Text
+          style={{
+            color: isDarkTheme,
+            fontSize: 14,
+            fontWeight: 'bold',
+            padding: 10,
+          }}>
           {' '}
           <Text style={{ fontSize: 14 }}> {t('F6')}</Text>
           <Text style={{ fontSize: 14 }}> {t('F7')}</Text>
           <Text style={{ fontSize: 14 }}> {t('F8')} </Text>
         </Text>
-        <Text style={styles.text2}> {t('p1')}</Text>
-        <Text style={styles.text2}> {t('p2')}</Text>
-        <Text style={styles.text3}> {t('p3')}</Text>
-        <Text style={styles.text3}> {t('p4')}</Text>
-        <Text style={styles.text3}> {t('p5')}</Text>
-        <Text style={styles.text3}> {t('p6')}</Text>
-        <Text style={styles.text3}> {t('p7')}</Text>
+        <Text
+          style={{
+            color: isDarkTheme,
+            fontSize: 14,
+            fontWeight: 'bold',
+            padding: 10,
+          }}>
+          {' '}
+          {t('p1')}
+        </Text>
+        <Text
+          style={{
+            color: isDarkTheme,
+            fontSize: 14,
+            fontWeight: 'bold',
+            padding: 10,
+          }}>
+          {' '}
+          {t('p2')}
+        </Text>
+        <Text
+          style={{
+            color: isDarkTheme,
+            fontSize: 12,
+            fontWeight: 'bold',
+            padding: 5,
+          }}>
+          {' '}
+          {t('p3')}
+        </Text>
+        <Text
+          style={{
+            color: isDarkTheme,
+            fontSize: 12,
+            fontWeight: 'bold',
+            padding: 5,
+          }}>
+          {' '}
+          {t('p4')}
+        </Text>
+        <Text
+          style={{
+            color: isDarkTheme,
+            fontSize: 12,
+            fontWeight: 'bold',
+            padding: 5,
+          }}>
+          {' '}
+          {t('p5')}
+        </Text>
+        <Text
+          style={{
+            color: isDarkTheme,
+            fontSize: 12,
+            fontWeight: 'bold',
+            padding: 5,
+          }}>
+          {' '}
+          {t('p6')}
+        </Text>
+        <Text
+          style={{
+            color: isDarkTheme,
+            fontSize: 12,
+            fontWeight: 'bold',
+            padding: 5,
+          }}>
+          {' '}
+          {t('p7')}
+        </Text>
       </View>
     </View>
   );

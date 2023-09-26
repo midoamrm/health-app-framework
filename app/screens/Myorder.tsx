@@ -1,11 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useColorScheme,
+  View,
+} from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import Colors from '../assets/values/Colors';
 import { DateInput } from '../components';
 import Accordian from '../components/Accordioncompent';
+var isDarkTheme = '';
 export default function Myorder({ navigation, route }: any) {
+  const theme = useColorScheme();
+
+  if (theme !== 'light') {
+    isDarkTheme = 'white';
+    console.log('gf', isDarkTheme);
+  }
+  if (theme === 'light') {
+    isDarkTheme = 'black';
+    console.log('gf', isDarkTheme);
+  }
   /* route.params.nav.setOptions({
     headerShown: true,
     headerLeft: () => <CustomHeaderIcon onPress={navigation.openDrawer} />,
@@ -129,7 +146,15 @@ export default function Myorder({ navigation, route }: any) {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Text style={styles.text}>{t('myorder')}</Text>
+        <Text
+          style={{
+            color: isDarkTheme,
+            fontSize: 20,
+            fontWeight: 'bold',
+            padding: 20,
+          }}>
+          {t('myorder')}
+        </Text>
         <DateInput
           dateFrom={dateFrom}
           dateTo={dateTo}

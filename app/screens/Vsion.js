@@ -1,10 +1,26 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useColorScheme,
+  View,
+} from 'react-native';
 import Colors from '../assets/values/Colors';
 const Vsion = ({ navigation, route }) => {
   const [pressed, setPressed] = useState(false);
   const { t, i18n } = useTranslation();
+  const theme = useColorScheme();
+
+  if (theme !== 'light') {
+    isDarkTheme = '#FFFFFF';
+    console.log('gf', isDarkTheme);
+  }
+  if (theme === 'light') {
+    isDarkTheme = Colors.primary1;
+    console.log('gf', isDarkTheme);
+  }
   return (
     <View style={styles.container}>
       <View
@@ -66,9 +82,24 @@ const Vsion = ({ navigation, route }) => {
           </Text>
         </TouchableOpacity>
       </View>
-      <Text style={styles.text}> {t('vison')}</Text>
+      <Text
+        style={{
+          color: isDarkTheme,
+          fontSize: 20,
+          fontWeight: 'bold',
+          padding: 20,
+        }}>
+        {' '}
+        {t('vison')}
+      </Text>
       <View style={{ borderRadius: 7, borderColor: 'black' }}>
-        <Text style={styles.text2}>
+        <Text
+          style={{
+            color: isDarkTheme,
+            fontSize: 15,
+            fontWeight: 'bold',
+            padding: 20,
+          }}>
           {' '}
           <Text style={{ fontSize: 15 }}> {t('v1')}</Text>
           <Text style={{ fontSize: 15 }}> {t('v2')}</Text>

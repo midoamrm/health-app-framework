@@ -162,7 +162,7 @@ const CustomDrawer = (props) => {
               paddingHorizontal: 40,
               justifyContent: 'space-between',
             }}>
-            <TouchableOpacity onPress={() => dark()}>
+            <TouchableOpacity onPress={() => {}}>
               <View>
                 <Image
                   source={require('../assets/images/menu_style_icon1.png')}
@@ -173,7 +173,7 @@ const CustomDrawer = (props) => {
                 /> */}
               </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => ligth()}>
+            <TouchableOpacity onPress={() => {}}>
               <View>
                 <Image
                   source={require('../assets/images/menu_style_icon2.png')}

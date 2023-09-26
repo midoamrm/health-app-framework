@@ -36,7 +36,6 @@ const Language = ({ navigation }: any) => {
 export default Language;
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: '#f3f3f3',
     flex: 1,
   },
   sectionWrapper: {

@@ -10,6 +10,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  useColorScheme,
   View,
 } from 'react-native';
 import { RadioButtonProps } from 'react-native-radio-buttons-group';
@@ -17,8 +18,18 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Accordian from '../components/Accordioncompent';
 import DateInput from '../components/DateInput2';
 import user from '../utils/User';
-
+var isDarkTheme = '';
 export default function Blooddonation({ navigation }: any) {
+  const theme = useColorScheme();
+
+  if (theme !== 'light') {
+    isDarkTheme = 'white';
+    console.log('gf', isDarkTheme);
+  }
+  if (theme === 'light') {
+    isDarkTheme = 'black';
+    console.log('gf', isDarkTheme);
+  }
   //to avoid using the side menu inside the login screen
   const { t, i18n } = useTranslation();
   navigation.setOptions({ headerShown: false, swipeEnabled: false });
@@ -296,11 +307,18 @@ export default function Blooddonation({ navigation }: any) {
             width: '100%',
           }}>
           <View style={styles.container}>
-            <Text style={{ fontSize: 20 }}>{t('namedonation')}</Text>
+            <Text style={{ fontSize: 20, color: isDarkTheme }}>
+              {t('namedonation')}
+            </Text>
             <View style={styles.logoImgView}>
               <Image source={require('../assets/images/brr.png')} />
             </View>
-            <Text style={{ fontSize: 20, paddingBottom: 10 }}>
+            <Text
+              style={{
+                fontSize: 20,
+                paddingBottom: 10,
+                color: isDarkTheme,
+              }}>
               {t('donation')}
             </Text>
             <View style={{ flexDirection: 'row' }}>

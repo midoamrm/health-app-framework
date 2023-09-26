@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useColorScheme,
+  View,
+} from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Colors from '../assets/values/Colors';
 import { DateInput } from '../components';
 import Accordian from '../components/Accordioncompent';
+var isDarkTheme = '';
 export default function Daterecord({ navigation, route }: any) {
   /* route.params.nav.setOptions({
     headerShown: true,
@@ -17,6 +24,16 @@ export default function Daterecord({ navigation, route }: any) {
   const [dateTo, setDateTo]: [Date | null, any] = useState(null);
   const [filteredData, setFilteredData]: [any, any] = useState([]);
   const [pressed, setPressed] = useState(false);
+  const theme = useColorScheme();
+
+  if (theme !== 'light') {
+    isDarkTheme = 'white';
+    console.log('gf', isDarkTheme);
+  }
+  if (theme === 'light') {
+    isDarkTheme = 'black';
+    console.log('gf', isDarkTheme);
+  }
   const filterData = () => {
     if (dateFrom && dateTo) {
       const prevDay = new Date(dateFrom);
@@ -127,7 +144,15 @@ export default function Daterecord({ navigation, route }: any) {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Text style={styles.text}>{t('Recordappointments')}</Text>
+        <Text
+          style={{
+            color: isDarkTheme,
+            fontSize: 20,
+            fontWeight: 'bold',
+            padding: 20,
+          }}>
+          {t('Recordappointments')}
+        </Text>
         <DateInput
           dateFrom={dateFrom}
           dateTo={dateTo}
