@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, ScrollView, StyleSheet, TextInput, View } from 'react-native';
-const Resreve = ({ navigation, route }) => {
+const Resreve2 = ({ navigation, route }) => {
   //var id = route.params.idd;
   const [date, setdate] = useState('');
   const [description, setdescription] = useState('');

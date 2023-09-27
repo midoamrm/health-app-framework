@@ -29,7 +29,7 @@ import MedicalSessionScreen from '../screens/Medicalsession';
 import Myorder from '../screens/Myorder';
 import SignupScreen from '../screens/Signup';
 import Tabs from '../screens/Tabspages';
-import Todolist from '../screens/Todolist';
+import Resreve from '../screens/Todolist';
 import Update from '../screens/update';
 import Vsion from '../screens/Vsion';
 import user from '../utils/User';
@@ -440,10 +440,10 @@ export default function SideMenu(): JSX.Element {
           }}
         />
         <Drawer.Screen
-          name={'Todolist'}
-          component={Todolist}
+          name={'Resreve'}
+          component={Resreve}
           options={{
-            title: t('Todolist'),
+            title: t('حجز العيادات'),
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon8.png')} />
             ),
