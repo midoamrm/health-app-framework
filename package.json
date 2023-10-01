@@ -38,6 +38,7 @@
     "react-infinite-scroller": "^1.2.6",
     "react-native": "0.72.3",
     "react-native-date-picker": "^4.2.13",
+    "react-native-document-picker": "^9.0.1",
     "react-native-dotenv": "^3.4.9",
     "react-native-dropdown-picker": "^5.4.6",
     "react-native-elements": "^3.4.3",

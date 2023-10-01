@@ -104,7 +104,13 @@ const Resreve = ({ navigation, route }) => {
           style={{
             borderRadius: 40,
           }}>
-          <Button title="التالي" onPress={() => {}} />
+          <Button
+            title="التالي"
+            color={'#1D5B8C'}
+            onPress={() => {
+              navigation.navigate('Resreve2');
+            }}
+          />
         </View>
       </View>
     </ScrollView>

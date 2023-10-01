@@ -27,6 +27,7 @@ import Language from '../screens/Language';
 import Llist from '../screens/List';
 import MedicalSessionScreen from '../screens/Medicalsession';
 import Myorder from '../screens/Myorder';
+import Resreve2 from '../screens/resreve';
 import SignupScreen from '../screens/Signup';
 import Tabs from '../screens/Tabspages';
 import Resreve from '../screens/Todolist';
@@ -34,7 +35,6 @@ import Update from '../screens/update';
 import Vsion from '../screens/Vsion';
 import user from '../utils/User';
 import LabResultsStack from './LabResultsStack';
-
 const Drawer = createDrawerNavigator();
 
 function Home() {
@@ -439,11 +439,22 @@ export default function SideMenu(): JSX.Element {
             ),
           }}
         />
+
         <Drawer.Screen
           name={'Resreve'}
           component={Resreve}
           options={{
             title: t('حجز العيادات'),
+            drawerIcon: () => (
+              <Image source={require('../assets/images/menu_icon8.png')} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'Resreve2'}
+          component={Resreve2}
+          options={{
+            title: t('حجز '),
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon8.png')} />
             ),
