@@ -26,6 +26,7 @@ export default class Accordian extends Component {
   }
 
   render() {
+    // console.log(this.props.data);
     return (
       <View>
         <TouchableOpacity
@@ -111,7 +112,7 @@ const styles = StyleSheet.create({
   },
   itemInActive: {
     fontSize: 12,
-    color: '#A9A9A9',
+    color: 'black',
   },
   btnActive: {
     borderColor: '#008000',

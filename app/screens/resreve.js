@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
   Button,
+  FlatList,
   Image,
   ScrollView,
   StyleSheet,
@@ -10,13 +11,30 @@ import {
 } from 'react-native';
 import DocumentPicker from 'react-native-document-picker';
 const Resreve2 = ({ navigation, route }) => {
-  //var id = route.params.idd;
+  var data = route.params.datae;
   const [date, setdate] = useState('');
   const [description, setdescription] = useState('');
   const [text, settext] = useState('');
   const [field1, setfield1] = useState('');
   const [field2, setfield2] = useState('');
   const [filesToUpload, setFilesToUpload] = useState([]);
+  const [filesToUpload2, setFilesToUpload2] = useState([]);
+  console.log('hallo', data);
+
+  var dateen = data[0].toLocaleDateString('en-EG-u-nu-latn', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+  console.log(dateen);
+  var datear = data[0].toLocaleDateString('ar-EG-u-nu-latn', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+  console.log(datear);
   const Date = (text) => {
     setdate(text);
   };
@@ -35,6 +53,19 @@ const Resreve2 = ({ navigation, route }) => {
       setFilesToUpload([...filesToUpload, ...res]);
     });
   }
+  function readFiles2() {
+    console.log('Reading file');
+    DocumentPicker.pick({
+      type: [DocumentPicker.types.allFiles],
+      allowMultiSelection: true,
+    }).then((res) => {
+      // log file content
+      console.log(res);
+      // add file to filesToUpload
+      setFilesToUpload2([...filesToUpload2, ...res]);
+    });
+  }
+  console.log('f', filesToUpload);
   return (
     <ScrollView>
       <View
@@ -49,8 +80,7 @@ const Resreve2 = ({ navigation, route }) => {
         }}>
         <Text style={{ fontSize: 30 }}>معلومات عامه</Text>
         <Text style={{ fontSize: 20, paddingTop: 10, padding: 7 }}>
-          {' '}
-          اجراء التشخيص وعلاجها
+          {data[3][0].key}
         </Text>
         <View
           style={{
@@ -59,7 +89,7 @@ const Resreve2 = ({ navigation, route }) => {
           }}
         />
         <Text style={{ fontSize: 20, textAlign: 'left', padding: 7 }}>
-          26/6/2024
+          {datear}
         </Text>
         <View
           style={{
@@ -67,14 +97,16 @@ const Resreve2 = ({ navigation, route }) => {
             borderBottomWidth: StyleSheet.hairlineWidth,
           }}
         />
-        <Text style={{ fontSize: 20, textAlign: 'left', padding: 7 }}>90</Text>
+        <Text style={{ fontSize: 20, textAlign: 'left', padding: 7 }}>
+          {data[1]}
+        </Text>
         <View
           style={{
             borderBottomColor: 'black',
             borderBottomWidth: StyleSheet.hairlineWidth,
           }}
         />
-        <Text style={{ fontSize: 20, padding: 7 }}>الشرح</Text>
+        <Text style={{ fontSize: 20, padding: 7 }}>{data[2]}</Text>
         <View
           style={{
             borderBottomColor: 'black',
@@ -117,7 +149,22 @@ const Resreve2 = ({ navigation, route }) => {
             />
           </TouchableOpacity>
         </View>
-
+        <View
+          style={{
+            borderColor: 'black',
+            borderWidth: StyleSheet.hairlineWidth,
+          }}>
+          <FlatList
+            data={filesToUpload}
+            numColumns={1}
+            scrollEnabled={true}
+            renderItem={({ item, index }) => (
+              <View>
+                <Text>{item.name}</Text>
+              </View>
+            )}
+          />
+        </View>
         <View
           style={{
             borderColor: 'black',
@@ -133,13 +180,29 @@ const Resreve2 = ({ navigation, route }) => {
             }}>
             مرفقات اضافيه
           </Text>
-          <TouchableOpacity onPress={() => readFiles()}>
+          <TouchableOpacity onPress={() => readFiles2()}>
             <Image
               width={30}
               height={40}
               source={require('../assets/images/ukk.png')}
             />
           </TouchableOpacity>
+        </View>
+        <View
+          style={{
+            borderColor: 'black',
+            borderWidth: StyleSheet.hairlineWidth,
+          }}>
+          <FlatList
+            data={filesToUpload2}
+            numColumns={1}
+            scrollEnabled={true}
+            renderItem={({ item, index }) => (
+              <View>
+                <Text>{item.name}</Text>
+              </View>
+            )}
+          />
         </View>
       </View>
       <View style={{ flexDirection: 'row' }}>
