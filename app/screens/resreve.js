@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Button,
   FlatList,
   Image,
   ScrollView,
@@ -71,14 +70,14 @@ const Resreve2 = ({ navigation, route }) => {
       <View
         style={{
           backgroundColor: 'white',
-          marginTop: 50,
+          marginTop: 20,
           marginLeft: 40,
           marginRight: 40,
-          padding: 20,
-          borderBottomRightRadius: 40,
-          borderTopLeftRadius: 40,
+          padding: 10,
         }}>
-        <Text style={{ fontSize: 30 }}>معلومات عامه</Text>
+        <Text style={{ fontSize: 30, fontStyle: 'italic', fontWeight: 600 }}>
+          معلومات عامه
+        </Text>
         <Text style={{ fontSize: 20, paddingTop: 10, padding: 7 }}>
           {data[3][0].key}
         </Text>
@@ -97,34 +96,62 @@ const Resreve2 = ({ navigation, route }) => {
             borderBottomWidth: StyleSheet.hairlineWidth,
           }}
         />
-        <Text style={{ fontSize: 20, textAlign: 'left', padding: 7 }}>
-          {data[1]}
-        </Text>
-        <View
-          style={{
-            borderBottomColor: 'black',
-            borderBottomWidth: StyleSheet.hairlineWidth,
-          }}
-        />
-        <Text style={{ fontSize: 20, padding: 7 }}>{data[2]}</Text>
-        <View
-          style={{
-            borderBottomColor: 'black',
-            borderBottomWidth: StyleSheet.hairlineWidth,
-          }}
-        />
+        <View style={{ flexDirection: 'row' }}>
+          <View style={{ width: 280 }}>
+            <Text style={{ fontSize: 20, textAlign: 'left' }}>{data[1]}</Text>
+            <View
+              style={{
+                borderBottomColor: 'black',
+                borderBottomWidth: StyleSheet.hairlineWidth,
+              }}
+            />
+          </View>
+
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Resreve');
+            }}>
+            <Image
+              width={30}
+              height={40}
+              source={require('../assets/images/tk.png')}
+            />
+          </TouchableOpacity>
+        </View>
+        <View style={{ flexDirection: 'row' }}>
+          <View style={{ width: 280 }}>
+            <Text style={{ fontSize: 20, textAlign: 'left' }}>{data[2]}</Text>
+            <View
+              style={{
+                borderBottomColor: 'black',
+                borderBottomWidth: StyleSheet.hairlineWidth,
+              }}
+            />
+          </View>
+
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Resreve');
+            }}>
+            <Image
+              width={30}
+              height={40}
+              source={require('../assets/images/tk.png')}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
       <View
         style={{
           backgroundColor: 'white',
-          marginTop: 50,
+          marginTop: 5,
           marginLeft: 40,
           marginRight: 40,
           padding: 20,
-          borderBottomRightRadius: 40,
-          borderTopLeftRadius: 40,
         }}>
-        <Text style={{ fontSize: 30 }}>المرفقات</Text>
+        <Text style={{ fontSize: 30, fontStyle: 'italic', fontWeight: 600 }}>
+          المرفقات
+        </Text>
 
         <View
           style={{
@@ -205,30 +232,33 @@ const Resreve2 = ({ navigation, route }) => {
           />
         </View>
       </View>
-      <View style={{ flexDirection: 'row' }}>
+      <View
+        style={{
+          marginTop: 10,
+          marginLeft: 140,
+          marginRight: 40,
+        }}>
         <View
           style={{
-            width: 150,
-            marginLeft: 40,
-            borderRadius: 40,
-            marginTop: 10,
+            borderRadius: 100,
+            backgroundColor: '#1D5B8C',
+            width: 100,
           }}>
-          <Button
-            title="الرجوع للتعديل المعلومات"
-            color={'#1D5B8C'}
+          <TouchableOpacity
             onPress={() => {
-              navigation.navigate('Resreve');
-            }}
-          />
-        </View>
-        <View
-          style={{
-            marginTop: 10,
-            width: 130,
-            marginLeft: 40,
-            borderRadius: 40,
-          }}>
-          <Button title="مراجعه" color={'#1D5B8C'} onPress={() => {}} />
+              // navigation.navigate('Resreve2', { datae });
+            }}>
+            <Text
+              style={{
+                color: 'white',
+                paddingRight: 27,
+                paddingTop: 5,
+                paddingBottom: 5,
+                fontSize: 20,
+              }}>
+              مراجعه
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
     </ScrollView>

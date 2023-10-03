@@ -1,6 +1,5 @@
 import React, { Component, useState } from 'react';
 import {
-  Button,
   FlatList,
   LayoutAnimation,
   Platform,
@@ -20,7 +19,7 @@ const Resreve = ({ navigation, route }) => {
   const [description, setdescription] = useState('');
   const [textt, settext] = useState('');
   const [field1, setfield1] = useState('');
-  const [field2, setfield2] = useState('');
+  const [tt, settt] = useState('');
   const [dateFrom, setDateFrom] = useState(null);
   const [dateTo, setDateTo] = useState(null);
   const [dataa, setDataa] = useState([]);
@@ -28,6 +27,7 @@ const Resreve = ({ navigation, route }) => {
   class Accordian extends Component {
     constructor(props) {
       super(props);
+
       this.state = {
         data: props.data,
         expanded: false,
@@ -44,16 +44,9 @@ const Resreve = ({ navigation, route }) => {
           <TouchableOpacity
             style={styles.row}
             onPress={() => this.toggleExpand()}>
-            <Text style={[styles.title]}>{this.props.title}</Text>
-            <Icon
-              name={
-                this.state.expanded
-                  ? 'keyboard-arrow-up'
-                  : 'keyboard-arrow-down'
-              }
-              size={30}
-              color={'#000000'}
-            />
+            <Text style={[styles.title]}>
+              {tt === '' ? this.props.title : tt}
+            </Text>
           </TouchableOpacity>
           <View style={styles.parentHr} />
           {this.state.expanded && (
@@ -93,10 +86,13 @@ const Resreve = ({ navigation, route }) => {
     onClick = (index) => {
       const temp = this.state.data.slice();
       temp[index].value = !temp[index].value;
+      settt(temp[index].key);
       this.setState({ data: temp });
+      this.toggleExpand();
     };
 
     toggleExpand = () => {
+      //settt('');
       LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
       this.setState({ expanded: !this.state.expanded });
       if (this.state.expanded) {
@@ -131,8 +127,6 @@ const Resreve = ({ navigation, route }) => {
           marginLeft: 40,
           marginRight: 40,
           padding: 20,
-          borderTopRightRadius: 40,
-          borderTopLeftRadius: 40,
         }}>
         <View
           style={{
@@ -140,7 +134,9 @@ const Resreve = ({ navigation, route }) => {
             width: 200,
             borderRadius: 40,
           }}>
-          <Button title="معلومات عامه" color={'black'} />
+          <Text style={{ fontSize: 30, fontStyle: 'italic', fontWeight: 600 }}>
+            معلومات عامه
+          </Text>
         </View>
         <Accordian title={'اختر نوع المطالبه'} data={data} />
         <View
@@ -158,18 +154,25 @@ const Resreve = ({ navigation, route }) => {
 
         <View
           style={{
+            width: 240,
             borderBottomColor: 'black',
             borderBottomWidth: StyleSheet.hairlineWidth,
           }}
         />
-        <TextInput
-          placeholder={'المبلغ المطلوب'}
-          placeholderTextColor="black"
-          onChangeText={(text) => Description(text)}
-          value={description}
-          textAlign="right"
-          maxLength={30}
-        />
+        <View style={{ flexDirection: 'row' }}>
+          <TextInput
+            placeholder={'المبلغ المطلوب'}
+            placeholderTextColor="black"
+            onChangeText={(text) => Description(text)}
+            value={description}
+            textAlign="right"
+            maxLength={30}
+          />
+          <Text style={{ paddingTop: 10, fontSize: 15, fontWeight: 500 }}>
+            ج.م
+          </Text>
+        </View>
+
         <View
           style={{
             borderBottomColor: 'black',
@@ -190,27 +193,52 @@ const Resreve = ({ navigation, route }) => {
             borderBottomWidth: StyleSheet.hairlineWidth,
           }}
         />
+        <View
+          style={{
+            flexDirection: 'row',
+          }}>
+          <Text style={{ color: 'white' }}>ffffffffffffffffff</Text>
+
+          <View
+            style={{
+              borderRadius: 100,
+              backgroundColor: '#1D5B8C',
+              width: 100,
+              marginTop: 15,
+              paddingRight: 20,
+              alignContent: 'center',
+            }}>
+            <TouchableOpacity
+              onPress={() => {
+                var datae = [];
+                var d = [];
+                datae.push(dateFrom);
+                datae.push(description); // price
+                datae.push(field1); // explaintion
+                d = dataa.filter((x) => x.value === true);
+                datae.push(d);
+                //console.log('send data', datae);
+                navigation.navigate('Resreve2', { datae });
+              }}>
+              <Text
+                style={{
+                  color: 'white',
+                  paddingRight: 27,
+                  paddingTop: 5,
+                  paddingBottom: 5,
+                  fontSize: 20,
+                }}>
+                التالي
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
 
         <View
           style={{
             borderRadius: 40,
-          }}>
-          <Button
-            title="التالي"
-            color={'#1D5B8C'}
-            onPress={() => {
-              var datae = [];
-              var d = [];
-              datae.push(dateFrom);
-              datae.push(description); // price
-              datae.push(field1); // explaintion
-              d = dataa.filter((x) => x.value === true);
-              datae.push(d);
-              //console.log('send data', datae);
-              navigation.navigate('Resreve2', { datae });
-            }}
-          />
-        </View>
+          }}
+        />
       </View>
     </ScrollView>
   );
@@ -230,7 +258,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 14,
-    fontWeight: 'bold',
+
     color: '#000000',
   },
   itemActive: {
@@ -251,8 +279,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     height: 56,
-    paddingLeft: 25,
-    paddingRight: 18,
+
     alignItems: 'center',
 
     backgroundColor: '#FFFFFF',
