@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import {
   FlatList,
@@ -9,15 +10,14 @@ import {
   View,
 } from 'react-native';
 import DocumentPicker from 'react-native-document-picker';
+import * as Progress from 'react-native-progress';
 const Resreve2 = ({ navigation, route }) => {
   var data = route.params.datae;
-  const [date, setdate] = useState('');
-  const [description, setdescription] = useState('');
-  const [text, settext] = useState('');
-  const [field1, setfield1] = useState('');
-  const [field2, setfield2] = useState('');
+
   const [filesToUpload, setFilesToUpload] = useState([]);
   const [filesToUpload2, setFilesToUpload2] = useState([]);
+  const [progress, setProgress] = useState(0);
+  const [progress2, setProgress2] = useState(0);
   console.log('hallo', data);
 
   var dateen = data[0].toLocaleDateString('en-EG-u-nu-latn', {
@@ -34,12 +34,124 @@ const Resreve2 = ({ navigation, route }) => {
     day: 'numeric',
   });
   console.log(datear);
-  const Date = (text) => {
-    setdate(text);
+  ///
+  const uploadFiles = async () => {
+    // for each file in filesToUpload
+    // get file content
+
+    for (let index = 0; index < filesToUpload.length; index++) {
+      const element = filesToUpload[index];
+      // upload file to server https://v2.convertapi.com/upload  with axios
+      setFilesToUpload((curr) => {
+        curr[index].progress = 0;
+        return curr;
+      });
+
+      console.log(`Uploading file progress ${element.progress}`);
+      const formData = new FormData();
+      formData.append('file', {
+        uri: element.uri,
+        name: element.name,
+        type: element.type,
+      });
+      console.log(`Uploading file ${element.name}`);
+      try {
+        const response = await axios.post(
+          'https://v2.convertapi.com/upload',
+          formData,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+            onUploadProgress: (progressEvent) => {
+              const progress_ = progressEvent.loaded / progressEvent.total;
+              console.log(`Uploading file progress ${progress_}`);
+              setFilesToUpload((curr) => {
+                curr[index].progress = 100000 * progress_;
+                return curr;
+              });
+              setProgress(progress_);
+              console.log('fg', filesToUpload[index]);
+            },
+          },
+        );
+
+        console.log(
+          `Upload Finished Access the file at https://v2.convertapi.com/d/${response.data.FileId}`,
+        );
+        setFilesToUpload((curr) => {
+          curr[
+            index
+          ].url = `https://v2.convertapi.com/d/${response.data.FileId}`;
+          curr[index].progress = 1;
+          return curr;
+        });
+      } catch (e) {
+        console.log(e);
+      }
+      //console.log('fg', filesToUpload[index]);
+    }
   };
-  const Description = (text) => {
-    setdescription(text);
+  ///
+  ////
+  const uploadFiles2 = async () => {
+    // for each file in filesToUpload
+    // get file content
+
+    for (let index = 0; index < filesToUpload2.length; index++) {
+      const element = filesToUpload2[index];
+      // upload file to server https://v2.convertapi.com/upload  with axios
+      setFilesToUpload((curr) => {
+        curr[index].progress = 0;
+        return curr;
+      });
+
+      console.log(`Uploading file progress ${element.progress}`);
+      const formData = new FormData();
+      formData.append('file', {
+        uri: element.uri,
+        name: element.name,
+        type: element.type,
+      });
+      console.log(`Uploading file ${element.name}`);
+      try {
+        const response = await axios.post(
+          'https://v2.convertapi.com/upload',
+          formData,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+            onUploadProgress: (progressEvent) => {
+              const progress_ = progressEvent.loaded / progressEvent.total;
+              console.log(`Uploading file progress ${progress_}`);
+              setFilesToUpload2((curr) => {
+                curr[index].progress = 100000 * progress_;
+                return curr;
+              });
+              setProgress2(progress_);
+              console.log('fg', filesToUpload2[index]);
+            },
+          },
+        );
+
+        console.log(
+          `Upload Finished Access the file at https://v2.convertapi.com/d/${response.data.FileId}`,
+        );
+        setFilesToUpload2((curr) => {
+          curr[
+            index
+          ].url = `https://v2.convertapi.com/d/${response.data.FileId}`;
+          curr[index].progress = 1;
+          return curr;
+        });
+      } catch (e) {
+        console.log(e);
+      }
+      //console.log('fg', filesToUpload[index]);
+    }
   };
+  /////
   function readFiles() {
     console.log('Reading file');
     DocumentPicker.pick({
@@ -188,6 +300,12 @@ const Resreve2 = ({ navigation, route }) => {
             renderItem={({ item, index }) => (
               <View>
                 <Text>{item.name}</Text>
+                <Progress.Bar
+                  progress={filesToUpload[0].progress}
+                  indeterminate={false}
+                  width={null}
+                  height={6}
+                />
               </View>
             )}
           />
@@ -227,6 +345,12 @@ const Resreve2 = ({ navigation, route }) => {
             renderItem={({ item, index }) => (
               <View>
                 <Text>{item.name}</Text>
+                <Progress.Bar
+                  progress={filesToUpload2[0].progress}
+                  indeterminate={false}
+                  width={null}
+                  height={6}
+                />
               </View>
             )}
           />
@@ -246,6 +370,8 @@ const Resreve2 = ({ navigation, route }) => {
           }}>
           <TouchableOpacity
             onPress={() => {
+              uploadFiles();
+              uploadFiles2();
               // navigation.navigate('Resreve2', { datae });
             }}>
             <Text

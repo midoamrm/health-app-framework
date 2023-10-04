@@ -175,29 +175,57 @@ export default function OtpScreen({ navigation }: any) {
             <TouchableOpacity onPress={() => confirmCode(code)}>
               <Text style={styles.subText2}>{t('x2')}</Text>
             </TouchableOpacity>
-            <OtpInputs
-              key={changed}
-              handleChange={(code) => {
-                setWrongCode(false);
-                if (code.length === 6) {
-                  console.log(`Code is ${code}, you are good to go!`);
-                  confirmCode(code);
-                  setCode(code);
-                  Clipboard.setString('');
-                }
-              }}
-              numberOfInputs={6}
-              autofillFromClipboard={true}
-              inputStyles={{
-                ...styles.underlineStyleBase,
-                ...styles.underlineStyleHighLighted,
-                ...(wrongCode && { borderColor: 'red' }),
-              }}
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'center',
-              }}
-            />
+            {i18n.language === 'ar' && (
+              <OtpInputs
+                key={changed}
+                handleChange={(code) => {
+                  setWrongCode(false);
+                  if (code.length === 6) {
+                    console.log(`Code is ${code}, you are good to go!`);
+                    confirmCode(code);
+                    setCode(code);
+                    Clipboard.setString('');
+                  }
+                }}
+                numberOfInputs={6}
+                autofillFromClipboard={true}
+                inputStyles={{
+                  ...styles.underlineStyleBase,
+                  ...styles.underlineStyleHighLighted,
+                  ...(wrongCode && { borderColor: 'red' }),
+                }}
+                style={{
+                  flexDirection: 'row-reverse',
+                  justifyContent: 'center',
+                }}
+              />
+            )}
+            {i18n.language === 'en' && (
+              <OtpInputs
+                key={changed}
+                handleChange={(code) => {
+                  setWrongCode(false);
+                  if (code.length === 6) {
+                    console.log(`Code is ${code}, you are good to go!`);
+                    confirmCode(code);
+                    setCode(code);
+                    Clipboard.setString('');
+                  }
+                }}
+                numberOfInputs={6}
+                autofillFromClipboard={true}
+                inputStyles={{
+                  ...styles.underlineStyleBase,
+                  ...styles.underlineStyleHighLighted,
+                  ...(wrongCode && { borderColor: 'red' }),
+                }}
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                }}
+              />
+            )}
+
             {isLoading && (
               <ActivityIndicator size="small" color={Colors.secondary1} />
             )}

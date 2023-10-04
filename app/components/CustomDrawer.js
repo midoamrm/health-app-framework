@@ -223,6 +223,7 @@ const CustomDrawer = (props) => {
             // TODO: logout function should be defined in another file to avoid redundancy
             if (auth().currentUser) {
               auth().signOut();
+              RNRestart.Restart();
             } else {
               user.clear();
             }
