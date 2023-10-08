@@ -1,4 +1,5 @@
 import React, { Component, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   FlatList,
   LayoutAnimation,
@@ -15,6 +16,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import DateInput from '../components/DateInput3';
 const Resreve = ({ navigation, route }) => {
   //var id = route.params.idd;
+  const { t, i18n } = useTranslation();
   const [date, setdate] = useState('');
   const [description, setdescription] = useState('');
   const [textt, settext] = useState('');
@@ -166,9 +168,16 @@ const Resreve = ({ navigation, route }) => {
             onChangeText={(text) => Description(text)}
             value={description}
             textAlign="right"
+            style={{ color: 'black' }}
             maxLength={30}
           />
-          <Text style={{ paddingTop: 10, fontSize: 15, fontWeight: 500 }}>
+          <Text
+            style={{
+              paddingTop: 10,
+              fontSize: 15,
+              fontWeight: 500,
+              color: 'black',
+            }}>
             ج.م
           </Text>
         </View>
@@ -186,6 +195,7 @@ const Resreve = ({ navigation, route }) => {
           value={field1}
           textAlign="right"
           maxLength={30}
+          style={{ color: 'black' }}
         />
         <View
           style={{
@@ -203,7 +213,7 @@ const Resreve = ({ navigation, route }) => {
             style={{
               borderRadius: 100,
               backgroundColor: '#1D5B8C',
-              width: 100,
+              width: 140,
               marginTop: 15,
               paddingRight: 20,
               alignContent: 'center',
@@ -220,16 +230,32 @@ const Resreve = ({ navigation, route }) => {
                 //console.log('send data', datae);
                 navigation.navigate('Resreve2', { datae });
               }}>
-              <Text
-                style={{
-                  color: 'white',
-                  paddingRight: 27,
-                  paddingTop: 5,
-                  paddingBottom: 5,
-                  fontSize: 20,
-                }}>
-                التالي
-              </Text>
+              {i18n.language === 'ar' && (
+                <Text
+                  style={{
+                    color: 'white',
+                    paddingRight: 27,
+                    paddingTop: 5,
+                    paddingBottom: 5,
+                    fontSize: 20,
+                  }}>
+                  <Text style={{ color: '#1D5B8C' }}>لللل</Text>
+                  التالي
+                </Text>
+              )}
+              {i18n.language === 'en' && (
+                <Text
+                  style={{
+                    color: 'white',
+                    paddingRight: 27,
+                    paddingTop: 5,
+                    paddingBottom: 5,
+                    fontSize: 20,
+                  }}>
+                  <Text style={{ color: '#1D5B8C' }}>fffffff</Text>
+                  Next
+                </Text>
+              )}
             </TouchableOpacity>
           </View>
         </View>

@@ -187,10 +187,17 @@ const Resreve2 = ({ navigation, route }) => {
           marginRight: 40,
           padding: 10,
         }}>
-        <Text style={{ fontSize: 30, fontStyle: 'italic', fontWeight: 600 }}>
+        <Text
+          style={{
+            fontSize: 30,
+            fontStyle: 'italic',
+            color: 'black',
+            fontWeight: 600,
+          }}>
           معلومات عامه
         </Text>
-        <Text style={{ fontSize: 20, paddingTop: 10, padding: 7 }}>
+        <Text
+          style={{ fontSize: 20, paddingTop: 10, padding: 7, color: 'black' }}>
           {data[3][0].key}
         </Text>
         <View
@@ -199,7 +206,13 @@ const Resreve2 = ({ navigation, route }) => {
             borderBottomWidth: StyleSheet.hairlineWidth,
           }}
         />
-        <Text style={{ fontSize: 20, textAlign: 'left', padding: 7 }}>
+        <Text
+          style={{
+            fontSize: 20,
+            textAlign: 'left',
+            padding: 7,
+            color: 'black',
+          }}>
           {datear}
         </Text>
         <View
@@ -210,7 +223,9 @@ const Resreve2 = ({ navigation, route }) => {
         />
         <View style={{ flexDirection: 'row' }}>
           <View style={{ width: 280 }}>
-            <Text style={{ fontSize: 20, textAlign: 'left' }}>{data[1]}</Text>
+            <Text style={{ fontSize: 20, textAlign: 'left', color: 'black' }}>
+              {data[1]}
+            </Text>
             <View
               style={{
                 borderBottomColor: 'black',
@@ -232,7 +247,9 @@ const Resreve2 = ({ navigation, route }) => {
         </View>
         <View style={{ flexDirection: 'row' }}>
           <View style={{ width: 280 }}>
-            <Text style={{ fontSize: 20, textAlign: 'left' }}>{data[2]}</Text>
+            <Text style={{ fontSize: 20, textAlign: 'left', color: 'black' }}>
+              {data[2]}
+            </Text>
             <View
               style={{
                 borderBottomColor: 'black',
@@ -261,7 +278,13 @@ const Resreve2 = ({ navigation, route }) => {
           marginRight: 40,
           padding: 20,
         }}>
-        <Text style={{ fontSize: 30, fontStyle: 'italic', fontWeight: 600 }}>
+        <Text
+          style={{
+            fontSize: 30,
+            fontStyle: 'italic',
+            color: 'black',
+            fontWeight: 600,
+          }}>
           المرفقات
         </Text>
 
@@ -277,6 +300,7 @@ const Resreve2 = ({ navigation, route }) => {
               paddingTop: 10,
               paddingLeft: 165,
               paddingRight: 10,
+              color: 'black',
             }}>
             البطاقه
           </Text>
@@ -299,7 +323,7 @@ const Resreve2 = ({ navigation, route }) => {
             scrollEnabled={true}
             renderItem={({ item, index }) => (
               <View>
-                <Text>{item.name}</Text>
+                <Text style={{ color: 'black' }}>{item.name}</Text>
                 <Progress.Bar
                   progress={filesToUpload[0].progress}
                   indeterminate={false}
@@ -322,6 +346,7 @@ const Resreve2 = ({ navigation, route }) => {
               paddingTop: 10,
               paddingLeft: 110,
               paddingRight: 10,
+              color: 'black',
             }}>
             مرفقات اضافيه
           </Text>
@@ -344,7 +369,7 @@ const Resreve2 = ({ navigation, route }) => {
             scrollEnabled={true}
             renderItem={({ item, index }) => (
               <View>
-                <Text>{item.name}</Text>
+                <Text style={{ color: 'black' }}>{item.name}</Text>
                 <Progress.Bar
                   progress={filesToUpload2[0].progress}
                   indeterminate={false}
