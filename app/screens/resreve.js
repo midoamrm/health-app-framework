@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   FlatList,
   Image,
@@ -7,32 +8,51 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  useColorScheme,
   View,
 } from 'react-native';
 import DocumentPicker from 'react-native-document-picker';
 import * as Progress from 'react-native-progress';
+var isDarkTheme = '';
+var isDarkTheme2 = '';
 const Resreve2 = ({ navigation, route }) => {
   var data = route.params.datae;
-
+  const { t, i18n } = useTranslation();
   const [filesToUpload, setFilesToUpload] = useState([]);
   const [filesToUpload2, setFilesToUpload2] = useState([]);
   const [progress, setProgress] = useState(0);
   const [progress2, setProgress2] = useState(0);
+  const theme = useColorScheme();
+  if (theme !== 'light') {
+    isDarkTheme = 'white';
+    isDarkTheme2 = 'black';
+    console.log('gf', isDarkTheme);
+  }
+  if (theme === 'light') {
+    isDarkTheme = '#1D5B8C';
+    isDarkTheme2 = Colors.white;
+    console.log('gf', isDarkTheme);
+  }
   console.log('hallo', data);
+  var datear = [];
 
-  var dateen = data[0].toLocaleDateString('en-EG-u-nu-latn', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  });
-  console.log(dateen);
-  var datear = data[0].toLocaleDateString('ar-EG-u-nu-latn', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  });
+  if (i18n.language === 'ar') {
+    datear = data[0].toLocaleDateString('ar-EG-u-nu-latn', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
+  }
+  if (i18n.language === 'en') {
+    datear = data[0].toLocaleDateString('en-EG-u-nu-latn', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
+  }
+
   console.log(datear);
   ///
   const uploadFiles = async () => {
@@ -194,7 +214,7 @@ const Resreve2 = ({ navigation, route }) => {
             color: 'black',
             fontWeight: 600,
           }}>
-          معلومات عامه
+          {t('g1')}
         </Text>
         <Text
           style={{ fontSize: 20, paddingTop: 10, padding: 7, color: 'black' }}>
@@ -285,7 +305,7 @@ const Resreve2 = ({ navigation, route }) => {
             color: 'black',
             fontWeight: 600,
           }}>
-          المرفقات
+          {t('g2')}
         </Text>
 
         <View
@@ -294,23 +314,56 @@ const Resreve2 = ({ navigation, route }) => {
             borderWidth: StyleSheet.hairlineWidth,
             flexDirection: 'row',
           }}>
-          <Text
-            style={{
-              fontSize: 20,
-              paddingTop: 10,
-              paddingLeft: 165,
-              paddingRight: 10,
-              color: 'black',
-            }}>
-            البطاقه
-          </Text>
-          <TouchableOpacity onPress={() => readFiles()}>
-            <Image
-              width={30}
-              height={40}
-              source={require('../assets/images/ukk.png')}
-            />
-          </TouchableOpacity>
+          {i18n.language === 'en' && (
+            <>
+              <Text
+                style={{
+                  fontSize: 20,
+                  paddingTop: 10,
+
+                  paddingRight: 195,
+                  color: 'black',
+                }}>
+                {t('g3')}
+              </Text>
+              <TouchableOpacity
+                onPress={() => {
+                  readFiles();
+                  //    filesToUpload[0].progress = 0;
+                }}>
+                <Image
+                  width={30}
+                  height={40}
+                  source={require('../assets/images/ukk.png')}
+                />
+              </TouchableOpacity>
+            </>
+          )}
+          {i18n.language === 'ar' && (
+            <>
+              <Text
+                style={{
+                  fontSize: 20,
+                  paddingTop: 10,
+                  paddingLeft: 165,
+                  paddingRight: 10,
+                  color: 'black',
+                }}>
+                {t('g3')}
+              </Text>
+              <TouchableOpacity
+                onPress={() => {
+                  readFiles();
+                  //filesToUpload[0].progress = 0;
+                }}>
+                <Image
+                  width={30}
+                  height={40}
+                  source={require('../assets/images/ukk.png')}
+                />
+              </TouchableOpacity>
+            </>
+          )}
         </View>
         <View
           style={{
@@ -340,23 +393,56 @@ const Resreve2 = ({ navigation, route }) => {
             borderWidth: StyleSheet.hairlineWidth,
             flexDirection: 'row',
           }}>
-          <Text
-            style={{
-              fontSize: 20,
-              paddingTop: 10,
-              paddingLeft: 110,
-              paddingRight: 10,
-              color: 'black',
-            }}>
-            مرفقات اضافيه
-          </Text>
-          <TouchableOpacity onPress={() => readFiles2()}>
-            <Image
-              width={30}
-              height={40}
-              source={require('../assets/images/ukk.png')}
-            />
-          </TouchableOpacity>
+          {i18n.language === 'ar' && (
+            <>
+              <Text
+                style={{
+                  fontSize: 20,
+                  paddingTop: 10,
+                  paddingLeft: 110,
+                  paddingRight: 10,
+                  color: 'black',
+                }}>
+                {t('g4')}
+              </Text>
+              <TouchableOpacity
+                onPress={() => {
+                  readFiles2();
+                  //    filesToUpload2[0].progress = 0;
+                }}>
+                <Image
+                  width={30}
+                  height={40}
+                  source={require('../assets/images/ukk.png')}
+                />
+              </TouchableOpacity>
+            </>
+          )}
+          {i18n.language === 'en' && (
+            <>
+              <Text
+                style={{
+                  fontSize: 20,
+                  paddingTop: 10,
+
+                  paddingRight: 30,
+                  color: 'black',
+                }}>
+                {t('g4')}
+              </Text>
+              <TouchableOpacity
+                onPress={() => {
+                  readFiles2();
+                  //filesToUpload2[0].progress = 0;
+                }}>
+                <Image
+                  width={30}
+                  height={40}
+                  source={require('../assets/images/ukk.png')}
+                />
+              </TouchableOpacity>
+            </>
+          )}
         </View>
         <View
           style={{
@@ -381,37 +467,74 @@ const Resreve2 = ({ navigation, route }) => {
           />
         </View>
       </View>
-      <View
-        style={{
-          marginTop: 10,
-          marginLeft: 140,
-          marginRight: 40,
-        }}>
+      {i18n.language === 'en' && (
         <View
           style={{
-            borderRadius: 100,
-            backgroundColor: '#1D5B8C',
-            width: 100,
+            marginTop: 10,
+            marginLeft: 140,
+            marginRight: 40,
           }}>
-          <TouchableOpacity
-            onPress={() => {
-              uploadFiles();
-              uploadFiles2();
-              // navigation.navigate('Resreve2', { datae });
+          <View
+            style={{
+              borderRadius: 100,
+              backgroundColor: isDarkTheme,
+              width: 100,
             }}>
-            <Text
-              style={{
-                color: 'white',
-                paddingRight: 27,
-                paddingTop: 5,
-                paddingBottom: 5,
-                fontSize: 20,
+            <TouchableOpacity
+              onPress={() => {
+                uploadFiles();
+                uploadFiles2();
+
+                // navigation.navigate('Resreve2', { datae });
               }}>
-              مراجعه
-            </Text>
-          </TouchableOpacity>
+              <Text
+                style={{
+                  color: isDarkTheme2,
+                  paddingLeft: 22,
+                  paddingRight: 5,
+                  paddingTop: 5,
+                  paddingBottom: 5,
+                  fontSize: 20,
+                }}>
+                Review
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
+      )}
+      {i18n.language === 'ar' && (
+        <View
+          style={{
+            marginTop: 10,
+            marginLeft: 140,
+            marginRight: 40,
+          }}>
+          <View
+            style={{
+              borderRadius: 100,
+              backgroundColor: isDarkTheme,
+              width: 100,
+            }}>
+            <TouchableOpacity
+              onPress={() => {
+                uploadFiles();
+                uploadFiles2();
+                // navigation.navigate('Resreve2', { datae });
+              }}>
+              <Text
+                style={{
+                  color: isDarkTheme2,
+                  paddingRight: 27,
+                  paddingTop: 5,
+                  paddingBottom: 5,
+                  fontSize: 20,
+                }}>
+                مراجعه
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
     </ScrollView>
   );
 };

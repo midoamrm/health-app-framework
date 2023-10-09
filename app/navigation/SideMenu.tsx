@@ -444,7 +444,7 @@ export default function SideMenu(): JSX.Element {
           name={'Resreve'}
           component={Resreve}
           options={{
-            title: t('حجز العيادات'),
+            title: t('Resreveclinic'),
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon8.png')} />
             ),
@@ -454,7 +454,8 @@ export default function SideMenu(): JSX.Element {
           name={'Resreve2'}
           component={Resreve2}
           options={{
-            title: t('حجز '),
+            drawerItemStyle: { display: 'none' },
+            title: t('Resreve'),
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon8.png')} />
             ),

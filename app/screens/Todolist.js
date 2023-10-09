@@ -111,14 +111,28 @@ const Resreve = ({ navigation, route }) => {
     setfield1(text);
   };
 
-  var data = [
-    { key: 'عمل جراحي', value: false },
-    { key: 'ولاده طبيعيه ', value: false },
-    { key: 'ولاده قيصيريه', value: false },
-    { key: 'زياره طبيب', value: false },
-    { key: ' طبيب اسنان', value: false },
-    { key: ' علاج طبيعي', value: false },
-  ];
+  var data = [];
+  if (i18n.language === 'ar') {
+    data = [
+      { key: 'عمل جراحي', value: false },
+      { key: 'ولاده طبيعيه ', value: false },
+      { key: 'ولاده قيصيريه', value: false },
+      { key: 'زياره طبيب', value: false },
+      { key: ' طبيب اسنان', value: false },
+      { key: ' علاج طبيعي', value: false },
+    ];
+  }
+  if (i18n.language === 'en') {
+    data = [
+      { key: 'Surgical procedure', value: false },
+      { key: 'normal birth', value: false },
+      { key: 'Caesarean births', value: false },
+      { key: 'Visit a doctor', value: false },
+      { key: 'dentist', value: false },
+      { key: 'physical therapy', value: false },
+    ];
+  }
+
   console.log(dataa);
   return (
     <ScrollView>
@@ -136,11 +150,17 @@ const Resreve = ({ navigation, route }) => {
             width: 200,
             borderRadius: 40,
           }}>
-          <Text style={{ fontSize: 30, fontStyle: 'italic', fontWeight: 600 }}>
-            معلومات عامه
+          <Text
+            style={{
+              fontSize: 30,
+              fontStyle: 'italic',
+              color: 'black',
+              fontWeight: 600,
+            }}>
+            {t('g1')}
           </Text>
         </View>
-        <Accordian title={'اختر نوع المطالبه'} data={data} />
+        <Accordian title={t('g5')} data={data} />
         <View
           style={{
             borderBottomColor: 'black',
@@ -163,11 +183,10 @@ const Resreve = ({ navigation, route }) => {
         />
         <View style={{ flexDirection: 'row' }}>
           <TextInput
-            placeholder={'المبلغ المطلوب'}
+            placeholder={t('pay')}
             placeholderTextColor="black"
             onChangeText={(text) => Description(text)}
             value={description}
-            textAlign="right"
             style={{ color: 'black' }}
             maxLength={30}
           />
@@ -178,7 +197,7 @@ const Resreve = ({ navigation, route }) => {
               fontWeight: 500,
               color: 'black',
             }}>
-            ج.م
+            {t('po')}
           </Text>
         </View>
 
@@ -189,11 +208,10 @@ const Resreve = ({ navigation, route }) => {
           }}
         />
         <TextInput
-          placeholder={'الشرح'}
+          placeholder={t('exp')}
           placeholderTextColor="black"
           onChangeText={(text) => Field1(text)}
           value={field1}
-          textAlign="right"
           maxLength={30}
           style={{ color: 'black' }}
         />
@@ -208,29 +226,28 @@ const Resreve = ({ navigation, route }) => {
             flexDirection: 'row',
           }}>
           <Text style={{ color: 'white' }}>ffffffffffffffffff</Text>
-
-          <View
-            style={{
-              borderRadius: 100,
-              backgroundColor: '#1D5B8C',
-              width: 140,
-              marginTop: 15,
-              paddingRight: 20,
-              alignContent: 'center',
-            }}>
-            <TouchableOpacity
-              onPress={() => {
-                var datae = [];
-                var d = [];
-                datae.push(dateFrom);
-                datae.push(description); // price
-                datae.push(field1); // explaintion
-                d = dataa.filter((x) => x.value === true);
-                datae.push(d);
-                //console.log('send data', datae);
-                navigation.navigate('Resreve2', { datae });
+          {i18n.language === 'ar' && (
+            <View
+              style={{
+                borderRadius: 100,
+                backgroundColor: '#1D5B8C',
+                width: 100,
+                marginTop: 15,
+                paddingRight: 20,
+                alignContent: 'center',
               }}>
-              {i18n.language === 'ar' && (
+              <TouchableOpacity
+                onPress={() => {
+                  var datae = [];
+                  var d = [];
+                  datae.push(dateFrom);
+                  datae.push(description); // price
+                  datae.push(field1); // explaintion
+                  d = dataa.filter((x) => x.value === true);
+                  datae.push(d);
+                  //console.log('send data', datae);
+                  navigation.navigate('Resreve2', { datae });
+                }}>
                 <Text
                   style={{
                     color: 'white',
@@ -239,25 +256,49 @@ const Resreve = ({ navigation, route }) => {
                     paddingBottom: 5,
                     fontSize: 20,
                   }}>
-                  <Text style={{ color: '#1D5B8C' }}>لللل</Text>
                   التالي
                 </Text>
-              )}
-              {i18n.language === 'en' && (
-                <Text
-                  style={{
-                    color: 'white',
-                    paddingRight: 27,
-                    paddingTop: 5,
-                    paddingBottom: 5,
-                    fontSize: 20,
-                  }}>
-                  <Text style={{ color: '#1D5B8C' }}>fffffff</Text>
-                  Next
-                </Text>
-              )}
-            </TouchableOpacity>
-          </View>
+              </TouchableOpacity>
+            </View>
+          )}
+          {i18n.language === 'en' && (
+            <View
+              style={{
+                borderRadius: 100,
+                backgroundColor: '#1D5B8C',
+                width: 140,
+                marginTop: 15,
+                paddingRight: 20,
+                alignContent: 'center',
+              }}>
+              <TouchableOpacity
+                onPress={() => {
+                  var datae = [];
+                  var d = [];
+                  datae.push(dateFrom);
+                  datae.push(description); // price
+                  datae.push(field1); // explaintion
+                  d = dataa.filter((x) => x.value === true);
+                  datae.push(d);
+                  //console.log('send data', datae);
+                  navigation.navigate('Resreve2', { datae });
+                }}>
+                {i18n.language === 'en' && (
+                  <Text
+                    style={{
+                      color: 'white',
+                      paddingRight: 27,
+                      paddingTop: 5,
+                      paddingBottom: 5,
+                      fontSize: 20,
+                    }}>
+                    <Text style={{ color: '#1D5B8C' }}>fffffff</Text>
+                    Next
+                  </Text>
+                )}
+              </TouchableOpacity>
+            </View>
+          )}
         </View>
 
         <View

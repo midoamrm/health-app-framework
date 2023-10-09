@@ -115,7 +115,18 @@
 "x2":"Enter the verification code",
 "x3":"The verification code is invalid",
 "x4":"Code not received?",
-"x5":"Resend the code?"
+"x5":"Resend the code?",
+"pay":"the requireded  amount",
+"exp":"explanation",
+"po":"Egy Pound",
+"u1":"Surgical procedure",
+"g1":"General information",
+"g2":"Attachments",
+"g3":"card",
+"g4":"Additional attachments",
+"g5":"Select the claim type",
+"Resreveclinic":"Resreve clinic",
+"Resreve":"Resreve"
 
 
 
