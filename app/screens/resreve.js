@@ -12,16 +12,21 @@ import {
   View,
 } from 'react-native';
 import DocumentPicker from 'react-native-document-picker';
+import Modal from 'react-native-modal';
 import * as Progress from 'react-native-progress';
 var isDarkTheme = '';
 var isDarkTheme2 = '';
 const Resreve2 = ({ navigation, route }) => {
   var data = route.params.datae;
   const { t, i18n } = useTranslation();
+  const [isModalVisible, setModalVisible] = useState(false);
   const [filesToUpload, setFilesToUpload] = useState([]);
   const [filesToUpload2, setFilesToUpload2] = useState([]);
   const [progress, setProgress] = useState(0);
   const [progress2, setProgress2] = useState(0);
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
   const theme = useColorScheme();
   if (theme !== 'light') {
     isDarkTheme = 'white';
@@ -99,6 +104,7 @@ const Resreve2 = ({ navigation, route }) => {
         console.log(
           `Upload Finished Access the file at https://v2.convertapi.com/d/${response.data.FileId}`,
         );
+
         setFilesToUpload((curr) => {
           curr[
             index
@@ -496,7 +502,7 @@ const Resreve2 = ({ navigation, route }) => {
                   paddingBottom: 5,
                   fontSize: 20,
                 }}>
-                Review
+                Upload
               </Text>
             </TouchableOpacity>
           </View>
@@ -519,6 +525,7 @@ const Resreve2 = ({ navigation, route }) => {
               onPress={() => {
                 uploadFiles();
                 uploadFiles2();
+                toggleModal();
                 // navigation.navigate('Resreve2', { datae });
               }}>
               <Text
@@ -529,10 +536,21 @@ const Resreve2 = ({ navigation, route }) => {
                   paddingBottom: 5,
                   fontSize: 20,
                 }}>
-                مراجعه
+                رفع
               </Text>
             </TouchableOpacity>
           </View>
+          <Modal isVisible={isModalVisible} style={styles.mainModel}>
+            <View style={styles.failureContent}>
+              <Text style={styles.popupSubTitle}>Files have been uploaded</Text>
+
+              <View style={styles.failureBtnView}>
+                <TouchableOpacity onPress={toggleModal}>
+                  <Text style={styles.failureBtnText}>Ok</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Modal>
         </View>
       )}
     </ScrollView>
@@ -540,3 +558,207 @@ const Resreve2 = ({ navigation, route }) => {
 };
 
 export default Resreve2;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+
+    width: '100%',
+    height: '100%',
+    borderTopRightRadius: 50,
+  },
+  logo: {
+    fontWeight: 'bold',
+    fontSize: 50,
+    color: '#124963',
+    marginBottom: 40,
+  },
+  inputView: {
+    width: '80%',
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    height: '1%',
+    marginBottom: 20,
+    justifyContent: 'center',
+    padding: 20,
+  },
+  inputText: {
+    height: 50,
+    color: '#124963',
+  },
+  loginBtn: {
+    width: '80%',
+    backgroundColor: '#00AE93',
+    borderRadius: 15,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    // marginTop: 40,
+    marginBottom: 10,
+  },
+  loginText: {
+    color: 'white',
+    fontSize: 25,
+  },
+  logoImgView: {
+    width: '80%',
+    height: '20%',
+    alignItems: 'center',
+    transform: [{ scale: 0.9 }],
+    paddingBottom: 30,
+    borderRadius: 70,
+  },
+  allInputs: {
+    width: '100%',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  titleImg: {
+    alignItems: 'center',
+    // modify the size of the image
+    transform: [{ scale: 0.8 }],
+    marginTop: -20,
+  },
+  scroll: {
+    backgroundColor: '#D7EFEE',
+    width: '100%',
+    height: '100%',
+  },
+  appBarView: {
+    backgroundColor: '#1D5B8C',
+  },
+  appBar: {
+    // width: '100%',
+    height: 50,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  header: {
+    direction: 'rtl',
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: 'bold',
+    fontFamily: 'Arial',
+    paddingRight: 10,
+  },
+  backArrow: {
+    // fontWeight: 'bold',
+    // fontFamily: 'Arial',
+    paddingRight: 10,
+  },
+  mainModel: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  popupTitle: {
+    color: 'white',
+    fontSize: 30,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginVertical: 20,
+  },
+  popupSubTitle: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginVertical: 5,
+  },
+  failureContent: {
+    backgroundColor: '#1D5B8C',
+    borderRadius: 30,
+    padding: 10,
+    alignItems: 'center',
+    width: '95%',
+  },
+  failureBtnView: {
+    backgroundColor: 'white',
+    borderRadius: 30,
+    paddingVertical: 5,
+    width: '95%',
+    marginVertical: 10,
+  },
+  failureBtnText: {
+    color: '#1D5B8C',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  successContent: {
+    backgroundColor: '#1D5B8C',
+    borderRadius: 30,
+    padding: 10,
+    alignItems: 'center',
+    width: '95%',
+  },
+  sucessBtnView: {
+    backgroundColor: 'white',
+    borderRadius: 30,
+    paddingVertical: 5,
+    width: '95%',
+    marginVertical: 10,
+  },
+  successBtnText: {
+    color: '#1D5B8C',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  errorText: {
+    color: 'red',
+    fontWeight: 'bold',
+    fontSize: 14,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    backgroundColor: '#ffe6e6',
+    borderRadius: 5,
+    marginBottom: 10,
+  },
+  secureBtn: {
+    position: 'absolute',
+    right: 10,
+    top: 10,
+  },
+  socialBtn: {
+    width: '80%',
+    backgroundColor: '#00AE93',
+    borderRadius: 15,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 10,
+    marginBottom: 10,
+    flexDirection: 'row',
+  },
+  socialBtnText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginHorizontal: 10,
+  },
+  socialView: {
+    width: '100%',
+    alignItems: 'center',
+    // marginTop: 10,
+  },
+  lineSeparatorView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '80%',
+    marginTop: 10,
+  },
+  lineSeparator: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#124963',
+  },
+  lineSeparatorText: {
+    color: '#124963',
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginHorizontal: 10,
+  },
+});

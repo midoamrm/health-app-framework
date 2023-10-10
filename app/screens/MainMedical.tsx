@@ -2,16 +2,28 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { t } from 'i18next';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { Image } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Colors from '../assets/values/Colors';
 import { CustomCard } from '../components';
 const Tab = createBottomTabNavigator();
-
+var isDarkTheme = '';
 export default function MedicalServicesScreen({ navigation }: any) {
   const { t, i18n } = useTranslation();
+  // need to set text dark mode
+  const theme = useColorScheme();
+  if (theme !== 'light') {
+    isDarkTheme = '#1D5B8C';
+
+    console.log('gf', isDarkTheme);
+  }
+  if (theme === 'light') {
+    isDarkTheme = Colors.grey;
+
+    console.log('gf', isDarkTheme);
+  }
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -65,7 +77,11 @@ export default function MedicalServicesScreen({ navigation }: any) {
 
 function MedicalServicesContent({ navigation }: any) {
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: isDarkTheme,
+      }}>
       <ScrollView>
         <Text style={styles.text}>{t('services')}</Text>
         <View style={styles.cardContainer}>
@@ -167,7 +183,11 @@ function MedicalServicesContent({ navigation }: any) {
 }
 function MyCalender() {
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: isDarkTheme,
+      }}>
       <Text style={styles.text}>{t('cla')}</Text>
     </View>
   );
@@ -175,16 +195,17 @@ function MyCalender() {
 
 function ProfileScreen() {
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: isDarkTheme,
+      }}>
       <Text style={styles.text}> {t('file')}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   cardContainer: {
     flex: 1,
     flexDirection: 'row',

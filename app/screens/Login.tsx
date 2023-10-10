@@ -19,7 +19,6 @@ import Colors from '../assets/values/Colors';
 // import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { useTranslation } from 'react-i18next';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { handleFacebookSingIn } from '../services/Facebook';
 import { handleGoogleSingIn } from '../services/Google';
 import user, { admin } from '../utils/User';
 var isDarkTheme = '';
@@ -46,6 +45,7 @@ export default function LoginScreen({ navigation }: any) {
 
   const [isModalVisibleSucess, setModalSucessVisible] = useState(false);
   const [isModalVisibleFailure, setModalFailureVisible] = useState(false);
+  const [isModalVisible, setModalVisible] = useState(false);
   const [changed, setChanged] = useState(0);
 
   const [email, setEmail] = useState('');
@@ -156,7 +156,9 @@ export default function LoginScreen({ navigation }: any) {
 
   const signInWithFacebook = async () => {
     setLoading(true);
-    try {
+    toggleModal();
+    setLoading(false);
+    /* try {
       const res = await handleFacebookSingIn();
       console.log('facebook res: ', res);
 
@@ -167,7 +169,7 @@ export default function LoginScreen({ navigation }: any) {
       console.log(error.message);
       setModalFailureVisible(true);
     }
-    setLoading(false);
+  */
   };
 
   const validateEmail = (text: string) => {
@@ -225,6 +227,9 @@ export default function LoginScreen({ navigation }: any) {
 
   const toggleModalFailure = () => {
     setModalFailureVisible(!isModalVisibleFailure);
+  };
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
   };
 
   const handleLogin = () => {
@@ -424,7 +429,7 @@ export default function LoginScreen({ navigation }: any) {
                   color="white"
                 />
                 {/* <FontAwesome5 name="laugh" size={100} color="white" /> */}
-                <Text style={styles.popupTitle}>تم!!</Text>
+
                 <Text style={styles.popupSubTitle}>تم تسجيل الدخول بنجاح</Text>
                 <View style={styles.sucessBtnView}>
                   <TouchableOpacity
@@ -446,13 +451,27 @@ export default function LoginScreen({ navigation }: any) {
               <View style={styles.failureContent}>
                 <Entypo name="circle-with-cross" size={100} color="white" />
                 {/* <Ionicons name="sad-outline" size={100} color="white" /> */}
-                <Text style={styles.popupTitle}>فشل!!</Text>
+
                 <Text style={styles.popupSubTitle}>
                   بيانات الدخول غير صحيحة من فضلك أعد المحاولة
                 </Text>
                 <View style={styles.failureBtnView}>
                   <TouchableOpacity onPress={toggleModalFailure}>
                     <Text style={styles.failureBtnText}>الرجوع</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </Modal>
+            <Modal isVisible={isModalVisible} style={styles.mainModel}>
+              <View style={styles.failureContent}>
+                {/* <Ionicons name="sad-outline" size={100} color="white" /> */}
+
+                <Text style={styles.popupSubTitle}>
+                  Facebook not implemented yet comming soon
+                </Text>
+                <View style={styles.failureBtnView}>
+                  <TouchableOpacity onPress={toggleModal}>
+                    <Text style={styles.failureBtnText}>Back</Text>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -572,7 +591,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   failureContent: {
-    backgroundColor: '#D50000',
+    backgroundColor: '#1D5B8C',
     borderRadius: 30,
     padding: 10,
     alignItems: 'center',
@@ -586,13 +605,13 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   failureBtnText: {
-    color: '#D50000',
+    color: '#1D5B8C',
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   successContent: {
-    backgroundColor: '#00C853',
+    backgroundColor: '#1D5B8C',
     borderRadius: 30,
     padding: 10,
     alignItems: 'center',
@@ -606,7 +625,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   successBtnText: {
-    color: '#00C853',
+    color: '#1D5B8C',
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
