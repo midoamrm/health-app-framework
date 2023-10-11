@@ -16,12 +16,15 @@ import Modal from 'react-native-modal';
 import * as Progress from 'react-native-progress';
 var isDarkTheme = '';
 var isDarkTheme2 = '';
+var pp = 0;
 const Resreve2 = ({ navigation, route }) => {
   var data = route.params.datae;
   const { t, i18n } = useTranslation();
   const [isModalVisible, setModalVisible] = useState(false);
   const [filesToUpload, setFilesToUpload] = useState([]);
   const [filesToUpload2, setFilesToUpload2] = useState([]);
+
+  const [isbtnVisible, setbtnVisible] = useState(false);
   const [progress, setProgress] = useState(0);
   const [progress2, setProgress2] = useState(0);
   const toggleModal = () => {
@@ -153,6 +156,7 @@ const Resreve2 = ({ navigation, route }) => {
               console.log(`Uploading file progress ${progress_}`);
               setFilesToUpload2((curr) => {
                 curr[index].progress = 100000 * progress_;
+                pp = 100000 * progress_;
                 return curr;
               });
               setProgress2(progress_);
@@ -185,7 +189,7 @@ const Resreve2 = ({ navigation, route }) => {
       allowMultiSelection: true,
     }).then((res) => {
       // log file content
-      console.log(res);
+      console.log('response', res);
       // add file to filesToUpload
       setFilesToUpload([...filesToUpload, ...res]);
     });
@@ -335,6 +339,7 @@ const Resreve2 = ({ navigation, route }) => {
               <TouchableOpacity
                 onPress={() => {
                   readFiles();
+
                   //    filesToUpload[0].progress = 0;
                 }}>
                 <Image
@@ -360,6 +365,7 @@ const Resreve2 = ({ navigation, route }) => {
               <TouchableOpacity
                 onPress={() => {
                   readFiles();
+
                   //filesToUpload[0].progress = 0;
                 }}>
                 <Image
@@ -414,6 +420,7 @@ const Resreve2 = ({ navigation, route }) => {
               <TouchableOpacity
                 onPress={() => {
                   readFiles2();
+
                   //    filesToUpload2[0].progress = 0;
                 }}>
                 <Image
@@ -439,6 +446,7 @@ const Resreve2 = ({ navigation, route }) => {
               <TouchableOpacity
                 onPress={() => {
                   readFiles2();
+
                   //filesToUpload2[0].progress = 0;
                 }}>
                 <Image
@@ -490,7 +498,10 @@ const Resreve2 = ({ navigation, route }) => {
               onPress={() => {
                 uploadFiles();
                 uploadFiles2();
-
+                toggleModal();
+                setTimeout(() => {
+                  setbtnVisible(true);
+                }, 1000 * 2);
                 // navigation.navigate('Resreve2', { datae });
               }}>
               <Text
@@ -506,6 +517,28 @@ const Resreve2 = ({ navigation, route }) => {
               </Text>
             </TouchableOpacity>
           </View>
+          <Modal isVisible={isModalVisible} style={styles.mainModel}>
+            <View style={styles.failureContent}>
+              <Text style={styles.popupSubTitle}>Files have been uploaded</Text>
+              <Progress.Bar
+                progress={pp}
+                indeterminate={false}
+                width={240}
+                height={6}
+              />
+              {isbtnVisible && (
+                <View style={styles.failureBtnView}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      toggleModal();
+                      navigation.navigate('MainScreen');
+                    }}>
+                    <Text style={styles.failureBtnText}>proceed</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
+            </View>
+          </Modal>
         </View>
       )}
       {i18n.language === 'ar' && (
@@ -526,6 +559,9 @@ const Resreve2 = ({ navigation, route }) => {
                 uploadFiles();
                 uploadFiles2();
                 toggleModal();
+                setTimeout(() => {
+                  setbtnVisible(true);
+                }, 1000 * 2);
                 // navigation.navigate('Resreve2', { datae });
               }}>
               <Text
@@ -543,12 +579,23 @@ const Resreve2 = ({ navigation, route }) => {
           <Modal isVisible={isModalVisible} style={styles.mainModel}>
             <View style={styles.failureContent}>
               <Text style={styles.popupSubTitle}>Files have been uploaded</Text>
-
-              <View style={styles.failureBtnView}>
-                <TouchableOpacity onPress={toggleModal}>
-                  <Text style={styles.failureBtnText}>Ok</Text>
-                </TouchableOpacity>
-              </View>
+              <Progress.Bar
+                progress={pp}
+                indeterminate={false}
+                width={240}
+                height={6}
+              />
+              {isbtnVisible && (
+                <View style={styles.failureBtnView}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      toggleModal();
+                      navigation.navigate('MainScreen');
+                    }}>
+                    <Text style={styles.failureBtnText}>proceed</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
             </View>
           </Modal>
         </View>
@@ -659,28 +706,28 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   popupSubTitle: {
-    color: 'white',
+    color: 'black',
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
     marginVertical: 5,
   },
   failureContent: {
-    backgroundColor: '#1D5B8C',
+    backgroundColor: 'white',
     borderRadius: 30,
     padding: 10,
     alignItems: 'center',
     width: '95%',
   },
   failureBtnView: {
-    backgroundColor: 'white',
+    backgroundColor: '#1D5B8C',
     borderRadius: 30,
     paddingVertical: 5,
     width: '95%',
     marginVertical: 10,
   },
   failureBtnText: {
-    color: '#1D5B8C',
+    color: 'white',
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',

@@ -9,13 +9,17 @@ import {
   View,
 } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
+import Modal from 'react-native-modal';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Colors from '../assets/values/Colors';
 import { DateInput } from '../components';
 var isDarkTheme = '';
 export default function LabResultsScreen({ navigation, route }: any) {
   const theme = useColorScheme();
-
+  const [isModalVisible, setModalVisible] = useState(false);
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
   if (theme !== 'light') {
     isDarkTheme = 'white';
     console.log('gf', isDarkTheme);
@@ -204,31 +208,10 @@ export default function LabResultsScreen({ navigation, route }: any) {
               size={27}
               color={Colors.primary1}
               onPress={() => {
+                toggleModal();
                 axios.delete(
                   `https://64ec81d3f9b2b70f2bfa7413.mockapi.io/fakedata/${id}`,
                 );
-
-                //////
-                getData();
-                data = APIData;
-                //console.log(data);
-                if (dateFrom && dateTo) {
-                  const prevDay = new Date(dateFrom);
-                  prevDay.setDate(prevDay.getDate() - 1);
-                  console.log(prevDay);
-
-                  const filteredData = data.filter((item: any) => {
-                    console.log('datee', new Date(item.date) >= prevDay);
-
-                    return (
-                      new Date(item.date) >= prevDay &&
-                      new Date(item.date) <= dateTo &&
-                      item.official === !pressed
-                    );
-                  });
-                  setFilteredData(filteredData);
-                }
-                ///////////
               }}
             />
             <FontAwesome5
@@ -327,12 +310,59 @@ export default function LabResultsScreen({ navigation, route }: any) {
             />
           </View>
         </View>
+        <Modal isVisible={isModalVisible} style={styles.mainModel}>
+          <View style={styles.failureContent}>
+            <Text style={styles.popupSubTitle}>Are you sure for delete ?</Text>
+
+            <View style={styles.failureBtnView}>
+              <TouchableOpacity
+                onPress={() => {
+                  toggleModal();
+                  filterData();
+                  //  toggleModal();
+                }}>
+                <Text style={styles.failureBtnText}>Yes</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
       </View>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  mainModel: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  failureContent: {
+    backgroundColor: 'white',
+    borderRadius: 30,
+    padding: 10,
+    alignItems: 'center',
+    width: '95%',
+  },
+  failureBtnView: {
+    backgroundColor: '#1D5B8C',
+    borderRadius: 30,
+    paddingVertical: 5,
+    width: '95%',
+    marginVertical: 10,
+  },
+  failureBtnText: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  popupSubTitle: {
+    color: 'black',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginVertical: 5,
+  },
   container: {
     flex: 1,
   },
