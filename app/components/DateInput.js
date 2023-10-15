@@ -27,21 +27,41 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
     <>
       <View style={{ flexDirection: 'row' }}>
         <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.dateInput}
-            value={
-              dateFrom == null
-                ? ''
-                : dateFrom.toLocaleDateString('ar-EG-u-nu-latn', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric',
-                  })
-            }
-            placeholder={t('Datefrom')}
-            onTouchStart={() => setOpenFrom(true)}
-          />
+          {i18n.language === 'ar' && (
+            <TextInput
+              style={styles.dateInput}
+              value={
+                dateFrom == null
+                  ? ''
+                  : dateFrom.toLocaleDateString('ar-EG-u-nu-latn', {
+                      weekday: 'long',
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric',
+                    })
+              }
+              placeholder={t('Datefrom')}
+              onTouchStart={() => setOpenFrom(true)}
+            />
+          )}
+          {i18n.language === 'en' && (
+            <TextInput
+              style={styles.dateInput}
+              value={
+                dateFrom == null
+                  ? ''
+                  : dateFrom.toLocaleDateString('en-EG-u-nu-latn', {
+                      weekday: 'long',
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric',
+                    })
+              }
+              placeholder={t('Datefrom')}
+              onTouchStart={() => setOpenFrom(true)}
+            />
+          )}
+
           <FontAwesome5
             name="calendar-alt"
             size={20}
@@ -50,21 +70,41 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
           />
         </View>
         <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.dateInput}
-            value={
-              dateTo == null
-                ? ''
-                : dateTo.toLocaleDateString('ar-EG-u-nu-latn', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric',
-                  })
-            }
-            placeholder={t('Dateto')}
-            onTouchStart={() => setOpenTo(true)}
-          />
+          {i18n.language === 'en' && (
+            <TextInput
+              style={styles.dateInput}
+              value={
+                dateTo == null
+                  ? ''
+                  : dateTo.toLocaleDateString('en-EG-u-nu-latn', {
+                      weekday: 'long',
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric',
+                    })
+              }
+              placeholder={t('Dateto')}
+              onTouchStart={() => setOpenTo(true)}
+            />
+          )}
+          {i18n.language === 'ar' && (
+            <TextInput
+              style={styles.dateInput}
+              value={
+                dateTo == null
+                  ? ''
+                  : dateTo.toLocaleDateString('ar-EG-u-nu-latn', {
+                      weekday: 'long',
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric',
+                    })
+              }
+              placeholder={t('Dateto')}
+              onTouchStart={() => setOpenTo(true)}
+            />
+          )}
+
           <FontAwesome5
             name="calendar-alt"
             size={20}

@@ -56,7 +56,10 @@ const Vsion = ({ navigation, route }) => {
           style={[
             { width: '32%', borderRadius: 7 },
             false
-              ? { backgroundColor: Colors.primary2 }
+              ? {
+                  backgroundColor:
+                    theme === 'light' ? Colors.primary2 : 'white',
+                }
               : { backgroundColor: Colors.primary1 },
           ]}
           onPress={() => {

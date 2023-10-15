@@ -1,7 +1,7 @@
 import auth from '@react-native-firebase/auth';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -89,17 +89,18 @@ var isDarkTheme = '';
 
 export default function SideMenu(): JSX.Element {
   const { t, i18n } = useTranslation();
+  var tr = '';
   const theme = useColorScheme();
-
+  console.log('dark mode theme', theme);
   if (theme !== 'light') {
     isDarkTheme = Colors.primary1;
-    console.log('gf', isDarkTheme);
+    console.log('dark mode', isDarkTheme);
   }
   if (theme === 'light') {
     isDarkTheme = Colors.primary2;
-    console.log('gf', isDarkTheme);
+    console.log('dark mode', isDarkTheme);
   }
-  useEffect(() => {}, []);
+
   return (
     <NavigationContainer>
       <Drawer.Navigator
@@ -130,7 +131,8 @@ export default function SideMenu(): JSX.Element {
           ),
           headerRight: () => <ProfileInfo />,
           sceneContainerStyle: {
-            backgroundColor: isDarkTheme,
+            backgroundColor:
+              theme === 'light' ? Colors.primary2 : Colors.primary1,
           },
         })}>
         <Drawer.Screen
