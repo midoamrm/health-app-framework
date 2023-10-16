@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 14,
-    fontWeight: 'bold',
+
     color: '#000000',
   },
   itemActive: {

@@ -44,7 +44,11 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
           )}
           {i18n.language === 'en' && (
             <TextInput
-              style={styles.dateInput}
+              style={{
+                flex: 1,
+                fontSize: 15,
+                color: 'black',
+              }}
               value={
                 dateFrom == null
                   ? ''
@@ -56,6 +60,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
                     })
               }
               placeholder={t('date')}
+              placeholderTextColor={'black'}
               onTouchStart={() => setOpenFrom(true)}
             />
           )}
@@ -120,7 +125,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    backgroundColor: isDarkTheme2,
+    backgroundColor: 'white',
     borderColor: Colors.white,
     borderRadius: 5,
     marginVertical: 10,

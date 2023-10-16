@@ -159,7 +159,9 @@ export default function Daterecord({ navigation, route }: any) {
           setDateTo={setDateTo}
           setDateFrom={setDateFrom}
         />
-        <Accordian title={t('Clinicname')} data={[]} />
+        <View style={{ margin: 10 }}>
+          <Accordian title={t('Clinicname')} data={[]} />
+        </View>
 
         <View style={styles.innerContainer}>
           <TouchableOpacity style={styles.searchBtn} onPress={filterData}>
@@ -167,11 +169,16 @@ export default function Daterecord({ navigation, route }: any) {
           </TouchableOpacity>
           <View style={styles.border} />
           <View style={styles.listItem2}>
-            <Text style={{ color: Colors.primary1, fontWeight: 'bold' }}>
+            <Text
+              style={{
+                color: Colors.primary1,
+                fontWeight: 'bold',
+                paddingLeft: 10,
+              }}>
               {t('Downloadallrecords')}
             </Text>
             <Text style={{ color: 'white' }}>
-              fffffffffffffffffffffffffffffffffffffffffffffffff
+              fffffffffffffffffffffffffffffffffffffffffff
             </Text>
             <FontAwesome5
               name={'arrow-down'}

@@ -20,7 +20,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
   }
   if (theme === 'light') {
     isDarkTheme = Colors.grey;
-    isDarkTheme2 = Colors.white;
+    isDarkTheme2 = 'black';
     console.log('gf', isDarkTheme2);
   }
   return (
@@ -29,7 +29,11 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
         <View style={styles.inputContainer}>
           {i18n.language === 'ar' && (
             <TextInput
-              style={styles.dateInput}
+              style={{
+                flex: 1,
+                fontSize: 15,
+                color: theme === 'light' ? 'black' : 'white',
+              }}
               value={
                 dateFrom == null
                   ? ''
@@ -41,12 +45,17 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
                     })
               }
               placeholder={t('Datefrom')}
+              placeholderTextColor={theme === 'light' ? 'black' : 'white'}
               onTouchStart={() => setOpenFrom(true)}
             />
           )}
           {i18n.language === 'en' && (
             <TextInput
-              style={styles.dateInput}
+              style={{
+                flex: 1,
+                fontSize: 15,
+                color: theme === 'light' ? 'black' : 'white',
+              }}
               value={
                 dateFrom == null
                   ? ''
@@ -58,6 +67,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
                     })
               }
               placeholder={t('Datefrom')}
+              placeholderTextColor={theme === 'light' ? 'black' : 'white'}
               onTouchStart={() => setOpenFrom(true)}
             />
           )}
@@ -72,7 +82,11 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
         <View style={styles.inputContainer}>
           {i18n.language === 'en' && (
             <TextInput
-              style={styles.dateInput}
+              style={{
+                flex: 1,
+                fontSize: 15,
+                color: theme === 'light' ? 'black' : 'white',
+              }}
               value={
                 dateTo == null
                   ? ''
@@ -84,12 +98,17 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
                     })
               }
               placeholder={t('Dateto')}
+              placeholderTextColor={theme === 'light' ? 'black' : 'white'}
               onTouchStart={() => setOpenTo(true)}
             />
           )}
           {i18n.language === 'ar' && (
             <TextInput
-              style={styles.dateInput}
+              style={{
+                flex: 1,
+                fontSize: 15,
+                color: theme === 'light' ? 'black' : 'white',
+              }}
               value={
                 dateTo == null
                   ? ''
@@ -101,6 +120,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
                     })
               }
               placeholder={t('Dateto')}
+              placeholderTextColor={theme === 'light' ? 'black' : 'white'}
               onTouchStart={() => setOpenTo(true)}
             />
           )}
@@ -212,7 +232,7 @@ const styles = StyleSheet.create({
   dateInput: {
     flex: 1,
     fontSize: 15,
-    color: isDarkTheme,
+    color: isDarkTheme2,
   },
   icon: {
     marginRight: 10,

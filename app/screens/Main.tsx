@@ -31,7 +31,7 @@ export default function MainScreen({ navigation }: any) {
                 style={styles.image}
               />
             }
-            onPress={() => navigation.navigate('Hospitals')}
+            onPress={() => navigation.navigate('warning page')}
           />
           <CustomCard
             title={t('namedonation')}
@@ -41,7 +41,7 @@ export default function MainScreen({ navigation }: any) {
                 style={styles.image}
               />
             }
-            onPress={() => navigation.navigate('Donation')}
+            onPress={() => navigation.navigate('temp1')}
           />
           <CustomCard
             title={t('Myreferral')}
@@ -51,7 +51,7 @@ export default function MainScreen({ navigation }: any) {
                 style={styles.image}
               />
             }
-            onPress={() => navigation.navigate('Referral')}
+            onPress={() => navigation.navigate('warning page')}
           />
           <CustomCard
             title={t('Earlydetectionofbreasttumors')}
@@ -61,7 +61,7 @@ export default function MainScreen({ navigation }: any) {
                 style={styles.image}
               />
             }
-            onPress={() => navigation.navigate('EarlyDetection')}
+            onPress={() => navigation.navigate('warning page')}
           />
           <CustomCard
             title={t('Myexperience')}
@@ -71,7 +71,7 @@ export default function MainScreen({ navigation }: any) {
                 style={styles.image}
               />
             }
-            onPress={() => navigation.navigate('Experience')}
+            onPress={() => navigation.navigate('warning page')}
           />
           <CustomCard
             title={t('Instructions')}
@@ -81,7 +81,7 @@ export default function MainScreen({ navigation }: any) {
                 style={styles.image}
               />
             }
-            onPress={() => navigation.navigate('Instructions')}
+            onPress={() => navigation.navigate('warning page')}
           />
           <CustomCard
             title={t('Formedicaleducation')}
@@ -91,7 +91,7 @@ export default function MainScreen({ navigation }: any) {
                 style={styles.image}
               />
             }
-            onPress={() => navigation.navigate('MedicalEducation')}
+            onPress={() => navigation.navigate('warning page')}
           />
           <CustomCard
             title={t('Visitor requests')}
@@ -101,7 +101,7 @@ export default function MainScreen({ navigation }: any) {
                 style={styles.image}
               />
             }
-            onPress={() => navigation.navigate('VisitorRequests')}
+            onPress={() => navigation.navigate('Resreve')}
           />
           <CustomCard
             title={t('Complaintsandsuggestions')}
@@ -111,7 +111,7 @@ export default function MainScreen({ navigation }: any) {
                 style={styles.image}
               />
             }
-            onPress={() => navigation.navigate('Complaints')}
+            onPress={() => navigation.navigate('warning page')}
           />
           <CustomCard
             title={t('callus')}
@@ -121,7 +121,7 @@ export default function MainScreen({ navigation }: any) {
                 style={styles.image}
               />
             }
-            onPress={() => navigation.navigate('ContactUs')}
+            onPress={() => navigation.navigate('Callus')}
           />
         </View>
 

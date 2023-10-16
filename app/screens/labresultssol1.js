@@ -3,6 +3,7 @@
 
 // import React in our code
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Colors from '../assets/values/Colors';
 // import all the components we are going to use
 import {
@@ -16,6 +17,7 @@ import {
 } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 const Labresultsol1 = ({ navigation }) => {
+  const { t, i18n } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [dataSource, setDataSource] = useState([]);
   const [offset, setOffset] = useState(1);
@@ -161,12 +163,23 @@ const Labresultsol1 = ({ navigation }) => {
             <Text style={{ color: Colors.primary1, fontWeight: 'bold' }}>
               {text}
             </Text>
-            <FontAwesome5
-              name={'arrow-left'}
-              size={20}
-              color={Colors.primary1}
-              onPress={() => {}}
-            />
+            {i18n.language === 'ar' && (
+              <FontAwesome5
+                name={'arrow-left'}
+                size={20}
+                color={Colors.primary1}
+                onPress={() => {}}
+              />
+            )}
+            {i18n.language === 'en' && (
+              <FontAwesome5
+                name={'arrow-right'}
+                size={20}
+                color={Colors.primary1}
+                onPress={() => {}}
+              />
+            )}
+
             <FontAwesome5
               name={'edit'}
               size={20}

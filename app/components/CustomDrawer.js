@@ -68,7 +68,22 @@ const CustomDrawer = (props) => {
           onPress={() => {
             navigation.goBack();
           }}>
-          <Ionicons name="arrow-back" size={22} color={Colors.white} />
+          {i18n.language === 'ar' && (
+            <FontAwesome5
+              name={'arrow-left'}
+              size={20}
+              color={'white'}
+              onPress={() => {}}
+            />
+          )}
+          {i18n.language === 'en' && (
+            <FontAwesome5
+              name={'arrow-right'}
+              size={20}
+              color={'white'}
+              onPress={() => {}}
+            />
+          )}
         </TouchableOpacity>
       </View>
       <DrawerContentScrollView

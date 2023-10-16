@@ -307,7 +307,13 @@ export default function Blooddonation({ navigation }: any) {
             width: '100%',
           }}>
           <View style={styles.container}>
-            <Text style={{ fontSize: 20, color: isDarkTheme }}>
+            <Text
+              style={{
+                fontSize: 20,
+
+                marginLeft: 10,
+                color: isDarkTheme,
+              }}>
               {t('namedonation')}
             </Text>
             <View style={styles.logoImgView}>
@@ -318,6 +324,7 @@ export default function Blooddonation({ navigation }: any) {
                 fontSize: 20,
                 paddingBottom: 10,
                 color: isDarkTheme,
+                marginLeft: 10,
               }}>
               {t('donation')}
             </Text>
@@ -328,7 +335,7 @@ export default function Blooddonation({ navigation }: any) {
                     <TextInput
                       style={styles.inputText}
                       placeholder="الاسم الاول (الزامي)"
-                      placeholderTextColor="#8DA9B6"
+                      placeholderTextColor="black"
                       onChangeText={(text) => idValidation(text)}
                       value={id}
                       // start writing from the right side
@@ -339,7 +346,7 @@ export default function Blooddonation({ navigation }: any) {
                     <TextInput
                       style={styles.inputText}
                       placeholder="First Name *"
-                      placeholderTextColor="#8DA9B6"
+                      placeholderTextColor="black"
                       onChangeText={(text) => idValidation(text)}
                       value={id}
                       // start writing from the right side
@@ -355,7 +362,7 @@ export default function Blooddonation({ navigation }: any) {
                     <TextInput
                       style={styles.inputText}
                       placeholder="اسم الجد الزامي"
-                      placeholderTextColor="#8DA9B6"
+                      placeholderTextColor="black"
                       // secureTextEntry={true}
                       onChangeText={(text) => nameValidation(text)}
                       value={name}
@@ -367,7 +374,7 @@ export default function Blooddonation({ navigation }: any) {
                     <TextInput
                       style={styles.inputText}
                       placeholder="Grandfather is name *"
-                      placeholderTextColor="#8DA9B6"
+                      placeholderTextColor="black"
                       // secureTextEntry={true}
                       onChangeText={(text) => nameValidation(text)}
                       value={name}
@@ -379,8 +386,9 @@ export default function Blooddonation({ navigation }: any) {
                 {nameError !== '' ? (
                   <Text style={styles.errorText}>{nameError}</Text>
                 ) : null}
-
-                <Accordian title={t('blood')} data={[]} />
+                <View style={{ marginLeft: 10, marginRight: 10 }}>
+                  <Accordian title={t('blood')} data={[]} />
+                </View>
               </View>
               <View style={styles.allInputs2}>
                 <View style={styles.inputView}>
@@ -388,7 +396,7 @@ export default function Blooddonation({ navigation }: any) {
                     <TextInput
                       style={styles.inputText}
                       placeholder="اسم الاب الزامي"
-                      placeholderTextColor="#8DA9B6"
+                      placeholderTextColor="black"
                       secureTextEntry={securePassword1}
                       onChangeText={(text) => passwordValidation1(text)}
                       value={password1}
@@ -400,7 +408,7 @@ export default function Blooddonation({ navigation }: any) {
                     <TextInput
                       style={styles.inputText}
                       placeholder="Father is Name"
-                      placeholderTextColor="#8DA9B6"
+                      placeholderTextColor="black"
                       secureTextEntry={securePassword1}
                       onChangeText={(text) => passwordValidation1(text)}
                       value={password1}
@@ -417,7 +425,7 @@ export default function Blooddonation({ navigation }: any) {
                     <TextInput
                       style={styles.inputText}
                       placeholder="اللقب الزامي"
-                      placeholderTextColor="#8DA9B6"
+                      placeholderTextColor="black"
                       secureTextEntry={securePassword2}
                       onChangeText={(text) => passwordValidation2(text)}
                       value={password2}
@@ -429,7 +437,7 @@ export default function Blooddonation({ navigation }: any) {
                     <TextInput
                       style={styles.inputText}
                       placeholder="End name"
-                      placeholderTextColor="#8DA9B6"
+                      placeholderTextColor="black"
                       secureTextEntry={securePassword2}
                       onChangeText={(text) => passwordValidation2(text)}
                       value={password2}
@@ -441,7 +449,9 @@ export default function Blooddonation({ navigation }: any) {
                 {passwordError2 !== '' ? (
                   <Text style={styles.errorText}>{passwordError2}</Text>
                 ) : null}
-                <Accordian title={t('gender2')} data={[]} />
+                <View style={{ marginLeft: 3, marginRight: 3 }}>
+                  <Accordian title={t('gender2')} data={[]} />
+                </View>
               </View>
             </View>
             <View style={styles.allInputs3}>
@@ -451,14 +461,16 @@ export default function Blooddonation({ navigation }: any) {
                 setDateTo={setDateTo}
                 setDateFrom={setDateFrom}
               />
-              <Accordian title={t('Nationality')} data={[]} />
+              <View style={{ margin: 10 }}>
+                <Accordian title={t('Nationality')} data={[]} />
+              </View>
             </View>
             <View style={styles.inputView22}>
               {i18n.language === 'ar' && (
                 <TextInput
                   style={styles.inputText}
                   placeholder={t('id')}
-                  placeholderTextColor="#8DA9B6"
+                  placeholderTextColor="black"
                   onChangeText={(text) => idValidation(text)}
                   value={id}
                   // start writing from the right side
@@ -471,7 +483,7 @@ export default function Blooddonation({ navigation }: any) {
                 <TextInput
                   style={styles.inputText}
                   placeholder={t('id')}
-                  placeholderTextColor="#8DA9B6"
+                  placeholderTextColor="black"
                   onChangeText={(text) => idValidation(text)}
                   value={id}
                   // start writing from the right side
@@ -490,7 +502,7 @@ export default function Blooddonation({ navigation }: any) {
                 <TextInput
                   style={styles.inputText}
                   placeholder="المهنه الزامي"
-                  placeholderTextColor="#8DA9B6"
+                  placeholderTextColor="black"
                   // secureTextEntry={true}
                   onChangeText={(text) => nameValidation(text)}
                   value={name}
@@ -502,7 +514,7 @@ export default function Blooddonation({ navigation }: any) {
                 <TextInput
                   style={styles.inputText}
                   placeholder="Job *"
-                  placeholderTextColor="#8DA9B6"
+                  placeholderTextColor="black"
                   // secureTextEntry={true}
                   onChangeText={(text) => nameValidation(text)}
                   value={name}
@@ -519,7 +531,7 @@ export default function Blooddonation({ navigation }: any) {
                 <TextInput
                   style={styles.inputText}
                   placeholder={t('phoneno')}
-                  placeholderTextColor="#8DA9B6"
+                  placeholderTextColor="black"
                   // secureTextEntry={true}
                   onChangeText={(text) => validatePhoneNumber(text)}
                   value={phoneNum}
@@ -532,7 +544,7 @@ export default function Blooddonation({ navigation }: any) {
                 <TextInput
                   style={styles.inputText}
                   placeholder={t('phoneno')}
-                  placeholderTextColor="#8DA9B6"
+                  placeholderTextColor="black"
                   // secureTextEntry={true}
                   onChangeText={(text) => validatePhoneNumber(text)}
                   value={phoneNum}
@@ -570,23 +582,16 @@ const styles = StyleSheet.create({
     color: '#124963',
   },
   inputView: {
-    width: '100%',
     backgroundColor: '#fff',
-
+    margin: 10,
     height: 50,
-    marginBottom: 20,
-    justifyContent: 'center',
-    padding: 20,
   },
   inputView22: {
-    marginTop: 20,
-    width: '100%',
+    margin: 10,
+
     backgroundColor: '#fff',
 
     height: 50,
-    marginBottom: 20,
-    justifyContent: 'center',
-    padding: 20,
   },
   inputText: {
     height: 50,
@@ -610,13 +615,11 @@ const styles = StyleSheet.create({
   },
   allInputs: {
     width: 200,
-
-    paddingLeft: 10,
   },
   allInputs2: {
     width: 200,
 
-    paddingLeft: 10,
+    paddingLeft: 0,
   },
   allInputs3: {
     width: '100%',

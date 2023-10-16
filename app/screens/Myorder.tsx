@@ -161,8 +161,13 @@ export default function Myorder({ navigation, route }: any) {
           setDateTo={setDateTo}
           setDateFrom={setDateFrom}
         />
-        <Accordian title={t('orderkind')} data={[]} />
-        <Accordian title={t('statuskind')} data={[]} />
+        <View style={{ margin: 10 }}>
+          <Accordian title={t('orderkind')} data={[]} />
+        </View>
+
+        <View style={{ margin: 10 }}>
+          <Accordian title={t('statuskind')} data={[]} />
+        </View>
         <View style={styles.innerContainer}>
           <TouchableOpacity style={styles.searchBtn} onPress={filterData}>
             <Text style={styles.searchText}>{t('search')}</Text>

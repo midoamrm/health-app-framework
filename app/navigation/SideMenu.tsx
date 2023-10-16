@@ -20,6 +20,7 @@ import Callus from '../screens/Callus';
 import Cruddb from '../screens/Cruddb';
 import Daterecord from '../screens/Datercord';
 import Doc from '../screens/Doc';
+import Homme from '../screens/Homme';
 import LabResultsScreen from '../screens/LabResults';
 import LabResultsMasterDetails from '../screens/LabResultsMasterDetails';
 import Labresultsol1 from '../screens/labresultssol1';
@@ -169,6 +170,13 @@ export default function SideMenu(): JSX.Element {
         <Drawer.Screen
           name={'Login'}
           component={LoginScreen}
+          options={{
+            drawerItemStyle: { display: 'none' },
+          }}
+        />
+        <Drawer.Screen
+          name={'warning page'}
+          component={Homme}
           options={{
             drawerItemStyle: { display: 'none' },
           }}
