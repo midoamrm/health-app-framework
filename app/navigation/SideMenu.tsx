@@ -18,6 +18,7 @@ import Blooddonation from '../screens/BloodDonation';
 import Cache from '../screens/cacheing';
 import Callus from '../screens/Callus';
 import Cruddb from '../screens/Cruddb';
+import DatePicker from '../screens/DatePicker';
 import Daterecord from '../screens/Datercord';
 import Doc from '../screens/Doc';
 import Homme from '../screens/Homme';
@@ -141,6 +142,22 @@ export default function SideMenu(): JSX.Element {
           component={MainScreen}
           options={{
             title: t('main'),
+            drawerIcon: () => (
+              <FontAwesome5
+                name="home"
+                size={22}
+                color={Colors.primary1}
+                style={{ paddingRight: 5 }}
+              />
+            ),
+          }}
+        />
+
+        <Drawer.Screen
+          name={'DatePicker'}
+          component={DatePicker}
+          options={{
+            title: t('DatePicker'),
             drawerIcon: () => (
               <FontAwesome5
                 name="home"
