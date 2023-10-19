@@ -11,6 +11,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  useColorScheme,
   View,
 } from 'react-native';
 import Modal from 'react-native-modal';
@@ -42,7 +43,7 @@ export default function LoginScreen({ navigation }: any) {
   const { t, i18n } = useTranslation();
   //to avoid using the side menu inside the login screen
   navigation.setOptions({ headerShown: false, swipeEnabled: false });
-
+  const theme = useColorScheme();
   const [isModalVisibleSucess, setModalSucessVisible] = useState(false);
   const [isModalVisibleFailure, setModalFailureVisible] = useState(false);
   const [isModalVisible, setModalVisible] = useState(false);
@@ -274,7 +275,7 @@ export default function LoginScreen({ navigation }: any) {
         style={styles.scroll}>
         <View
           style={{
-            backgroundColor: '#1D5B8C',
+            backgroundColor: theme === 'light' ? Colors.primary2 : '#1D5B8C',
             height: '100%',
             width: '100%',
           }}>

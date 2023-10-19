@@ -1,6 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useColorScheme,
+  View,
+} from 'react-native';
 import { Image } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 import Colors from '../assets/values/Colors';
@@ -17,11 +23,20 @@ const CustomCard = ({ title, icons, onPress }: any) => {
 
 export default function MainScreen({ navigation }: any) {
   const { t } = useTranslation();
+  const theme = useColorScheme();
   console.log(`user: ${user}`);
   return (
     <View style={styles.container}>
       <ScrollView>
-        <Text style={styles.text}>{t('main')}</Text>
+        <Text
+          style={{
+            color: theme === 'dark' ? 'white' : Colors.primary1,
+            fontSize: 20,
+            fontWeight: 'bold',
+            padding: 20,
+          }}>
+          {t('main')}
+        </Text>
         <View style={styles.cardContainer}>
           <CustomCard
             title={t('Medicaldepartments')}

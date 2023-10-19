@@ -11,18 +11,20 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  useColorScheme,
   View,
 } from 'react-native';
 import Modal from 'react-native-modal';
 import RadioGroup, { RadioButtonProps } from 'react-native-radio-buttons-group';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Colors from '../assets/values/Colors';
 import user from '../utils/User';
 export default function SignupScreen({ navigation }: any) {
   //to avoid using the side menu inside the login screen
   const { t, i18n } = useTranslation();
   navigation.setOptions({ headerShown: false, swipeEnabled: false });
-
+  const theme = useColorScheme();
   const [id, setID] = useState('');
   const [name, setName] = useState('');
   const [gender, setGender] = useState('male');
@@ -56,14 +58,14 @@ export default function SignupScreen({ navigation }: any) {
         label: t('male'),
         value: 'male',
         color: '#1fab91',
-        labelStyle: { fontSize: 18, color: '#1D5B8C' },
+        labelStyle: { fontSize: 18, color: '#8DA9B6' },
       },
       {
         id: '2',
         label: t('female'),
         value: 'female',
         color: '#1fab91',
-        labelStyle: { fontSize: 18, color: '#1D5B8C' },
+        labelStyle: { fontSize: 18, color: '#8DA9B6' },
       },
     ],
     [],
@@ -291,7 +293,7 @@ export default function SignupScreen({ navigation }: any) {
         style={styles.scroll}>
         <View
           style={{
-            backgroundColor: '#1D5B8C',
+            backgroundColor: theme === 'light' ? Colors.primary2 : '#1D5B8C',
             height: '100%',
             width: '100%',
           }}>
