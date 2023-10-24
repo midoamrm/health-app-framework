@@ -1,7 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import Colors from '../assets/values/Colors';
-import { LabResultsScreen } from '../screens';
+import { LabResultsScreen } from '../screens/Index';
 import LabResultsMasterDetails from '../screens/LabResultsMasterDetails';
 
 const Stack = createStackNavigator();

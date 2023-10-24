@@ -60,7 +60,7 @@ const Vsion = ({ navigation, route }) => {
                   backgroundColor:
                     theme === 'light' ? Colors.primary2 : 'white',
                 }
-              : { backgroundColor: Colors.primary1 },
+              : { backgroundColor: '#007bff' },
           ]}
           onPress={() => {
             setPressed(false);
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
   },
   tabText: {
     color: Colors.primary1,
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: 'bold',
     textAlign: 'center',
     paddingVertical: 20,

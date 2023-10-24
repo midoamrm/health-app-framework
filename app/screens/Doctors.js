@@ -75,7 +75,7 @@ const Doc = ({ navigation, route }) => {
             { width: '32%', borderRadius: 7, height: '100%' },
             false
               ? { backgroundColor: Colors.primary2 }
-              : { backgroundColor: Colors.primary1 },
+              : { backgroundColor: '#007bff' },
           ]}
           onPress={() => {
             setPressed(false);
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
   },
   tabText: {
     color: Colors.primary1,
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: 'bold',
     textAlign: 'center',
     paddingVertical: 20,

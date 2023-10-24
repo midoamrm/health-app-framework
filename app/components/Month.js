@@ -79,15 +79,16 @@ export default class Month extends React.PureComponent {
           { ...style },
           { ...idx(month, (_) => _.style) },
         ]}>
-        {idx(month, (_) => _.header.monthHeader)
-          ? month.header.monthHeader(year, monthName, weekDaysLocale)
-          : [
-              this._renderMonthName(),
-              (weekdaysNameMode === 'simple' ||
-                weekdaysNameMode === 'both') && (
-                <MonthWeekdays key={year + monthName + year} {...this.props} />
-              ),
-            ]}
+        {idx(month, (_) => _.header.monthHeader) ? (
+          <View />
+        ) : (
+          [
+            this._renderMonthName(),
+            (weekdaysNameMode === 'simple' || weekdaysNameMode === 'both') && (
+              <MonthWeekdays key={year + monthName + year} {...this.props} />
+            ),
+          ]
+        )}
         <View
           style={[
             styles.monthDays,

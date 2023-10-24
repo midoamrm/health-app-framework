@@ -38,15 +38,15 @@ export default class Calendar extends React.Component {
     width: Dimensions.get('window').width,
     monthNameMode: 'both',
     weekdaysNameMode: 'static',
-    bodyBackColor: '#fff',
-    bodyTextColor: '#444',
+    bodyBackColor: 'black',
+    bodyTextColor: 'black',
     month: {
       header: {
         monthHeader: null,
       },
     },
     day: {
-      commonTextColor: '#444',
+      commonTextColor: 'black',
       disabledTextColor: '#ccc',
       selectedBackColor: '#444',
       selectedTextColor: '#fff',
@@ -378,7 +378,7 @@ export default class Calendar extends React.Component {
       staticMonthTextColor,
     } = this.props;
     return (
-      <View>
+      <View style={{}}>
         {(monthNameMode === 'static' || monthNameMode === 'both') && <></>}
         {(weekdaysNameMode === 'static' || weekdaysNameMode === 'both') && (
           <StaticWeekdays {...this.props} />

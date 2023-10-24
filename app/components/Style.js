@@ -41,6 +41,7 @@ export const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   monthHeader: {
+    color: 'black',
     paddingTop: 15,
     fontWeight: 'bold',
     alignSelf: 'center',

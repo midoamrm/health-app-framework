@@ -13,10 +13,6 @@ import {
   NotificationListener,
   requestUserPermission,
 } from './app/services/FirebaseNotifications';
-import {
-  OfflineLocalNotification,
-  OnlineLocalNotification,
-} from './app/services/LocalNotifications';
 import './app/utils/i18n';
 function App(): JSX.Element {
   //init();
@@ -38,11 +34,11 @@ function App(): JSX.Element {
       // console.log(`prevConnected: ${prevConnected}`);
       console.log(`connected: ${connected}`);
       console.log('-------------------');
-      if (connected !== state.isConnected && state.isConnected) {
+      /* if (connected !== state.isConnected && state.isConnected) {
         OnlineLocalNotification();
       } else if (connected !== state.isConnected && !state.isConnected) {
         OfflineLocalNotification();
-      }
+      }*/
     });
     return () => {
       unsubscribe();

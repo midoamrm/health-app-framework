@@ -7,34 +7,34 @@ import { Image, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Colors from '../assets/values/Colors';
-import { CustomDrawer, CustomHeaderIcon } from '../components';
+import { CustomDrawer, CustomHeaderIcon } from '../components/Index';
+import Blooddonation from '../screens/BloodDonation';
+import Callus from '../screens/Callus';
+import Cache from '../screens/demoscreen/Cacheing';
+import Cruddb from '../screens/demoscreen/Cruddb';
+import DatePicker from '../screens/demoscreen/DatePicker';
+
+import Tabs from '../screens/Aboutapp';
+import Daterecord from '../screens/Datercord';
+import Doc from '../screens/Doctors';
 import {
   LoginScreen,
   MainScreen,
   MedicalServicesScreen,
   OtpScreen,
-} from '../screens';
-import Blooddonation from '../screens/BloodDonation';
-import Cache from '../screens/cacheing';
-import Callus from '../screens/Callus';
-import Cruddb from '../screens/Cruddb';
-import DatePicker from '../screens/DatePicker';
-import DatePicker2 from '../screens/DatePicker2';
-import Daterecord from '../screens/Datercord';
-import Doc from '../screens/Doc';
-import Homme from '../screens/Homme';
+} from '../screens/Index';
 import LabResultsScreen from '../screens/LabResults';
 import LabResultsMasterDetails from '../screens/LabResultsMasterDetails';
-import Labresultsol1 from '../screens/labresultssol1';
+import Labresultsol1 from '../screens/Labresultssol1';
 import Language from '../screens/Language';
 import Llist from '../screens/List';
 import MedicalSessionScreen from '../screens/Medicalsession';
 import Myorder from '../screens/Myorder';
-import Resreve2 from '../screens/resreve';
+import Resreve from '../screens/Resrevepage';
+import Resreve2 from '../screens/Resrevewithattachment';
 import SignupScreen from '../screens/Signup';
-import Tabs from '../screens/Tabspages';
-import Resreve from '../screens/Todolist';
-import Update from '../screens/update';
+import Homme from '../screens/Underinplemntionpage';
+import Update from '../screens/Update';
 import Vsion from '../screens/Vsion';
 import user from '../utils/User';
 import LabResultsStack from './LabResultsStack';
@@ -171,21 +171,6 @@ export default function SideMenu(): JSX.Element {
         />
 
         <Drawer.Screen
-          name={'DatePicker2'}
-          component={DatePicker2}
-          options={{
-            title: t('DatePicker2'),
-            drawerIcon: () => (
-              <FontAwesome5
-                name="home"
-                size={22}
-                color={Colors.primary1}
-                style={{ paddingRight: 5 }}
-              />
-            ),
-          }}
-        />
-        <Drawer.Screen
           name={'LabResultsMasterDetails'}
           component={LabResultsMasterDetails}
           options={{
@@ -298,6 +283,7 @@ export default function SideMenu(): JSX.Element {
           name={t('Laboratoryresults')}
           component={LabResultsScreen}
           options={{
+            title: t('Laboratoryresults'),
             drawerItemStyle: { display: 'ok' },
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon1.png')} />
@@ -424,60 +410,11 @@ export default function SideMenu(): JSX.Element {
           }}
         />
         <Drawer.Screen
-          name={'temp3'}
-          component={Home}
-          options={{
-            title: t('Myreferral'),
-            drawerIcon: () => (
-              <Image source={require('../assets/images/menu_icon3.png')} />
-            ),
-          }}
-        />
-        <Drawer.Screen
-          name={'temp4'}
-          component={Home}
-          options={{
-            title: t('Earlydetectionofbreasttumors'),
-            drawerIcon: () => (
-              <Image source={require('../assets/images/menu_icon4.png')} />
-            ),
-          }}
-        />
-        <Drawer.Screen
-          name={'temp5'}
-          component={Home}
-          options={{
-            title: t('Myexperience'),
-            drawerIcon: () => (
-              <Image source={require('../assets/images/menu_icon5.png')} />
-            ),
-          }}
-        />
-        <Drawer.Screen
-          name={'temp6'}
-          component={Home}
-          options={{
-            title: t('Instructions'),
-            drawerIcon: () => (
-              <Image source={require('../assets/images/menu_icon6.png')} />
-            ),
-          }}
-        />
-        <Drawer.Screen
-          name={'temp7'}
-          component={Home}
-          options={{
-            title: t('Formedicaleducation'),
-            drawerIcon: () => (
-              <Image source={require('../assets/images/menu_icon7.png')} />
-            ),
-          }}
-        />
-        <Drawer.Screen
           name={'temp8'}
           component={Myorder}
           options={{
             title: t('myorder'),
+
             drawerIcon: () => (
               <Image source={require('../assets/images/menu_icon8.png')} />
             ),
@@ -494,6 +431,57 @@ export default function SideMenu(): JSX.Element {
             ),
           }}
         />
+        <Drawer.Screen
+          name={'temp3'}
+          component={Homme}
+          options={{
+            title: t('Myreferral'),
+            drawerIcon: () => (
+              <Image source={require('../assets/images/menu_icon3.png')} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'temp4'}
+          component={Homme}
+          options={{
+            title: t('Earlydetectionofbreasttumors'),
+            drawerIcon: () => (
+              <Image source={require('../assets/images/menu_icon4.png')} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'temp5'}
+          component={Homme}
+          options={{
+            title: t('Myexperience'),
+            drawerIcon: () => (
+              <Image source={require('../assets/images/menu_icon5.png')} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'temp6'}
+          component={Homme}
+          options={{
+            title: t('Instructions'),
+            drawerIcon: () => (
+              <Image source={require('../assets/images/menu_icon6.png')} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'temp7'}
+          component={Homme}
+          options={{
+            title: t('Formedicaleducation'),
+            drawerIcon: () => (
+              <Image source={require('../assets/images/menu_icon7.png')} />
+            ),
+          }}
+        />
+
         <Drawer.Screen
           name={'Resreve2'}
           component={Resreve2}

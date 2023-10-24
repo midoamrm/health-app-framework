@@ -1,5 +1,6 @@
 import moment from 'moment-hijri';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Modal,
   StyleSheet,
@@ -10,6 +11,7 @@ import {
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Calendar from '../components/Calendar';
+
 // Two buttons to change the month of the calendar
 const TwoButtons = ({ change, setCurrentDate, date }: any) => {
   const increaseMonth = () => {
@@ -25,10 +27,10 @@ const TwoButtons = ({ change, setCurrentDate, date }: any) => {
   return (
     <View style={styles.container2}>
       <TouchableOpacity style={styles.button} onPress={decreaseMonth}>
-        <Ionicons name="chevron-back-outline" size={20} />
+        <Ionicons name="chevron-back-outline" color="black" size={20} />
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={increaseMonth}>
-        <Ionicons name="chevron-forward-outline" size={20} />
+        <Ionicons name="chevron-forward-outline" color="black" size={20} />
       </TouchableOpacity>
     </View>
   );
@@ -36,6 +38,7 @@ const TwoButtons = ({ change, setCurrentDate, date }: any) => {
 // Two buttons to change the type of the calendar
 const TypeButtons = ({ onPress, setType, type, date }: any) => {
   const [flag, setflag] = useState(true);
+  const { t, i18n } = useTranslation();
   const hijri = () => {
     setType('hijri');
     onPress();
@@ -49,9 +52,10 @@ const TypeButtons = ({ onPress, setType, type, date }: any) => {
     <View style={styles.container}>
       <View
         style={{
+          backgroundColor: 'white',
           marginTop: 10,
           marginLeft: 3,
-          width: 300,
+          width: 293,
           height: 40,
           borderWidth: 1,
           borderLeftWidth: 0,
@@ -65,7 +69,7 @@ const TypeButtons = ({ onPress, setType, type, date }: any) => {
             color: 'black',
           }}
           value={date}
-          placeholder={'Date'}
+          placeholder={t('dt')}
           placeholderTextColor={'black'}
         />
       </View>
@@ -89,7 +93,7 @@ const TypeButtons = ({ onPress, setType, type, date }: any) => {
                 color: !flag ? 'white' : '#aadde5',
                 fontWeight: 'bold',
               }}>
-              هجري
+              {t('hijri')}
             </Text>
           </TouchableOpacity>
         </View>
@@ -110,7 +114,7 @@ const TypeButtons = ({ onPress, setType, type, date }: any) => {
                 color: flag ? 'white' : '#aadde5',
                 fontWeight: 'bold',
               }}>
-              ميلادي
+              {t('georgi')}
             </Text>
           </TouchableOpacity>
         </View>
@@ -118,9 +122,9 @@ const TypeButtons = ({ onPress, setType, type, date }: any) => {
     </View>
   );
 };
-const DatePicker2 = () => {
+const Hiridate2 = () => {
   // States
-
+  const { t, i18n } = useTranslation();
   const [date, setdate] = useState('');
   const [currentDate, setCurrentDate] = useState(new Date());
   const [isVisible, setIsVisible] = useState(false);
@@ -204,26 +208,28 @@ const DatePicker2 = () => {
         date={date}
       />
       <Modal visible={show} animationType="slide">
-        <TwoButtons
-          change={change}
-          setCurrentDate={setCurrentDate}
-          date={currentDate}
-        />
-        {calendar}
-        <View style={styles.container3}>
-          <View style={{ backgroundColor: '#007bff', width: 60, height: 40 }}>
-            <TouchableOpacity onPress={{}}>
-              <Text style={styles.buttonText}>Clear</Text>
-            </TouchableOpacity>
-          </View>
+        <View style={{ backgroundColor: '#f0ecec', height: '100%' }}>
+          <TwoButtons
+            change={change}
+            setCurrentDate={setCurrentDate}
+            date={currentDate}
+          />
+          {calendar}
+          <View style={styles.container3}>
+            <View style={{ backgroundColor: '#007bff', width: 60, height: 40 }}>
+              <TouchableOpacity onPress={{}}>
+                <Text style={styles.buttonText}>{t('clear')}</Text>
+              </TouchableOpacity>
+            </View>
 
-          <View style={{ backgroundColor: '#6c757d', width: 60, height: 40 }}>
-            <TouchableOpacity
-              onPress={() => {
-                setIsVisible(false);
-              }}>
-              <Text style={styles.buttonText}>close</Text>
-            </TouchableOpacity>
+            <View style={{ backgroundColor: '#6c757d', width: 60, height: 40 }}>
+              <TouchableOpacity
+                onPress={() => {
+                  setIsVisible(false);
+                }}>
+                <Text style={styles.buttonText}>{t('close')}</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </Modal>
@@ -231,15 +237,15 @@ const DatePicker2 = () => {
   );
 };
 
-export default DatePicker2;
+export default Hiridate2;
 
 // Styles
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: '#f0ecec',
     width: 300,
     flexDirection: 'column',
-
+    borderRadius: 10,
     marginTop: 20,
     borderWidth: 1,
     borderColor: 'black',
@@ -280,6 +286,7 @@ const styles = StyleSheet.create({
 
   listViewContainer: {
     //flex:1,
+
     width: '50%',
     marginLeft: 60,
   },

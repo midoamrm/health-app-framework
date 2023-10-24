@@ -10,8 +10,8 @@ import {
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Colors from '../assets/values/Colors';
-import { DateInput } from '../components';
 import Accordian from '../components/Accordioncompent';
+import { DateInput } from '../components/Index';
 var isDarkTheme = '';
 export default function Daterecord({ navigation, route }: any) {
   /* route.params.nav.setOptions({

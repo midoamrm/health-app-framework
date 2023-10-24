@@ -12,7 +12,8 @@ import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import Modal from 'react-native-modal';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Colors from '../assets/values/Colors';
-import { DateInput } from '../components';
+import Hiridate2 from '../components/Hiridate2';
+import { DateInput } from '../components/Index';
 var isDarkTheme = '';
 export default function LabResultsScreen({ navigation, route }: any) {
   const theme = useColorScheme();
@@ -92,8 +93,9 @@ export default function LabResultsScreen({ navigation, route }: any) {
     // console.log(APIData);
   };
   const filterData = () => {
-    getData();
-    data = APIData;
+    // getData();
+    //APIData;
+    data = staticdata;
     //console.log(data);
     if (dateFrom && dateTo) {
       const prevDay = new Date(dateFrom);
@@ -204,6 +206,12 @@ export default function LabResultsScreen({ navigation, route }: any) {
               {text}
             </Text>
             <FontAwesome5
+              name={'download'}
+              size={27}
+              color={Colors.primary1}
+              onPress={() => {}}
+            />
+            <FontAwesome5
               name={'trash'}
               size={27}
               color={Colors.primary1}
@@ -246,6 +254,7 @@ export default function LabResultsScreen({ navigation, route }: any) {
           setDateTo={setDateTo}
           setDateFrom={setDateFrom}
         />
+        <Hiridate2 />
         <View style={styles.innerContainer}>
           <TouchableOpacity style={styles.searchBtn} onPress={filterData}>
             <Text style={styles.searchText}>{t('search')}</Text>
@@ -270,7 +279,7 @@ export default function LabResultsScreen({ navigation, route }: any) {
                 },
                 !pressed
                   ? { backgroundColor: Colors.primary2 }
-                  : { backgroundColor: Colors.primary1 },
+                  : { backgroundColor: '#007bff' },
               ]}
               onPress={() => {
                 setPressed(true);
@@ -288,7 +297,7 @@ export default function LabResultsScreen({ navigation, route }: any) {
                 { width: '50%', borderRadius: 7 },
                 pressed
                   ? { backgroundColor: Colors.primary2 }
-                  : { backgroundColor: Colors.primary1 },
+                  : { backgroundColor: '#007bff' },
               ]}
               onPress={() => {
                 setPressed(false);
@@ -409,7 +418,7 @@ const styles = StyleSheet.create({
   },
   tabText: {
     color: Colors.primary1,
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: 'bold',
     textAlign: 'center',
     paddingVertical: 10,
@@ -443,7 +452,7 @@ const styles = StyleSheet.create({
   },
 });
 
-/*const data = [
+const staticdata = [
   {
     id: 1,
     date: '2021-05-01',
@@ -624,4 +633,4 @@ const styles = StyleSheet.create({
     field1: 'data field 1 for element  1 ',
     field2: 'data field 1 for element  1',
   },
-];*/
+];

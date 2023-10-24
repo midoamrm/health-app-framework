@@ -7,7 +7,7 @@ import { Image } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Colors from '../assets/values/Colors';
-import { CustomCard } from '../components';
+import { CustomCard } from '../components/Index';
 const Tab = createBottomTabNavigator();
 var isDarkTheme = '';
 export default function MedicalServicesScreen({ navigation }: any) {

@@ -90,7 +90,7 @@ const TypeButtons = ({ onPress, setType, type, date }: any) => {
     </View>
   );
 };
-const DatePicker = () => {
+const Hiridate = () => {
   // States
 
   const [date, setdate] = useState('');
@@ -197,7 +197,7 @@ const DatePicker = () => {
   );
 };
 
-export default DatePicker;
+export default Hiridate;
 
 // Styles
 const styles = StyleSheet.create({

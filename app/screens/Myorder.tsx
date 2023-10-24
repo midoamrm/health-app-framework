@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import Colors from '../assets/values/Colors';
-import { DateInput } from '../components';
 import Accordian from '../components/Accordioncompent';
+import { DateInput } from '../components/Index';
 var isDarkTheme = '';
 export default function Myorder({ navigation, route }: any) {
   const theme = useColorScheme();
