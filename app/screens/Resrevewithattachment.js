@@ -8,7 +8,6 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  useColorScheme,
   View,
 } from 'react-native';
 import DocumentPicker from 'react-native-document-picker';
@@ -30,7 +29,7 @@ const Resreve2 = ({ navigation, route }) => {
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
-  const theme = useColorScheme();
+  /* const theme = useColorScheme();
   if (theme !== 'light') {
     isDarkTheme = 'white';
     isDarkTheme2 = 'black';
@@ -40,7 +39,7 @@ const Resreve2 = ({ navigation, route }) => {
     isDarkTheme = '#1D5B8C';
     isDarkTheme2 = Colors.white;
     console.log('gf', isDarkTheme);
-  }
+  }*/
   console.log('hallo', data);
   var datear = [];
 
@@ -490,8 +489,9 @@ const Resreve2 = ({ navigation, route }) => {
           }}>
           <View
             style={{
-              borderRadius: 100,
-              backgroundColor: isDarkTheme,
+              borderRadius: 10,
+              borderWidth: 1,
+              backgroundColor: '#007bff',
               width: 100,
             }}>
             <TouchableOpacity
@@ -506,7 +506,7 @@ const Resreve2 = ({ navigation, route }) => {
               }}>
               <Text
                 style={{
-                  color: isDarkTheme2,
+                  color: 'white',
                   paddingLeft: 22,
                   paddingRight: 5,
                   paddingTop: 5,
@@ -551,7 +551,7 @@ const Resreve2 = ({ navigation, route }) => {
           <View
             style={{
               borderRadius: 100,
-              backgroundColor: isDarkTheme,
+
               width: 100,
             }}>
             <TouchableOpacity
@@ -566,7 +566,7 @@ const Resreve2 = ({ navigation, route }) => {
               }}>
               <Text
                 style={{
-                  color: isDarkTheme2,
+                  color: 'black',
                   paddingRight: 27,
                   paddingTop: 5,
                   paddingBottom: 5,

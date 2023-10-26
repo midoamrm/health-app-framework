@@ -20,7 +20,8 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Colors from '../assets/values/Colors';
 import user from '../utils/User';
-export default function SignupScreen({ navigation }: any) {
+export default function SignupScreen({ navigation, route }: any) {
+  const item = route.params.itt2;
   //to avoid using the side menu inside the login screen
   const { t, i18n } = useTranslation();
   navigation.setOptions({ headerShown: false, swipeEnabled: false });
@@ -293,7 +294,7 @@ export default function SignupScreen({ navigation }: any) {
         style={styles.scroll}>
         <View
           style={{
-            backgroundColor: theme === 'light' ? Colors.primary2 : '#1D5B8C',
+            backgroundColor: item === 'l' ? Colors.primary2 : Colors.primary1,
             height: '100%',
             width: '100%',
           }}>

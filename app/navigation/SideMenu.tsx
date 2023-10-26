@@ -1,13 +1,21 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import auth from '@react-native-firebase/auth';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Image, StyleSheet, Text, useColorScheme, View } from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useColorScheme,
+  View,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Colors from '../assets/values/Colors';
-import { CustomDrawer, CustomHeaderIcon } from '../components/Index';
+import { CustomDrawer } from '../components/Index';
 import Blooddonation from '../screens/BloodDonation';
 import Callus from '../screens/Callus';
 import Cache from '../screens/demoscreen/Cacheing';
@@ -64,10 +72,10 @@ const ProfileInfo = () => {
         padding: 10,
       }}>
       <View style={{ width: 200, flexDirection: 'column' }}>
-        <Text style={{ color: Colors.white, textAlign: 'right' }}>
+        <Text style={{ color: Colors.white, textAlign: 'right', fontSize: 10 }}>
           {user_?.displayName ?? user.name}
         </Text>
-        <Text style={{ color: Colors.white, textAlign: 'right' }}>
+        <Text style={{ color: Colors.white, textAlign: 'right', fontSize: 10 }}>
           {user_?.phoneNumber ?? user.phoneNum}
         </Text>
       </View>
@@ -79,10 +87,10 @@ const ProfileInfo = () => {
         }
         style={{
           resizeMode: 'contain',
-          width: 50,
-          height: 50,
+          width: 25,
+          height: 25,
           borderRadius: 25,
-          marginHorizontal: 10,
+          marginHorizontal: 3,
         }}
       />
     </View>
@@ -92,8 +100,32 @@ var isDarkTheme = '';
 
 export default function SideMenu(): JSX.Element {
   const { t, i18n } = useTranslation();
-  var tr = '';
+  const [themswithch, setthemswithch] = useState('');
+  const [key, setKey] = useState('');
+  const [value, setValue] = useState('');
   const theme = useColorScheme();
+  const dark = async () => {
+    try {
+      await AsyncStorage.clear();
+
+      await AsyncStorage.setItem('d', 'd');
+      const valuee = await AsyncStorage.getItem('d');
+      console.log('vvvv', valuee);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const ligth = async () => {
+    try {
+      await AsyncStorage.clear();
+      await AsyncStorage.setItem('d', 'l');
+      const valuee = await AsyncStorage.getItem('d');
+      console.log('vvvv', valuee);
+    } catch (error) {
+      console.log(error);
+    }
+    // RNRestart.Restart();
+  };
   console.log('dark mode theme', theme);
   if (theme !== 'light') {
     isDarkTheme = Colors.primary1;
@@ -128,21 +160,55 @@ export default function SideMenu(): JSX.Element {
           },
           headerTitleStyle: {
             color: Colors.primary2,
+            fontSize: 13,
           },
+
           headerLeft: () => (
-            <CustomHeaderIcon onPress={navigation.openDrawer} />
+            <View style={{ flexDirection: 'row' }}>
+              <TouchableOpacity
+                onPress={navigation.openDrawer}
+                style={{ paddingHorizontal: 3 }}>
+                <Image
+                  source={require('../assets/images/menu_icon.png')}
+                  style={{ width: 30, height: 30, transform: [{ scaleX: -1 }] }}
+                  tintColor={Colors.primary2}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  setthemswithch('dr');
+                  dark();
+                }}>
+                <Image
+                  source={require('../assets/images/dr.png')}
+                  style={{ width: 20, height: 20, transform: [{ scaleX: -1 }] }}
+                  tintColor={Colors.primary2}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  setthemswithch('li');
+                  ligth();
+                }}>
+                <Image
+                  source={require('../assets/images/li.png')}
+                  style={{ width: 20, height: 20, transform: [{ scaleX: -1 }] }}
+                  tintColor={Colors.primary2}
+                />
+              </TouchableOpacity>
+            </View>
           ),
           headerRight: () => <ProfileInfo />,
           sceneContainerStyle: {
             backgroundColor:
-              theme === 'light' ? Colors.primary2 : Colors.primary1,
+              themswithch === 'li' ? Colors.primary2 : Colors.primary1,
           },
         })}>
         <Drawer.Screen
           name={'MainScreen'}
           component={MainScreen}
           options={{
-            title: t('main'),
+            title: 'Home',
             drawerIcon: () => (
               <FontAwesome5
                 name="home"

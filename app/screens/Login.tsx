@@ -23,23 +23,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { handleGoogleSingIn } from '../services/Google';
 import user, { admin } from '../utils/User';
 var isDarkTheme = '';
-const cl = async () => {
-  try {
-    const value = await AsyncStorage.getItem('d');
-    console.log(value);
-    if (value === 'd') {
-      isDarkTheme = Colors.primary1;
-      console.log('gf', isDarkTheme);
-    }
-    if (value === 'l') {
-      isDarkTheme = Colors.primary2;
-      console.log('gf', isDarkTheme);
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
-export default function LoginScreen({ navigation }: any) {
+
+export default function LoginScreen({ navigation, route }: any) {
+  const item = route.params.itt;
   const { t, i18n } = useTranslation();
   //to avoid using the side menu inside the login screen
   navigation.setOptions({ headerShown: false, swipeEnabled: false });
@@ -54,8 +40,24 @@ export default function LoginScreen({ navigation }: any) {
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [securePassword, setSecurePassword] = useState(true);
-
+  var value;
   const [loading, setLoading] = useState(false);
+  const cl = async () => {
+    try {
+      value = await AsyncStorage.getItem('d');
+      console.log(value);
+      if (value === 'd') {
+        isDarkTheme = Colors.primary1;
+        console.log('modeee', 'dark');
+      }
+      if (value === 'l') {
+        isDarkTheme = Colors.primary2;
+        console.log('modeee', 'ligth');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   cl();
   function onAuthStateChanged(user_: any) {
     console.log('Auth State Changed', user_);
@@ -275,8 +277,8 @@ export default function LoginScreen({ navigation }: any) {
         style={styles.scroll}>
         <View
           style={{
-            backgroundColor: theme === 'light' ? Colors.primary2 : '#1D5B8C',
             height: '100%',
+            backgroundColor: item === 'l' ? Colors.primary2 : Colors.primary1,
             width: '100%',
           }}>
           <View style={styles.container}>

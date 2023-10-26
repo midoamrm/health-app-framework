@@ -242,7 +242,6 @@ export default Hiridate2;
 // Styles
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#f0ecec',
     width: 300,
     flexDirection: 'column',
     borderRadius: 10,

@@ -230,7 +230,7 @@ const Resreve = ({ navigation, route }) => {
             <View
               style={{
                 borderRadius: 100,
-                backgroundColor: '#1D5B8C',
+                backgroundColor: '#007bff',
                 width: 100,
                 marginTop: 15,
                 paddingRight: 20,
@@ -265,7 +265,7 @@ const Resreve = ({ navigation, route }) => {
             <View
               style={{
                 borderRadius: 100,
-                backgroundColor: '#1D5B8C',
+                backgroundColor: '#007bff',
                 width: 140,
                 marginTop: 15,
                 paddingRight: 20,
@@ -292,7 +292,7 @@ const Resreve = ({ navigation, route }) => {
                       paddingBottom: 5,
                       fontSize: 20,
                     }}>
-                    <Text style={{ color: '#1D5B8C' }}>fffffff</Text>
+                    <Text style={{ color: '#007bff' }}>fffffff</Text>
                     Next
                   </Text>
                 )}

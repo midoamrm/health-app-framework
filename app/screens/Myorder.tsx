@@ -148,7 +148,7 @@ export default function Myorder({ navigation, route }: any) {
       <View style={styles.container}>
         <Text
           style={{
-            color: isDarkTheme,
+            color: '#8DA9B6',
             fontSize: 20,
             fontWeight: 'bold',
             padding: 20,

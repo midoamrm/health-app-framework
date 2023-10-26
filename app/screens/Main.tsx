@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -24,13 +25,49 @@ const CustomCard = ({ title, icons, onPress }: any) => {
 export default function MainScreen({ navigation }: any) {
   const { t } = useTranslation();
   const theme = useColorScheme();
+  const cl = async () => {
+    try {
+      const value = await AsyncStorage.getItem('d');
+      console.log(value);
+      if (value === 'd') {
+        // isDarkTheme = Colors.primary1;
+        console.log('modeee', 'dark');
+        navigation.navigate('Login', { itt: value });
+      }
+      if (value === 'l') {
+        //  isDarkTheme = Colors.primary2;
+        console.log('modeee', 'ligth');
+        navigation.navigate('Login', { itt: value });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const cl2 = async () => {
+    try {
+      const value = await AsyncStorage.getItem('d');
+      console.log(value);
+      if (value === 'd') {
+        // isDarkTheme = Colors.primary1;
+        console.log('modeee', 'dark');
+        navigation.navigate('signup', { itt2: value });
+      }
+      if (value === 'l') {
+        //  isDarkTheme = Colors.primary2;
+        console.log('modeee', 'ligth');
+        navigation.navigate('signup', { itt2: value });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   console.log(`user: ${user}`);
   return (
     <View style={styles.container}>
       <ScrollView>
         <Text
           style={{
-            color: theme === 'dark' ? 'white' : Colors.primary1,
+            color: '#8DA9B6',
             fontSize: 20,
             fontWeight: 'bold',
             padding: 20,
@@ -146,13 +183,11 @@ export default function MainScreen({ navigation }: any) {
             <TouchableOpacity
               style={styles.loginBtn}
               onPress={() => {
-                navigation.navigate('Login');
+                cl();
               }}>
               <Text style={styles.loginText}> {t('signin')}</Text>
             </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.loginBtn}
-              onPress={() => navigation.navigate('signup')}>
+            <TouchableOpacity style={styles.loginBtn} onPress={() => cl2()}>
               <Text style={styles.loginText}> {t('create')}</Text>
             </TouchableOpacity>
           </View>

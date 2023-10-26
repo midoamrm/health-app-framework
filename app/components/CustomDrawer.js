@@ -8,7 +8,6 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Badge } from 'react-native-elements';
 import RNRestart from 'react-native-restart';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -41,6 +40,24 @@ const CustomDrawer = (props) => {
       console.log(error);
     }
     RNRestart.Restart();
+  };
+  const cl = async () => {
+    try {
+      const value = await AsyncStorage.getItem('d');
+      console.log(value);
+      if (value === 'd') {
+        // isDarkTheme = Colors.primary1;
+        console.log('modeee', 'dark');
+        navigation.navigate('Callus', { itt3: value });
+      }
+      if (value === 'l') {
+        //  isDarkTheme = Colors.primary2;
+        console.log('modeee', 'ligth');
+        navigation.navigate('Callus', { itt3: value });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <View style={{ flex: 1, backgroundColor: Colors.primary2 }}>
@@ -123,7 +140,7 @@ const CustomDrawer = (props) => {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate('Callus');
+              cl();
             }}
             style={{ paddingVertical: 15 }}>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -168,44 +185,6 @@ const CustomDrawer = (props) => {
               </Text>
             </View>
           </TouchableOpacity>
-
-          <View
-            style={{
-              flexDirection: 'row',
-              alignContent: 'center',
-              paddingTop: 30,
-              paddingHorizontal: 40,
-              justifyContent: 'space-between',
-            }}>
-            <TouchableOpacity onPress={() => {}}>
-              <View>
-                <Image
-                  source={require('../assets/images/menu_style_icon1.png')}
-                />
-                {/* <Badge
-                  status="success"
-                  containerStyle={{position: 'absolute', top: -4, right: -4}}
-                /> */}
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => {}}>
-              <View>
-                <Image
-                  source={require('../assets/images/menu_style_icon2.png')}
-                />
-                <Badge
-                  value="✔"
-                  badgeStyle={{
-                    width: 30,
-                    height: 30,
-                    borderRadius: 20,
-                  }}
-                  status="success"
-                  containerStyle={{ position: 'absolute', top: -4, right: -4 }}
-                />
-              </View>
-            </TouchableOpacity>
-          </View>
         </View>
       </DrawerContentScrollView>
       <View
@@ -215,23 +194,6 @@ const CustomDrawer = (props) => {
           borderTopEndRadius: 20,
           borderTopStartRadius: 20,
         }}>
-        <TouchableOpacity
-          style={{ flexDirection: 'row', alignItems: 'center' }}
-          onPress={() => {
-            navigation.navigate('Login');
-          }}>
-          <FontAwesome5 name="sign-in-alt" size={22} color={Colors.white} />
-          <Text
-            style={{
-              color: Colors.white,
-              paddingHorizontal: 20,
-              fontSize: 18,
-              fontWeight: 'bold',
-            }}>
-            {t('signin')}
-          </Text>
-        </TouchableOpacity>
-
         <TouchableOpacity
           style={{ flexDirection: 'row', alignItems: 'center' }}
           onPress={() => {
@@ -245,7 +207,7 @@ const CustomDrawer = (props) => {
 
             navigation.navigate('MainScreen');
           }}>
-          <FontAwesome5 name="sign-in-alt" size={22} color={Colors.white} />
+          <FontAwesome5 name="sign-out-alt" size={22} color={Colors.white} />
           <Text
             style={{
               color: Colors.white,

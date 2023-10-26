@@ -1,4 +1,3 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -16,25 +15,10 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Colors from '../assets/values/Colors';
 var isDarkTheme = '';
-const cl = async () => {
-  try {
-    const value = await AsyncStorage.getItem('d');
-    console.log(value);
-    if (value === 'd') {
-      isDarkTheme = Colors.primary1;
-      console.log('gk', isDarkTheme);
-    }
-    if (value === 'l') {
-      isDarkTheme = Colors.primary2;
-      console.log('gk', isDarkTheme);
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
-export default function Callus({ navigation }: any) {
-  const theme = useColorScheme();
 
+export default function Callus({ navigation, route }: any) {
+  const theme = useColorScheme();
+  const item = route.params.itt3;
   if (theme !== 'light') {
     isDarkTheme = Colors.primary1;
     console.log('gf', isDarkTheme);
@@ -74,7 +58,7 @@ export default function Callus({ navigation }: any) {
         style={styles.scroll}>
         <View
           style={{
-            backgroundColor: '#1D5B8C',
+            backgroundColor: item === 'l' ? Colors.primary2 : Colors.primary1,
             height: '100%',
             width: '100%',
           }}>
@@ -83,7 +67,7 @@ export default function Callus({ navigation }: any) {
               flex: 1,
               alignItems: 'center',
               justifyContent: 'space-evenly',
-              backgroundColor: isDarkTheme,
+              backgroundColor: item === 'l' ? Colors.primary2 : Colors.primary1,
               width: '100%',
               height: '100%',
               borderTopRightRadius: 50,
@@ -93,7 +77,9 @@ export default function Callus({ navigation }: any) {
                 style={{ width: 120, height: 120, borderRadius: 20 }}
                 source={require('../assets/images/ik.png')}
               />
-              <Text style={{ fontSize: 30 }}>{t('callus')}</Text>
+              <Text style={{ fontSize: 30, color: '#8DA9B6' }}>
+                {t('callus')}
+              </Text>
               <Image
                 style={{ width: 440, height: 220, borderRadius: 20 }}
                 source={require('../assets/images/macc.png')}
@@ -105,13 +91,28 @@ export default function Callus({ navigation }: any) {
                   style={{ paddingTop: 35 }}
                 />
                 <View style={{ flexDirection: 'column', paddingLeft: 80 }}>
-                  <Text style={{ fontSize: 25, paddingBottom: 15 }}>
+                  <Text
+                    style={{
+                      fontSize: 25,
+                      paddingBottom: 15,
+                      color: '#8DA9B6',
+                    }}>
                     {t('l1')}{' '}
                   </Text>
-                  <Text style={{ fontSize: 25, paddingBottom: 15 }}>
+                  <Text
+                    style={{
+                      fontSize: 25,
+                      paddingBottom: 15,
+                      color: '#8DA9B6',
+                    }}>
                     {t('l2')}
                   </Text>
-                  <Text style={{ fontSize: 25, paddingBottom: 10 }}>
+                  <Text
+                    style={{
+                      fontSize: 25,
+                      paddingBottom: 10,
+                      color: '#8DA9B6',
+                    }}>
                     {t('l3')}
                   </Text>
                 </View>
@@ -124,7 +125,12 @@ export default function Callus({ navigation }: any) {
                   style={{ paddingTop: 35 }}
                 />
                 <View style={{ flexDirection: 'column', paddingLeft: 80 }}>
-                  <Text style={{ fontSize: 25, paddingBottom: 15 }}>
+                  <Text
+                    style={{
+                      fontSize: 25,
+                      paddingBottom: 15,
+                      color: '#8DA9B6',
+                    }}>
                     <Text> {t('h1')}</Text>
                     <Text> {t('h2')}</Text>
                     <Text> {t('h3')}</Text>
@@ -137,7 +143,12 @@ export default function Callus({ navigation }: any) {
               <View style={{ flexDirection: 'row' }}>
                 <FontAwesome5 name={'phone'} size={20} />
                 <View style={{ flexDirection: 'column', paddingLeft: 80 }}>
-                  <Text style={{ fontSize: 25, paddingBottom: 15 }}>
+                  <Text
+                    style={{
+                      fontSize: 25,
+                      paddingBottom: 15,
+                      color: '#8DA9B6',
+                    }}>
                     {t('l4')}
                   </Text>
                 </View>

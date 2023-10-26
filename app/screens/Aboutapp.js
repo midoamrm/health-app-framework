@@ -86,7 +86,7 @@ const Tabs = ({ navigation, route }) => {
       </View>
       <Text
         style={{
-          color: isDarkTheme,
+          color: '#8DA9B6',
           fontSize: 20,
           fontWeight: 'bold',
           padding: 20,
@@ -96,7 +96,7 @@ const Tabs = ({ navigation, route }) => {
       <View style={{ borderRadius: 7, borderColor: 'black' }}>
         <Text
           style={{
-            color: isDarkTheme,
+            color: '#8DA9B6',
             fontSize: 14,
             fontWeight: 'bold',
             padding: 10,
@@ -108,7 +108,7 @@ const Tabs = ({ navigation, route }) => {
         </Text>
         <Text
           style={{
-            color: isDarkTheme,
+            color: '#8DA9B6',
             fontSize: 14,
             fontWeight: 'bold',
             padding: 10,
@@ -119,7 +119,7 @@ const Tabs = ({ navigation, route }) => {
         </Text>
         <Text
           style={{
-            color: isDarkTheme,
+            color: '#8DA9B6',
             fontSize: 14,
             fontWeight: 'bold',
             padding: 10,
@@ -131,7 +131,7 @@ const Tabs = ({ navigation, route }) => {
         </Text>
         <Text
           style={{
-            color: isDarkTheme,
+            color: '#8DA9B6',
             fontSize: 14,
             fontWeight: 'bold',
             padding: 10,
@@ -141,7 +141,7 @@ const Tabs = ({ navigation, route }) => {
         </Text>
         <Text
           style={{
-            color: isDarkTheme,
+            color: '#8DA9B6',
             fontSize: 14,
             fontWeight: 'bold',
             padding: 10,
@@ -151,7 +151,7 @@ const Tabs = ({ navigation, route }) => {
         </Text>
         <Text
           style={{
-            color: isDarkTheme,
+            color: '#8DA9B6',
             fontSize: 12,
             fontWeight: 'bold',
             padding: 5,
@@ -161,7 +161,7 @@ const Tabs = ({ navigation, route }) => {
         </Text>
         <Text
           style={{
-            color: isDarkTheme,
+            color: '#8DA9B6',
             fontSize: 12,
             fontWeight: 'bold',
             padding: 5,
@@ -171,7 +171,7 @@ const Tabs = ({ navigation, route }) => {
         </Text>
         <Text
           style={{
-            color: isDarkTheme,
+            color: '#8DA9B6',
             fontSize: 12,
             fontWeight: 'bold',
             padding: 5,
@@ -181,7 +181,7 @@ const Tabs = ({ navigation, route }) => {
         </Text>
         <Text
           style={{
-            color: isDarkTheme,
+            color: '#8DA9B6',
             fontSize: 12,
             fontWeight: 'bold',
             padding: 5,
@@ -191,7 +191,7 @@ const Tabs = ({ navigation, route }) => {
         </Text>
         <Text
           style={{
-            color: isDarkTheme,
+            color: '#8DA9B6',
             fontSize: 12,
             fontWeight: 'bold',
             padding: 5,

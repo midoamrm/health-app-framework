@@ -312,7 +312,7 @@ export default function Blooddonation({ navigation }: any) {
                 fontSize: 20,
 
                 marginLeft: 10,
-                color: isDarkTheme,
+                color: '#8DA9B6',
               }}>
               {t('namedonation')}
             </Text>
@@ -323,7 +323,7 @@ export default function Blooddonation({ navigation }: any) {
               style={{
                 fontSize: 20,
                 paddingBottom: 10,
-                color: isDarkTheme,
+                color: '#8DA9B6',
                 marginLeft: 10,
               }}>
               {t('donation')}

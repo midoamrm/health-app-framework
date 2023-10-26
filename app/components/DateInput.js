@@ -32,7 +32,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
               style={{
                 flex: 1,
                 fontSize: 15,
-                color: theme === 'light' ? 'black' : 'white',
+                color: '#8DA9B6',
               }}
               value={
                 dateFrom == null
@@ -45,7 +45,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
                     })
               }
               placeholder={t('Datefrom')}
-              placeholderTextColor={theme === 'light' ? 'black' : 'white'}
+              placeholderTextColor={'#8DA9B6'}
               onTouchStart={() => setOpenFrom(true)}
             />
           )}
@@ -54,7 +54,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
               style={{
                 flex: 1,
                 fontSize: 15,
-                color: theme === 'light' ? 'black' : 'white',
+                color: '#8DA9B6',
               }}
               value={
                 dateFrom == null
@@ -67,7 +67,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
                     })
               }
               placeholder={t('Datefrom')}
-              placeholderTextColor={theme === 'light' ? 'black' : 'white'}
+              placeholderTextColor={'#8DA9B6'}
               onTouchStart={() => setOpenFrom(true)}
             />
           )}
@@ -85,7 +85,8 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
               style={{
                 flex: 1,
                 fontSize: 15,
-                color: theme === 'light' ? 'black' : 'white',
+                fontWeight: 'bold',
+                color: '#8DA9B6',
               }}
               value={
                 dateTo == null
@@ -98,7 +99,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
                     })
               }
               placeholder={t('Dateto')}
-              placeholderTextColor={theme === 'light' ? 'black' : 'white'}
+              placeholderTextColor={'#8DA9B6'}
               onTouchStart={() => setOpenTo(true)}
             />
           )}
@@ -107,7 +108,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
               style={{
                 flex: 1,
                 fontSize: 15,
-                color: theme === 'light' ? 'black' : 'white',
+                color: '#8DA9B6',
               }}
               value={
                 dateTo == null
@@ -120,7 +121,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
                     })
               }
               placeholder={t('Dateto')}
-              placeholderTextColor={theme === 'light' ? 'black' : 'white'}
+              placeholderTextColor={'#8DA9B6'}
               onTouchStart={() => setOpenTo(true)}
             />
           )}
