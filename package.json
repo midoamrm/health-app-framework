@@ -38,6 +38,7 @@
     "react-i18next": "^13.0.2",
     "react-infinite-scroll-component": "^6.1.0",
     "react-infinite-scroller": "^1.2.6",
+    "react-loading-wrapper": "^1.1.2",
     "react-native": "0.72.3",
     "react-native-date-picker": "^4.2.13",
     "react-native-document-picker": "^9.0.1",
@@ -46,6 +47,7 @@
     "react-native-elements": "^3.4.3",
     "react-native-fbsdk-next": "^7.2.0",
     "react-native-gesture-handler": "^2.12.0",
+    "react-native-image-picker": "^7.0.2",
     "react-native-modal": "^13.0.1",
     "react-native-otp-inputs": "^7.4.0",
     "react-native-progress": "^5.0.0",
@@ -58,7 +60,8 @@
     "react-native-svg": "^13.14.0",
     "react-native-vector-icons": "^10.0.0",
     "react-native-webview": "^13.4.0",
-    "react-navigation": "^4.4.4"
+    "react-navigation": "^4.4.4",
+    "rn-text-detector": "^0.0.8"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

@@ -16,14 +16,14 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Colors from '../assets/values/Colors';
 import { CustomDrawer } from '../components/Index';
+import Tabs from '../screens/Aboutapp';
 import Blooddonation from '../screens/BloodDonation';
 import Callus from '../screens/Callus';
+import Daterecord from '../screens/Datercord';
 import Cache from '../screens/demoscreen/Cacheing';
 import Cruddb from '../screens/demoscreen/Cruddb';
 import DatePicker from '../screens/demoscreen/DatePicker';
-
-import Tabs from '../screens/Aboutapp';
-import Daterecord from '../screens/Datercord';
+import Ocr from '../screens/demoscreen/Ocr';
 import Doc from '../screens/Doctors';
 import {
   LoginScreen,
@@ -225,6 +225,21 @@ export default function SideMenu(): JSX.Element {
           component={DatePicker}
           options={{
             title: t('DatePicker'),
+            drawerIcon: () => (
+              <FontAwesome5
+                name="home"
+                size={22}
+                color={Colors.primary1}
+                style={{ paddingRight: 5 }}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'Ocr'}
+          component={Ocr}
+          options={{
+            title: t('Ocr'),
             drawerIcon: () => (
               <FontAwesome5
                 name="home"
