@@ -239,7 +239,7 @@ export default function SideMenu(): JSX.Element {
           name={'Ocr'}
           component={Ocr}
           options={{
-            title: t('Ocr'),
+            title: t('prescription reader'),
             drawerIcon: () => (
               <FontAwesome5
                 name="home"

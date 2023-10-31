@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Image,
-  SafeAreaView,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import RNTextDetector from 'rn-text-detector';
 const Ocr = () => {
@@ -26,6 +20,7 @@ const Ocr = () => {
       isVisible: false,
     },
   });
+
   function onPress(type: 'capture' | 'library') {
     setState({ ...state, loading: true });
     type === 'capture'
@@ -55,28 +50,59 @@ const Ocr = () => {
         },
         loading: false,
       });
+
+      console.log('image reader', state.image);
     }
   }
   return (
     <SafeAreaView>
       <View>
-        <Text style={{ color: 'white' }}>RN OCR SAMPLE</Text>
+        <View
+          style={{
+            width: 300,
+            padding: 10,
+            paddingLeft: 80,
+            marginLeft: 50,
+            marginBottom: 10,
+          }}>
+          <Text style={{ color: '#8DA9B6', fontSize: 20, fontStyle: 'italic' }}>
+            Read prescription
+          </Text>
+        </View>
         <View>
-          <TouchableOpacity onPress={() => onPress('capture')}>
-            <Text style={{ color: 'white' }}>Take Photo</Text>
-          </TouchableOpacity>
-          <View>
+          <View
+            style={{
+              backgroundColor: 'white',
+              width: 300,
+              padding: 10,
+              paddingLeft: 80,
+              marginLeft: 50,
+              marginBottom: 10,
+              borderWidth: 1,
+              borderRadius: 30,
+            }}>
             <TouchableOpacity onPress={() => onPress('library')}>
-              <Text style={{ color: 'white' }}>Pick a Photo</Text>
+              <Text
+                style={{ color: 'black', fontSize: 20, fontStyle: 'italic' }}>
+                Pick a prescription
+              </Text>
             </TouchableOpacity>
           </View>
-          <View>
-            <View style={{ alignItems: 'center' }}>
-              <Image source={{ uri: state.image }} />
-            </View>
+          <View
+            style={{
+              backgroundColor: 'white',
+              width: 370,
+              height: 450,
+              padding: 10,
+              paddingLeft: 80,
+              marginLeft: 20,
+              marginBottom: 10,
+              borderWidth: 1,
+              borderRadius: 30,
+            }}>
             {!!state.textRecognition &&
               state.textRecognition.map((item: { text: string }, i: number) => (
-                <Text style={{ color: 'white' }} key={i}>
+                <Text style={{ color: 'black', fontSize: 25 }} key={i}>
                   {item.text}
                 </Text>
               ))}
