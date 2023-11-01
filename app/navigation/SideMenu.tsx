@@ -23,8 +23,8 @@ import Daterecord from '../screens/Datercord';
 import Cache from '../screens/demoscreen/Cacheing';
 import Cruddb from '../screens/demoscreen/Cruddb';
 import DatePicker from '../screens/demoscreen/DatePicker';
-import Ocr from '../screens/demoscreen/Ocr';
 import Doc from '../screens/Doctors';
+import Fileuploading from '../screens/fileuploading';
 import {
   LoginScreen,
   MainScreen,
@@ -38,6 +38,7 @@ import Language from '../screens/Language';
 import Llist from '../screens/List';
 import MedicalSessionScreen from '../screens/Medicalsession';
 import Myorder from '../screens/Myorder';
+import Ocr from '../screens/Ocr';
 import Resreve from '../screens/Resrevepage';
 import Resreve2 from '../screens/Resrevewithattachment';
 import SignupScreen from '../screens/Signup';
@@ -240,6 +241,21 @@ export default function SideMenu(): JSX.Element {
           component={Ocr}
           options={{
             title: t('prescription reader'),
+            drawerIcon: () => (
+              <FontAwesome5
+                name="home"
+                size={22}
+                color={Colors.primary1}
+                style={{ paddingRight: 5 }}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'fileuploading'}
+          component={Fileuploading}
+          options={{
+            title: t('fileuploading'),
             drawerIcon: () => (
               <FontAwesome5
                 name="home"
