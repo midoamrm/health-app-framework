@@ -1,3 +1,4 @@
+import firestore from '@react-native-firebase/firestore';
 import storage from '@react-native-firebase/storage';
 import React from 'react';
 import {
@@ -16,7 +17,43 @@ export default class Fileuploading extends React.Component {
     // placeholder image
     imagePath: require('../assets/images/saveimg.png'),
   };
+  deletedata = () => {
+    const ref = firestore().collection('new data');
+    ref.doc('abc').delete();
+  };
+  getdata = () => {
+    firestore()
+      .collection('new data')
+      .doc('abc')
+      .onSnapshot((documentSnapshot) => {
+        console.log('User data: ', documentSnapshot.data());
+      });
+  };
+  updatedata = () => {
+    const ref = firestore().collection('new data');
+    ref.doc('abc').update({
+      provider_count: '44',
+    });
+  };
+  adddata = () => {
+    // const userid = firestore().collection('new data').doc();
 
+    // console.log('user id', userid._documentPath._parts[1]);
+    const ref = firestore().collection('new data');
+    const data = {
+      provider_type: 'eligible clinician',
+      developer: '4medica, Inc.',
+      provider_count: '10',
+      mktShare: '0.00281445956747385',
+      est_mips_2018: '30',
+      edition2015_base_status: 'NA',
+    };
+    ref.doc('abc').set(data);
+
+    //  ref.doc(uid).update({
+
+    //  });
+  };
   chooseFile = () => {
     var options = {
       title: 'Select Image',
@@ -69,30 +106,33 @@ export default class Fileuploading extends React.Component {
   uploadfilepick = () => {
     DocumentPicker.pick({
       type: [DocumentPicker.types.allFiles],
+      allowMultiSelection: true,
       copyTo: 'cachesDirectory',
     }).then((res) => {
       // log file content
       console.log(res);
-      console.log(res[0].fileCopyUri);
-      console.log(res[0].name);
+
       // add file to filesToUpload
+      for (var i = 0; i < res.length; i++) {
+        console.log(res[i].fileCopyUri);
+        console.log(res[i].name);
+        try {
+          const uri = decodeURI(res[i].fileCopyUri);
+          const fname = res[i].name;
+          const task = storage().ref(`/myfiles/${fname}`).putFile(uri);
 
-      try {
-        const uri = decodeURI(res[0].fileCopyUri);
-        const fname = res[0].name;
-        const task = storage().ref(`/myfiles/${fname}`).putFile(uri);
+          task.on('state_changed', (taskSnapshot) => {
+            console.log(
+              `${taskSnapshot.bytesTransferred} transferred out of ${taskSnapshot.totalBytes}`,
+            );
+          });
 
-        task.on('state_changed', (taskSnapshot) => {
-          console.log(
-            `${taskSnapshot.bytesTransferred} transferred out of ${taskSnapshot.totalBytes}`,
-          );
-        });
-
-        task.then(() => {
-          console.log('file uploaded to the bucket!');
-        });
-      } catch (error) {
-        console.log(error);
+          task.then(() => {
+            console.log('file uploaded to the bucket!');
+          });
+        } catch (error) {
+          console.log(error);
+        }
       }
     });
   };
@@ -143,6 +183,10 @@ export default class Fileuploading extends React.Component {
           <Image style={styles.uploadImage} source={imgSource} />
           <View style={styles.eightyWidthStyle}>
             <Button title={'Upload Files'} onPress={this.uploadfilepick} />
+            <Button title={'add data'} onPress={this.adddata} />
+            <Button title={'update data'} onPress={this.updatedata} />
+            <Button title={'get data'} onPress={this.getdata} />
+            <Button title={'delete data'} onPress={this.deletedata} />
           </View>
         </View>
       </SafeAreaView>
