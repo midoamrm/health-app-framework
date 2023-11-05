@@ -42,6 +42,7 @@ import Ocr from '../screens/Ocr';
 import Resreve from '../screens/Resrevepage';
 import Resreve2 from '../screens/Resrevewithattachment';
 import SignupScreen from '../screens/Signup';
+import Following from '../screens/translationfoloowing';
 import Homme from '../screens/Underinplemntionpage';
 import Update from '../screens/Update';
 import Vsion from '../screens/Vsion';
@@ -241,6 +242,21 @@ export default function SideMenu(): JSX.Element {
           component={Ocr}
           options={{
             title: t('prescription reader'),
+            drawerIcon: () => (
+              <FontAwesome5
+                name="home"
+                size={22}
+                color={Colors.primary1}
+                style={{ paddingRight: 5 }}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name={'Following'}
+          component={Following}
+          options={{
+            title: t('Following'),
             drawerIcon: () => (
               <FontAwesome5
                 name="home"
