@@ -1,3 +1,4 @@
+import storage from '@react-native-firebase/storage';
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -185,6 +186,7 @@ const Resreve2 = ({ navigation, route }) => {
     console.log('Reading file');
     DocumentPicker.pick({
       type: [DocumentPicker.types.allFiles],
+      copyTo: 'cachesDirectory',
       allowMultiSelection: true,
     }).then((res) => {
       // log file content
@@ -197,6 +199,7 @@ const Resreve2 = ({ navigation, route }) => {
     console.log('Reading file');
     DocumentPicker.pick({
       type: [DocumentPicker.types.allFiles],
+      copyTo: 'cachesDirectory',
       allowMultiSelection: true,
     }).then((res) => {
       // log file content
@@ -205,7 +208,51 @@ const Resreve2 = ({ navigation, route }) => {
       setFilesToUpload2([...filesToUpload2, ...res]);
     });
   }
-  console.log('f', filesToUpload);
+  function uploadtofirebase() {
+    for (var i = 0; i < filesToUpload.length; i++) {
+      // console.log('fiels uploadddd', filesToUpload[i]);
+      try {
+        const uri = decodeURI(filesToUpload[i].fileCopyUri);
+        const fname = filesToUpload[i].name;
+        const task = storage().ref(`/myfiles/${fname}`).putFile(uri);
+
+        task.on('state_changed', (taskSnapshot) => {
+          console.log(
+            `${taskSnapshot.bytesTransferred} transferred out of ${taskSnapshot.totalBytes}`,
+          );
+        });
+
+        task.then(() => {
+          console.log('file uploaded to the bucket!');
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+  function uploadtofirebase2() {
+    for (var i = 0; i < filesToUpload2.length; i++) {
+      // console.log('fiels uploadddd', filesToUpload[i]);
+      try {
+        const uri = decodeURI(filesToUpload2[i].fileCopyUri);
+        const fname = filesToUpload2[i].name;
+        const task = storage().ref(`/myfiles/${fname}`).putFile(uri);
+
+        task.on('state_changed', (taskSnapshot) => {
+          console.log(
+            `${taskSnapshot.bytesTransferred} transferred out of ${taskSnapshot.totalBytes}`,
+          );
+        });
+
+        task.then(() => {
+          console.log('file uploaded to the bucket!');
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+  // console.log('f', filesToUpload[0]);
   return (
     <ScrollView>
       <View
@@ -496,6 +543,8 @@ const Resreve2 = ({ navigation, route }) => {
             }}>
             <TouchableOpacity
               onPress={() => {
+                uploadtofirebase();
+                uploadtofirebase2();
                 uploadFiles();
                 uploadFiles2();
                 toggleModal();
@@ -556,6 +605,8 @@ const Resreve2 = ({ navigation, route }) => {
             }}>
             <TouchableOpacity
               onPress={() => {
+                uploadtofirebase();
+                uploadtofirebase2();
                 uploadFiles();
                 uploadFiles2();
                 toggleModal();
@@ -589,6 +640,7 @@ const Resreve2 = ({ navigation, route }) => {
                 <View style={styles.failureBtnView}>
                   <TouchableOpacity
                     onPress={() => {
+                      uploadtofirebase();
                       toggleModal();
                       navigation.navigate('MainScreen');
                     }}>

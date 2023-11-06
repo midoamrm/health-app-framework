@@ -2,7 +2,19 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import Colors from '../assets/values/Colors';
-const Followingcomp = ({ navigation, route, p1, p2, p3, p4, p5, p6 }) => {
+const Followingcomp = ({
+  navigation,
+  route,
+  p1,
+  p2,
+  p3,
+  p4,
+  p5,
+  state1,
+  state2,
+  state3,
+  state4,
+}) => {
   const [pressed, setPressed] = useState(false);
   const { t, i18n } = useTranslation();
 
@@ -30,29 +42,45 @@ const Followingcomp = ({ navigation, route, p1, p2, p3, p4, p5, p6 }) => {
         {p1}
       </Text>
       <View style={{ flexDirection: 'row' }}>
-        <Image
-          style={{
-            width: 50,
-            height: 50,
-            borderRadius: 20,
-            marginLeft: 34,
-            marginBottom: 8,
-            marginTop: 7,
-          }}
-          source={require('../assets/images/xr.png')}
-        />
+        {state1 === 'ok' && (
+          <Image
+            style={{
+              width: 50,
+              height: 50,
+              borderRadius: 20,
+              marginLeft: 34,
+              marginBottom: 8,
+              marginTop: 7,
+            }}
+            source={require('../assets/images/xr.png')}
+          />
+        )}
+        {state1 === 'not' && (
+          <Image
+            style={{
+              width: 50,
+              height: 50,
+              borderRadius: 20,
+              marginLeft: 34,
+              marginBottom: 8,
+              marginTop: 7,
+            }}
+            source={require('../assets/images/dn.png')}
+          />
+        )}
+
         <View
           style={{
             borderWidth: 1,
-            borderColor: '#25292b',
-            backgroundColor: '#25292b',
+            borderColor: state1 === 'ok' ? '#25292b' : '#292524',
+            backgroundColor: state1 === 'ok' ? '#25292b' : '#292524',
             width: 300,
             marginLeft: 15,
             borderRadius: 15,
           }}>
           <Text
             style={{
-              color: '#59ada8',
+              color: state1 === 'ok' ? '#59ada8' : '#f2994a',
               fontSize: 20,
               fontWeight: 'bold',
               padding: 20,
@@ -66,35 +94,51 @@ const Followingcomp = ({ navigation, route, p1, p2, p3, p4, p5, p6 }) => {
           borderStyle: 'dotted',
           height: 50,
           borderLeftWidth: 5,
-          borderColor: Colors.primary1,
+          borderColor: state1 === 'ok' ? Colors.primary1 : 'white',
           marginLeft: 55,
           marginBottom: 8,
         }}
       />
       <View style={{ flexDirection: 'row' }}>
-        <Image
-          style={{
-            width: 50,
-            height: 50,
-            borderRadius: 20,
-            marginLeft: 34,
-            marginBottom: 8,
-            marginTop: 7,
-          }}
-          source={require('../assets/images/xr.png')}
-        />
+        {state2 === 'ok' && (
+          <Image
+            style={{
+              width: 50,
+              height: 50,
+              borderRadius: 20,
+              marginLeft: 34,
+              marginBottom: 8,
+              marginTop: 7,
+            }}
+            source={require('../assets/images/xr.png')}
+          />
+        )}
+        {state2 === 'not' && (
+          <Image
+            style={{
+              width: 50,
+              height: 50,
+              borderRadius: 20,
+              marginLeft: 34,
+              marginBottom: 8,
+              marginTop: 7,
+            }}
+            source={require('../assets/images/dn.png')}
+          />
+        )}
+
         <View
           style={{
             borderWidth: 1,
-            borderColor: '#25292b',
-            backgroundColor: '#25292b',
+            borderColor: state2 === 'ok' ? '#25292b' : '#292524',
+            backgroundColor: state2 === 'ok' ? '#25292b' : '#292524',
             width: 300,
             marginLeft: 15,
             borderRadius: 15,
           }}>
           <Text
             style={{
-              color: '#59ada8',
+              color: state2 === 'ok' ? '#59ada8' : '#f2994a',
               fontSize: 20,
               fontWeight: 'bold',
               padding: 20,
@@ -108,35 +152,50 @@ const Followingcomp = ({ navigation, route, p1, p2, p3, p4, p5, p6 }) => {
           borderStyle: 'dotted',
           height: 50,
           borderLeftWidth: 5,
-          borderColor: Colors.primary1,
+          borderColor: state2 === 'ok' ? Colors.primary1 : 'white',
           marginLeft: 55,
           marginBottom: 8,
         }}
       />
       <View style={{ flexDirection: 'row' }}>
-        <Image
-          style={{
-            width: 50,
-            height: 50,
-            borderRadius: 20,
-            marginLeft: 34,
-            marginBottom: 8,
-            marginTop: 7,
-          }}
-          source={require('../assets/images/xr.png')}
-        />
+        {state3 === 'ok' && (
+          <Image
+            style={{
+              width: 50,
+              height: 50,
+              borderRadius: 20,
+              marginLeft: 34,
+              marginBottom: 8,
+              marginTop: 7,
+            }}
+            source={require('../assets/images/xr.png')}
+          />
+        )}
+        {state3 === 'not' && (
+          <Image
+            style={{
+              width: 50,
+              height: 50,
+              borderRadius: 20,
+              marginLeft: 34,
+              marginBottom: 8,
+              marginTop: 7,
+            }}
+            source={require('../assets/images/dn.png')}
+          />
+        )}
         <View
           style={{
             borderWidth: 1,
-            borderColor: '#25292b',
-            backgroundColor: '#25292b',
+            borderColor: state3 === 'ok' ? '#25292b' : '#292524',
+            backgroundColor: state3 === 'ok' ? '#25292b' : '#292524',
             width: 300,
             marginLeft: 15,
             borderRadius: 15,
           }}>
           <Text
             style={{
-              color: '#59ada8',
+              color: state3 === 'ok' ? '#59ada8' : '#f2994a',
               fontSize: 20,
               fontWeight: 'bold',
               padding: 20,
@@ -150,28 +209,44 @@ const Followingcomp = ({ navigation, route, p1, p2, p3, p4, p5, p6 }) => {
           borderStyle: 'dotted',
           height: 50,
           borderLeftWidth: 5,
-          borderColor: Colors.primary1,
+          borderColor: state3 === 'ok' ? Colors.primary1 : 'white',
           marginLeft: 55,
           marginBottom: 8,
         }}
       />
       <View style={{ flexDirection: 'row' }}>
-        <Image
-          style={{
-            width: 50,
-            height: 50,
-            borderRadius: 20,
-            marginLeft: 34,
-            marginBottom: 8,
-            marginTop: 7,
-          }}
-          source={require('../assets/images/dn.png')}
-        />
+        {state4 === 'ok' && (
+          <Image
+            style={{
+              width: 50,
+              height: 50,
+              borderRadius: 20,
+              marginLeft: 34,
+              marginBottom: 8,
+              marginTop: 7,
+            }}
+            source={require('../assets/images/xr.png')}
+          />
+        )}
+        {state4 === 'not' && (
+          <Image
+            style={{
+              width: 50,
+              height: 50,
+              borderRadius: 20,
+              marginLeft: 34,
+              marginBottom: 8,
+              marginTop: 7,
+            }}
+            source={require('../assets/images/dn.png')}
+          />
+        )}
+
         <View
           style={{
             borderWidth: 1,
-            borderColor: '#292524',
-            backgroundColor: '#292524',
+            borderColor: state4 === 'ok' ? '#25292b' : '#292524',
+            backgroundColor: state4 === 'ok' ? '#25292b' : '#292524',
             width: 300,
             marginLeft: 15,
             borderRadius: 15,
@@ -179,7 +254,7 @@ const Followingcomp = ({ navigation, route, p1, p2, p3, p4, p5, p6 }) => {
           }}>
           <Text
             style={{
-              color: '#f2994a',
+              color: state4 === 'ok' ? '#59ada8' : '#f2994a',
               fontSize: 20,
               fontWeight: 'bold',
               padding: 20,
