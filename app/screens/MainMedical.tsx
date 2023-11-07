@@ -2,28 +2,21 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { t } from 'i18next';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, Text, useColorScheme, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Image } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Colors from '../assets/values/Colors';
 import { CustomCard } from '../components/Index';
 const Tab = createBottomTabNavigator();
-var isDarkTheme = '';
-export default function MedicalServicesScreen({ navigation }: any) {
+var isDarkTheme = 'd';
+export default function MedicalServicesScreen({ navigation, route }: any) {
   const { t, i18n } = useTranslation();
+
+  //const item = route.params.itx;
+  //isDarkTheme = item;
   // need to set text dark mode
-  const theme = useColorScheme();
-  if (theme !== 'light') {
-    isDarkTheme = '#1D5B8C';
 
-    console.log('gf', isDarkTheme);
-  }
-  if (theme === 'light') {
-    isDarkTheme = Colors.grey;
-
-    console.log('gf', isDarkTheme);
-  }
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -80,7 +73,8 @@ function MedicalServicesContent({ navigation }: any) {
     <View
       style={{
         flex: 1,
-        backgroundColor: isDarkTheme,
+        backgroundColor:
+          isDarkTheme === 'l' ? Colors.primary2 : Colors.primary1,
       }}>
       <ScrollView>
         <Text style={styles.text}>{t('services')}</Text>
@@ -186,7 +180,8 @@ function MyCalender() {
     <View
       style={{
         flex: 1,
-        backgroundColor: isDarkTheme,
+        backgroundColor:
+          isDarkTheme === 'l' ? Colors.primary2 : Colors.primary1,
       }}>
       <Text style={styles.text}>{t('cla')}</Text>
     </View>
@@ -198,7 +193,8 @@ function ProfileScreen() {
     <View
       style={{
         flex: 1,
-        backgroundColor: isDarkTheme,
+        backgroundColor:
+          isDarkTheme === 'l' ? Colors.primary2 : Colors.primary1,
       }}>
       <Text style={styles.text}> {t('file')}</Text>
     </View>

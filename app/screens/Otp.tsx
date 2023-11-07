@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Clipboard from '@react-native-community/clipboard';
 import auth from '@react-native-firebase/auth';
 import React, { useEffect, useState } from 'react';
@@ -33,7 +34,24 @@ export default function OtpScreen({ navigation }: any) {
   const [mounted, setMounted] = useState(false);
   const [wrongCode, setWrongCode] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
+  const cl = async () => {
+    try {
+      const value = await AsyncStorage.getItem('d');
+      console.log(value);
+      if (value === 'd') {
+        // isDarkTheme = Colors.primary1;
+        console.log('modeee', 'dark');
+        navigation.navigate('MainScreen', { itx: value });
+      }
+      if (value === 'l') {
+        //  isDarkTheme = Colors.primary2;
+        console.log('modeee', 'ligth');
+        navigation.navigate('MainScreen', { itx: value });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   // send the otp when the component is mounted
   useEffect(() => {
     console.log('user', user);
@@ -139,7 +157,9 @@ export default function OtpScreen({ navigation }: any) {
       <View style={styles.appBarView}>
         <TouchableOpacity
           style={styles.appBar}
-          onPress={() => navigation.navigate('MainScreen')}>
+          onPress={() => {
+            cl();
+          }}>
           <Ionicons
             name="arrow-redo"
             size={25}
@@ -161,7 +181,6 @@ export default function OtpScreen({ navigation }: any) {
         style={styles.scroll}>
         <View
           style={{
-            backgroundColor: '#1D5B8C',
             flex: 1,
           }}>
           <View style={styles.container}>
@@ -254,7 +273,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#D7EFEE',
+
     borderTopRightRadius: 50,
     paddingTop: 50,
   },
@@ -304,9 +323,7 @@ const styles = StyleSheet.create({
     transform: [{ scale: 0.8 }],
     marginBottom: 110,
   },
-  scroll: {
-    backgroundColor: '#D7EFEE',
-  },
+  scroll: {},
   appBarView: {
     backgroundColor: '#1D5B8C',
     paddingVertical: 10,

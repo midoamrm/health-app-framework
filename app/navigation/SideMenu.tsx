@@ -327,7 +327,7 @@ export default function SideMenu(): JSX.Element {
           name={'Otp'}
           component={OtpScreen}
           options={{
-            drawerItemStyle: { display: 'none' },
+            drawerItemStyle: { display: 'ok' },
             drawerIcon: () => (
               <FontAwesome5
                 name="home"
