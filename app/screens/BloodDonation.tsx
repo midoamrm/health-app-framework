@@ -560,9 +560,7 @@ export default function Blooddonation({ navigation }: any) {
             <TouchableOpacity style={styles.loginBtn} onPress={handleSingup}>
               <Text style={styles.loginText}>{t('next')}</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.loginBtn} onPress={handleSingup}>
-              <Text style={styles.loginText}>{t('cerateaccount')}</Text>
-            </TouchableOpacity>
+            <TouchableOpacity style={styles.loginBtn2} onPress={() => {}} />
           </View>
         </View>
       </ScrollView>
@@ -605,6 +603,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  loginBtn2: {
+    width: '100%',
+
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   loginText: {
     color: 'white',
     fontSize: 25,
@@ -613,9 +618,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     transform: [{ scale: 0.8 }],
   },
-  allInputs: {
-    width: 200,
-  },
+  allInputs: {},
   allInputs2: {
     width: 200,
 

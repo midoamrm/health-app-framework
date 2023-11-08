@@ -173,8 +173,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-evenly',
     backgroundColor: isDarkTheme,
-    width: '100%',
-    height: '100%',
+
     borderTopRightRadius: 50,
   },
   logo: {
@@ -225,8 +224,6 @@ const styles = StyleSheet.create({
   },
   scroll: {
     backgroundColor: '#D7EFEE',
-    width: '100%',
-    height: '100%',
   },
   appBarView: {
     backgroundColor: '#1D5B8C',
