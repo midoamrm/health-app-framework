@@ -2,6 +2,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import {
+  Dimensions,
+  PixelRatio,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -13,18 +15,43 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Colors from '../assets/values/Colors';
 import user from '../utils/User';
 
-const CustomCard = ({ title, icons, onPress }: any) => {
+const CustomCard = ({ title, icons, onPress, ss }: any) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.card}>
       <View style={styles.cardIcon}>{icons}</View>
-      <Text style={styles.cardTitle}>{title}</Text>
+      <Text
+        style={{
+          color: Colors.grey,
+          fontSize: ss,
+          fontWeight: 'bold',
+          textAlign: 'center',
+        }}>
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 };
 
 export default function MainScreen({ navigation }: any) {
   const { t } = useTranslation();
+
   const theme = useColorScheme();
+  var vv = 20;
+  var ss = 10;
+  var dd = 40;
+  var ll = 15;
+  //const [vv, setvv] = useState(20);
+  const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } =
+    Dimensions.get('window');
+  console.log('width', SCREEN_WIDTH);
+  console.log('height', SCREEN_HEIGHT);
+  console.log('pixelrito', PixelRatio.get());
+  if (PixelRatio.get() <= 2) {
+    vv = 50;
+    ss = 20;
+    dd = 60;
+    ll = 20;
+  }
   const cl = async () => {
     try {
       const value = await AsyncStorage.getItem('d');
@@ -68,7 +95,7 @@ export default function MainScreen({ navigation }: any) {
         <Text
           style={{
             color: '#8DA9B6',
-            fontSize: 20,
+            fontSize: vv,
             fontWeight: 'bold',
             padding: 20,
           }}>
@@ -77,100 +104,110 @@ export default function MainScreen({ navigation }: any) {
         <View style={styles.cardContainer}>
           <CustomCard
             title={t('Medicaldepartments')}
+            ss={ss}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large1.png')}
-                style={styles.image}
+                style={{ width: dd, height: dd, resizeMode: 'contain' }}
               />
             }
             onPress={() => navigation.navigate('warning page')}
           />
           <CustomCard
+            ss={ss}
             title={t('namedonation')}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large2.png')}
-                style={styles.image}
+                style={{ width: dd, height: dd, resizeMode: 'contain' }}
               />
             }
             onPress={() => navigation.navigate('temp1')}
           />
           <CustomCard
+            ss={ss}
             title={t('Myreferral')}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large3.png')}
-                style={styles.image}
+                style={{ width: dd, height: dd, resizeMode: 'contain' }}
               />
             }
             onPress={() => navigation.navigate('warning page')}
           />
           <CustomCard
+            ss={ss}
             title={t('Earlydetectionofbreasttumors')}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large4.png')}
-                style={styles.image}
+                style={{ width: dd, height: dd, resizeMode: 'contain' }}
               />
             }
             onPress={() => navigation.navigate('warning page')}
           />
           <CustomCard
+            ss={ss}
             title={t('Myexperience')}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large5.png')}
-                style={styles.image}
+                style={{ width: dd, height: dd, resizeMode: 'contain' }}
               />
             }
             onPress={() => navigation.navigate('warning page')}
           />
           <CustomCard
+            ss={ss}
             title={t('Instructions')}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large6.png')}
-                style={styles.image}
+                style={{ width: dd, height: dd, resizeMode: 'contain' }}
               />
             }
             onPress={() => navigation.navigate('warning page')}
           />
           <CustomCard
+            ss={ss}
             title={t('Formedicaleducation')}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large7.png')}
-                style={styles.image}
+                style={{ width: dd, height: dd, resizeMode: 'contain' }}
               />
             }
             onPress={() => navigation.navigate('warning page')}
           />
           <CustomCard
             title={t('Visitor requests')}
+            ss={ss}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large8.png')}
-                style={styles.image}
+                style={{ width: dd, height: dd, resizeMode: 'contain' }}
               />
             }
             onPress={() => navigation.navigate('Resreve')}
           />
           <CustomCard
             title={t('Complaintsandsuggestions')}
+            ss={ss}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large9.png')}
-                style={styles.image}
+                style={{ width: dd, height: dd, resizeMode: 'contain' }}
               />
             }
             onPress={() => navigation.navigate('warning page')}
           />
           <CustomCard
             title={t('callus')}
+            ss={ss}
             icons={
               <Image
                 source={require('../assets/images/menu_icon_large10.png')}
-                style={styles.image}
+                style={{ width: dd, height: dd, resizeMode: 'contain' }}
               />
             }
             onPress={() => navigation.navigate('Callus')}
@@ -179,7 +216,17 @@ export default function MainScreen({ navigation }: any) {
 
         <>
           <View style={styles.user}>
-            <Text style={styles.infoText}>{t('use')}</Text>
+            <Text
+              style={{
+                color: Colors.grey,
+                fontSize: ll,
+                fontWeight: 'bold',
+                textAlign: 'center',
+                paddingHorizontal: 20,
+                marginBottom: 20,
+              }}>
+              {t('use')}
+            </Text>
             <TouchableOpacity
               style={styles.loginBtn}
               onPress={() => {
