@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
+  PixelRatio,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -25,7 +26,14 @@ export default function Daterecord({ navigation, route }: any) {
   const [filteredData, setFilteredData]: [any, any] = useState([]);
   const [pressed, setPressed] = useState(false);
   const theme = useColorScheme();
-
+  var lpr = 20;
+  var ap = 13;
+  var up = 13;
+  if (PixelRatio.get() <= 2) {
+    lpr = 40;
+    ap = 20;
+    up = 15;
+  }
   if (theme !== 'light') {
     isDarkTheme = 'white';
     console.log('gf', isDarkTheme);
@@ -147,7 +155,7 @@ export default function Daterecord({ navigation, route }: any) {
         <Text
           style={{
             color: '#8DA9B6',
-            fontSize: 20,
+            fontSize: lpr,
             fontWeight: 'bold',
             padding: 20,
           }}>
@@ -174,6 +182,7 @@ export default function Daterecord({ navigation, route }: any) {
                 color: Colors.primary1,
                 fontWeight: 'bold',
                 paddingLeft: 10,
+                fontSize: up,
               }}>
               {t('Downloadallrecords')}
             </Text>

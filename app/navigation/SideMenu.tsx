@@ -242,6 +242,7 @@ export default function SideMenu(): JSX.Element {
           component={Ocr}
           options={{
             title: t('prescription reader'),
+            drawerItemStyle: { display: 'none' },
             drawerIcon: () => (
               <FontAwesome5
                 name="home"

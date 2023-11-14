@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, PixelRatio, StyleSheet, Text, View } from 'react-native';
 import Colors from '../assets/values/Colors';
 const Followingcomp = ({
   navigation,
@@ -17,9 +17,12 @@ const Followingcomp = ({
 }) => {
   const [pressed, setPressed] = useState(false);
   const { t, i18n } = useTranslation();
-
+  var ht = 800;
+  if (PixelRatio.get() <= 2) {
+    ht = 1200;
+  }
   return (
-    <View style={{ backgroundColor: '#202326' }}>
+    <View style={{ backgroundColor: '#202326', height: ht }}>
       <View
         style={{
           flexDirection: 'row',

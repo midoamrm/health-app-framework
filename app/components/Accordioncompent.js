@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   FlatList,
   LayoutAnimation,
+  PixelRatio,
   Platform,
   StyleSheet,
   Text,
@@ -11,7 +12,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 var isDarkTheme = '';
-
+var up = 14;
 export default class Accordian extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +24,10 @@ export default class Accordian extends Component {
     if (Platform.OS === 'android') {
       UIManager.setLayoutAnimationEnabledExperimental(true);
     }
+
+    if (PixelRatio.get() <= 2) {
+      up = 35;
+    }
   }
 
   render() {
@@ -32,7 +37,16 @@ export default class Accordian extends Component {
         <TouchableOpacity
           style={styles.row}
           onPress={() => this.toggleExpand()}>
-          <Text style={[styles.title]}>{this.props.title}</Text>
+          <Text
+            style={[
+              {
+                fontSize: up,
+
+                color: '#000000',
+              },
+            ]}>
+            {this.props.title}
+          </Text>
           <Icon
             name={
               this.state.expanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'

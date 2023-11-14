@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import RNTextDetector from 'rn-text-detector';
-const Ocr = () => {
+const Ocr = ({ navigation }: any) => {
   const [state, setState] = useState<{
     loading: boolean;
     image: string | null;
@@ -92,7 +92,7 @@ const Ocr = () => {
             style={{
               backgroundColor: 'white',
               width: 370,
-              height: 450,
+              height: 400,
               padding: 10,
               paddingLeft: 80,
               marginLeft: 20,
@@ -106,6 +106,27 @@ const Ocr = () => {
                   {item.text}
                 </Text>
               ))}
+          </View>
+          <View
+            style={{
+              backgroundColor: 'white',
+              width: 100,
+              padding: 10,
+              paddingLeft: 30,
+              marginLeft: 140,
+              marginBottom: 10,
+              borderWidth: 1,
+              borderRadius: 30,
+            }}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Resreve');
+              }}>
+              <Text
+                style={{ color: 'black', fontSize: 20, fontStyle: 'italic' }}>
+                Done
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>

@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, TextInput, useColorScheme, View } from 'react-native';
+import {
+  PixelRatio,
+  StyleSheet,
+  TextInput,
+  useColorScheme,
+  View,
+} from 'react-native';
 import DatePicker from 'react-native-date-picker';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Colors from '../assets/values/Colors';
@@ -12,7 +18,10 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
   const [openTo, setOpenTo] = useState(false);
 
   const theme = useColorScheme();
-
+  var up = 15;
+  if (PixelRatio.get() <= 2) {
+    up = 25;
+  }
   if (theme !== 'light') {
     isDarkTheme = '#FFFFFF';
     isDarkTheme2 = '#000000';
@@ -31,7 +40,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
             <TextInput
               style={{
                 flex: 1,
-                fontSize: 15,
+                fontSize: up,
                 color: '#8DA9B6',
               }}
               value={
@@ -53,7 +62,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
             <TextInput
               style={{
                 flex: 1,
-                fontSize: 15,
+                fontSize: up,
                 color: '#8DA9B6',
               }}
               value={
@@ -84,7 +93,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
             <TextInput
               style={{
                 flex: 1,
-                fontSize: 15,
+                fontSize: up,
                 fontWeight: 'bold',
                 color: '#8DA9B6',
               }}
@@ -107,7 +116,7 @@ export default DateInput = ({ dateFrom, setDateFrom, dateTo, setDateTo }) => {
             <TextInput
               style={{
                 flex: 1,
-                fontSize: 15,
+                fontSize: up,
                 color: '#8DA9B6',
               }}
               value={

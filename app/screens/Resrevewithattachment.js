@@ -27,6 +27,7 @@ const Resreve2 = ({ navigation, route }) => {
   const [isbtnVisible, setbtnVisible] = useState(false);
   const [progress, setProgress] = useState(0);
   const [progress2, setProgress2] = useState(0);
+
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
@@ -525,6 +526,37 @@ const Resreve2 = ({ navigation, route }) => {
               </View>
             )}
           />
+        </View>
+      </View>
+      <View
+        style={{
+          marginTop: 10,
+          marginLeft: 100,
+          marginRight: 40,
+        }}>
+        <View
+          style={{
+            borderRadius: 10,
+            borderWidth: 1,
+            backgroundColor: '#007bff',
+            width: 200,
+          }}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Ocr');
+            }}>
+            <Text
+              style={{
+                color: 'white',
+                paddingLeft: 22,
+                paddingRight: 5,
+                paddingTop: 5,
+                paddingBottom: 5,
+                fontSize: 20,
+              }}>
+              {t('perceptionreader')}
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
       {i18n.language === 'en' && (

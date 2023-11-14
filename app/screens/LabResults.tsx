@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
+  PixelRatio,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -21,6 +22,14 @@ export default function LabResultsScreen({ navigation, route }: any) {
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
+  var lpr = 20;
+  var ap = 13;
+  var up = 13;
+  if (PixelRatio.get() <= 2) {
+    lpr = 40;
+    ap = 20;
+    up = 20;
+  }
   if (theme !== 'light') {
     isDarkTheme = 'white';
     console.log('gf', isDarkTheme);
@@ -242,7 +251,7 @@ export default function LabResultsScreen({ navigation, route }: any) {
         <Text
           style={{
             color: '#8DA9B6',
-            fontSize: 20,
+            fontSize: lpr,
             fontWeight: 'bold',
             padding: 20,
           }}>
@@ -286,7 +295,14 @@ export default function LabResultsScreen({ navigation, route }: any) {
               }}>
               <Text
                 style={[
-                  styles.tabText,
+                  {
+                    color: Colors.primary1,
+                    fontSize: ap,
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                    paddingVertical: 10,
+                    paddingHorizontal: 40,
+                  },
                   !pressed ? {} : { color: Colors.white },
                 ]}>
                 {t('M')}
@@ -304,7 +320,14 @@ export default function LabResultsScreen({ navigation, route }: any) {
               }}>
               <Text
                 style={[
-                  styles.tabText,
+                  {
+                    color: Colors.primary1,
+                    fontSize: up,
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                    paddingVertical: 10,
+                    paddingHorizontal: 40,
+                  },
                   pressed ? {} : { color: Colors.white },
                 ]}>
                 {t('NM')}
